@@ -27,4 +27,5 @@ public:
 protected:
 	virtual void  Mover() ;// no tengo que poner el overribe si no estoy sobreesbribiendo nada
 	virtual void  Disparar();
+	virtual void  Destruirse();
 };

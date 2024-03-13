@@ -15,7 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveEnemigaEspia() {}
 // Cross Module References
 	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_ANaveEnemigaEspia_NoRegister();
 	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_ANaveEnemigaEspia();
-	ENGINE_API UClass* Z_Construct_UClass_AActor();
+	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_ANaveEnemiga();
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX_L01();
 // End Cross Module References
 	void ANaveEnemigaEspia::StaticRegisterNativesANaveEnemigaEspia()
@@ -35,11 +35,12 @@ void EmptyLinkFunctionForGeneratedCodeNaveEnemigaEspia() {}
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_ANaveEnemigaEspia_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_AActor,
+		(UObject* (*)())Z_Construct_UClass_ANaveEnemiga,
 		(UObject* (*)())Z_Construct_UPackage__Script_Galaga_USFX_L01,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANaveEnemigaEspia_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "/**\n *\n */" },
 		{ "IncludePath", "NaveEnemigaEspia.h" },
 		{ "ModuleRelativePath", "NaveEnemigaEspia.h" },
 	};
@@ -71,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveEnemigaEspia() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANaveEnemigaEspia, 478392664);
+	IMPLEMENT_CLASS(ANaveEnemigaEspia, 196834767);
 	template<> GALAGA_USFX_L01_API UClass* StaticClass<ANaveEnemigaEspia>()
 	{
 		return ANaveEnemigaEspia::StaticClass();

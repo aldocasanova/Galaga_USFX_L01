@@ -21,7 +21,7 @@ private: \
 	static void StaticRegisterNativesANaveEnemigaKamikaze(); \
 	friend struct Z_Construct_UClass_ANaveEnemigaKamikaze_Statics; \
 public: \
-	DECLARE_CLASS(ANaveEnemigaKamikaze, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
+	DECLARE_CLASS(ANaveEnemigaKamikaze, ANaveEnemiga, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
 	DECLARE_SERIALIZER(ANaveEnemigaKamikaze)
 
 
@@ -30,7 +30,7 @@ private: \
 	static void StaticRegisterNativesANaveEnemigaKamikaze(); \
 	friend struct Z_Construct_UClass_ANaveEnemigaKamikaze_Statics; \
 public: \
-	DECLARE_CLASS(ANaveEnemigaKamikaze, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
+	DECLARE_CLASS(ANaveEnemigaKamikaze, ANaveEnemiga, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
 	DECLARE_SERIALIZER(ANaveEnemigaKamikaze)
 
 

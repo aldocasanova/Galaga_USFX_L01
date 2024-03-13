@@ -11,17 +11,27 @@ ANaveEnemigaNodriza::ANaveEnemigaNodriza()
 
 }
 
-// Called when the game starts or when spawned
-void ANaveEnemigaNodriza::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
 // Called every frame
 void ANaveEnemigaNodriza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
+}
+
+void ANaveEnemigaNodriza::Mover(float DeltaTime)
+{
+	velocidad = 1;
+	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 
 }
+
+
+void ANaveEnemigaNodriza::Disparar() {
+
+}
+
+void ANaveEnemigaNodriza::Destruirse()
+{
+}
+
 

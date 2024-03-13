@@ -15,7 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveEnemigaNodriza() {}
 // Cross Module References
 	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_ANaveEnemigaNodriza_NoRegister();
 	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_ANaveEnemigaNodriza();
-	ENGINE_API UClass* Z_Construct_UClass_AActor();
+	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_ANaveEnemiga();
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX_L01();
 // End Cross Module References
 	void ANaveEnemigaNodriza::StaticRegisterNativesANaveEnemigaNodriza()
@@ -35,7 +35,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveEnemigaNodriza() {}
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_ANaveEnemigaNodriza_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_AActor,
+		(UObject* (*)())Z_Construct_UClass_ANaveEnemiga,
 		(UObject* (*)())Z_Construct_UPackage__Script_Galaga_USFX_L01,
 	};
 #if WITH_METADATA
@@ -71,7 +71,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveEnemigaNodriza() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANaveEnemigaNodriza, 2069574396);
+	IMPLEMENT_CLASS(ANaveEnemigaNodriza, 1429770881);
 	template<> GALAGA_USFX_L01_API UClass* StaticClass<ANaveEnemigaNodriza>()
 	{
 		return ANaveEnemigaNodriza::StaticClass();

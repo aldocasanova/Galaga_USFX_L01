@@ -11,17 +11,27 @@ ANaveEnemigaReabastecimiento::ANaveEnemigaReabastecimiento()
 
 }
 
-// Called when the game starts or when spawned
-void ANaveEnemigaReabastecimiento::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
 // Called every frame
 void ANaveEnemigaReabastecimiento::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
+}
+
+void ANaveEnemigaReabastecimiento::Mover(float DeltaTime)
+{
+	velocidad = 1; // ir cambiando velocidades
+	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 
 }
+
+
+void ANaveEnemigaReabastecimiento::Disparar() {
+
+}
+
+void ANaveEnemigaReabastecimiento::Destruirse()
+{
+}
+
 

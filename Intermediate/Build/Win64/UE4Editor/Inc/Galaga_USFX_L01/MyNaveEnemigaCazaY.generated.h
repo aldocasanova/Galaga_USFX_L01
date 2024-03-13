@@ -36,7 +36,7 @@ public: \
 
 #define Galaga_USFX_L01_master_Source_Galaga_USFX_L01_MyNaveEnemigaCazaY_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AMyNaveEnemigaCazaY(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API AMyNaveEnemigaCazaY(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyNaveEnemigaCazaY) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AMyNaveEnemigaCazaY); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyNaveEnemigaCazaY); \
@@ -48,8 +48,6 @@ public:
 
 
 #define Galaga_USFX_L01_master_Source_Galaga_USFX_L01_MyNaveEnemigaCazaY_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AMyNaveEnemigaCazaY() { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMyNaveEnemigaCazaY(AMyNaveEnemigaCazaY&&); \

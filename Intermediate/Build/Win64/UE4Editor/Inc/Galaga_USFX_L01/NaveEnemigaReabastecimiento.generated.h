@@ -21,7 +21,7 @@ private: \
 	static void StaticRegisterNativesANaveEnemigaReabastecimiento(); \
 	friend struct Z_Construct_UClass_ANaveEnemigaReabastecimiento_Statics; \
 public: \
-	DECLARE_CLASS(ANaveEnemigaReabastecimiento, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
+	DECLARE_CLASS(ANaveEnemigaReabastecimiento, ANaveEnemiga, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
 	DECLARE_SERIALIZER(ANaveEnemigaReabastecimiento)
 
 
@@ -30,7 +30,7 @@ private: \
 	static void StaticRegisterNativesANaveEnemigaReabastecimiento(); \
 	friend struct Z_Construct_UClass_ANaveEnemigaReabastecimiento_Statics; \
 public: \
-	DECLARE_CLASS(ANaveEnemigaReabastecimiento, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
+	DECLARE_CLASS(ANaveEnemigaReabastecimiento, ANaveEnemiga, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
 	DECLARE_SERIALIZER(ANaveEnemigaReabastecimiento)
 
 

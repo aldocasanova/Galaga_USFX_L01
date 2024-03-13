@@ -21,7 +21,7 @@ private: \
 	static void StaticRegisterNativesANaveEnemigaNodriza(); \
 	friend struct Z_Construct_UClass_ANaveEnemigaNodriza_Statics; \
 public: \
-	DECLARE_CLASS(ANaveEnemigaNodriza, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
+	DECLARE_CLASS(ANaveEnemigaNodriza, ANaveEnemiga, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
 	DECLARE_SERIALIZER(ANaveEnemigaNodriza)
 
 
@@ -30,7 +30,7 @@ private: \
 	static void StaticRegisterNativesANaveEnemigaNodriza(); \
 	friend struct Z_Construct_UClass_ANaveEnemigaNodriza_Statics; \
 public: \
-	DECLARE_CLASS(ANaveEnemigaNodriza, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
+	DECLARE_CLASS(ANaveEnemigaNodriza, ANaveEnemiga, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Galaga_USFX_L01"), NO_API) \
 	DECLARE_SERIALIZER(ANaveEnemigaNodriza)
 
 

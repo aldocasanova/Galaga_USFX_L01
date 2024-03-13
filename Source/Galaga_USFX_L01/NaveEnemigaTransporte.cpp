@@ -17,3 +17,7 @@ void ANaveEnemigaTransporte::Mover()
 void ANaveEnemigaTransporte::Disparar()
 {
 }
+
+void ANaveEnemigaTransporte::Destruirse()
+{
+}

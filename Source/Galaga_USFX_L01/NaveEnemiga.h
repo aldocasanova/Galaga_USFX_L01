@@ -18,22 +18,22 @@ public:
 protected:
 	
 	float velocidad;
-	float resistencia; //Numero de disparos que puede recibir antes de ser destruido
+	float resistencia; //Numero de disparos que puede recibir antes de ser destruido. Capas
 	FString nombre;
 	float danoProducido; //Potencia de cada proyectil que dispara la nave
 	float tiempoDisparo; //Tiempo que debe transcurrir entre cada disparo
-	FVector posicion;
+	FVector posicion; 
 	int trayectoria; //Cada valor numerico representa a una funcion que la nave debe asumir para moverse
 	int capacidadPasajeros; //Numero de naves que puede transportar	
 	int capacidadMunicion; //Numero de disparos que puede realizar antes de recargar
-	int tipoNave; //Cada valor numerico representa a un tipo de nave enemiga
-	float experiencia;
-	float energia;
+	//int tipoNave; //Cada valor numerico representa a un tipo de nave enemiga
+	float experiencia; //experiencia que droppea
+	float energia; //vida
 
-	float peso;
-	float volumen;
+	//float peso;
+	//float volumen;
 
-public:
+public: //leer valores
 	FORCEINLINE float GetVelocidad() const { return velocidad; }
 	FORCEINLINE float GetResistencia() const { return resistencia; }
 	FORCEINLINE FString GetNombre() const { return nombre; }
@@ -43,12 +43,13 @@ public:
 	FORCEINLINE int GetTrayectoria() const { return trayectoria; }
 	FORCEINLINE int GetCapacidadPasajeros() const { return capacidadPasajeros; }
 	FORCEINLINE int GetCapacidadMunicion() const { return capacidadMunicion; }
-	FORCEINLINE int GetTipoNave() const { return tipoNave; }
+	//FORCEINLINE int GetTipoNave() const { return tipoNave; }
 	FORCEINLINE float GetExperiencia() const { return experiencia; }
 	FORCEINLINE float GetEnergia() const { return energia; }
-	FORCEINLINE float GetPeso() const { return peso; }
-	FORCEINLINE float GetVolumen() const { return volumen; }
+	//FORCEINLINE float GetPeso() const { return peso; }
+	//FORCEINLINE float GetVolumen() const { return volumen; }
 
+	//reescribir valores
 	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
 	FORCEINLINE void SetResistencia(float _resistencia) { resistencia = _resistencia; }
 	FORCEINLINE void SetNombre(FString _nombre) { nombre = _nombre; }
@@ -58,11 +59,11 @@ public:
 	FORCEINLINE void SetTrayectoria(int _trayectoria) { trayectoria = _trayectoria; }
 	FORCEINLINE void SetCapacidadPasajeros(int _capacidadPasajeros) { capacidadPasajeros = _capacidadPasajeros; }
 	FORCEINLINE void SetCapacidadMunicion(int _capacidadMunicion) { capacidadMunicion = _capacidadMunicion; }
-	FORCEINLINE void SetTipoNave(int _tipoNave) { tipoNave = _tipoNave; }
+	//FORCEINLINE void SetTipoNave(int _tipoNave) { tipoNave = _tipoNave; }
 	FORCEINLINE void SetExperiencia(float _experiencia) { experiencia = _experiencia; }
 	FORCEINLINE void SetEnergia(float _energia) { energia = _energia; }
-	FORCEINLINE void SetPeso(float _peso) { peso = _peso; }
-	FORCEINLINE void SetVolumen(float _volumen) { volumen = _volumen; }
+	//FORCEINLINE void SetPeso(float _peso) { peso = _peso; }
+	//FORCEINLINE void SetVolumen(float _volumen) { volumen = _volumen; }
 
 public:
 	// Sets default values for this actor's properties
@@ -77,8 +78,10 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-	void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
+	void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
+	//void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
 	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
+	void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
 	//virtual void Mover() = 0; // el problema es que lo estamos definiendo para que se abra abstracto, por lo que daba error
 	//virtual void Disparar() = 0; // la forma correcta es usar ese macro de pure virtual
 };

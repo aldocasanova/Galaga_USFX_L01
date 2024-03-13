@@ -11,17 +11,20 @@ ANaveEnemigaEspia::ANaveEnemigaEspia()
 
 }
 
-// Called when the game starts or when spawned
-void ANaveEnemigaEspia::BeginPlay()
+void ANaveEnemigaEspia::Mover(float DeltaTime)
 {
-	Super::BeginPlay();
-	
+	velocidad = -3;
+	SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, GetActorLocation().Z));
+}
+
+void ANaveEnemigaEspia::Destruirse()
+{
 }
 
 // Called every frame
 void ANaveEnemigaEspia::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	Mover(DeltaTime);
 }
 

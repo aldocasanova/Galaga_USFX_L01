@@ -3,24 +3,28 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "NaveEnemiga.h"
 #include "NaveEnemigaEspia.generated.h"
 
+/**
+ *
+ */
 UCLASS()
-class GALAGA_USFX_L01_API ANaveEnemigaEspia : public AActor
+class GALAGA_USFX_L01_API ANaveEnemigaEspia : public ANaveEnemiga
 {
 	GENERATED_BODY()
-	
+
+private:
+	int rangoVision;
 public:	
 	// Sets default values for this actor's properties
 	ANaveEnemigaEspia();
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-public:	
-	// Called every frame
+	FORCEINLINE int GetRangoVision() const { return rangoVision; }
+	FORCEINLINE void SetRangoVision(int _rangoVision) { rangoVision = _rangoVision; }
 	virtual void Tick(float DeltaTime) override;
+protected:
+	virtual void Mover(float DeltaTime);
+	virtual void Destruirse();
+	
 
 };

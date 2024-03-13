@@ -11,17 +11,27 @@ ANaveEnemigaKamikaze::ANaveEnemigaKamikaze()
 
 }
 
-// Called when the game starts or when spawned
-void ANaveEnemigaKamikaze::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
 // Called every frame
 void ANaveEnemigaKamikaze::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
+}
+
+void ANaveEnemigaKamikaze::Mover(float DeltaTime)
+{
+	velocidad = 1; // ir cambiando velocidades
+	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 
 }
+
+
+void ANaveEnemigaKamikaze::Disparar() {
+
+}
+
+void ANaveEnemigaKamikaze::Destruirse()
+{
+}
+
 
