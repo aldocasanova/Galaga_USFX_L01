@@ -1,5 +1,5 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
-
+//Aquí ya tengo los métodos para peones 
 #include "Galaga_USFX_L01Pawn.h"
 #include "Galaga_USFX_L01Projectile.h"
 #include "TimerManager.h"

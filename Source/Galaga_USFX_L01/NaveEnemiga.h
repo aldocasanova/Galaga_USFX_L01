@@ -6,7 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "NaveEnemiga.generated.h"
 
-UCLASS()
+UCLASS(abstract) // declarar clase abstracta
 class GALAGA_USFX_L01_API ANaveEnemiga : public AActor
 {
 	GENERATED_BODY()
@@ -24,7 +24,7 @@ protected:
 	float tiempoDisparo; //Tiempo que debe transcurrir entre cada disparo
 	FVector posicion;
 	int trayectoria; //Cada valor numerico representa a una funcion que la nave debe asumir para moverse
-	int capacidadPasajeros; //Numero de naves que puede transportar
+	int capacidadPasajeros; //Numero de naves que puede transportar	
 	int capacidadMunicion; //Numero de disparos que puede realizar antes de recargar
 	int tipoNave; //Cada valor numerico representa a un tipo de nave enemiga
 	float experiencia;
@@ -76,4 +76,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+protected:
+	void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
+	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
+	//virtual void Mover() = 0; // el problema es que lo estamos definiendo para que se abra abstracto, por lo que daba error
+	//virtual void Disparar() = 0; // la forma correcta es usar ese macro de pure virtual
 };
