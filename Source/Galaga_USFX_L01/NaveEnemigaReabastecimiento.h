@@ -12,12 +12,18 @@ class GALAGA_USFX_L01_API ANaveEnemigaReabastecimiento : public ANaveEnemiga
 	GENERATED_BODY()
 	
 private:
-	//atributo
+	int capacidadBalas;
+	int capacidadBombas;
+	int capacidadEscudos;
 public:
 	// Sets default values for this actor's properties
 	ANaveEnemigaReabastecimiento();
-		//FORCEINLINE int Get//metodo() const { return //metodo; }
-		//FORCEINLINE void Set//(int _//) { rangoVision = _//; }
+		FORCEINLINE int GetCapacidadBalas() const { return capacidadBalas; }
+		FORCEINLINE void SetCapacidadBalas(int _capacidadBalas) { capacidadBalas = _capacidadBalas; }
+		FORCEINLINE int GetCapacidadBombas() const { return capacidadBombas; }
+		FORCEINLINE void SetCapacidadBombas(int _capacidadBombas) { capacidadBombas = _capacidadBombas; }
+		FORCEINLINE int GetCapacidadEscudos() const { return capacidadEscudos; }
+		FORCEINLINE void SetCapacidadBalas(int _capacidadEscudos) { capacidadEscudos = _capacidadEscudos; }
 		virtual void Tick(float DeltaTime) override;
 protected:
 	virtual void Mover(float DeltaTime);

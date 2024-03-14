@@ -17,7 +17,6 @@ private:
 	float capacidadCargaPeso;
 	float capacidadCargaVolumen;
 
-
 public:
 	ANaveEnemigaTransporte();
 	FORCEINLINE float GetCapacidadCargaPeso() const { return capacidadCargaPeso; }

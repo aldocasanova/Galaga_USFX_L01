@@ -12,7 +12,7 @@ class GALAGA_USFX_L01_API ANaveEnemigaKamikaze : public ANaveEnemiga
 	GENERATED_BODY()
 	
 private:
-	//atributo
+	//float
 public:
 	// Sets default values for this actor's properties
 	ANaveEnemigaKamikaze();

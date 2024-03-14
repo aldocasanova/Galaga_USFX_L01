@@ -12,13 +12,13 @@ class GALAGA_USFX_L01_API ANaveEnemigaNodriza : public ANaveEnemiga
 	GENERATED_BODY()
 	
 private:
-	//atributo
+	int NroEscudos;
 public:
 	// Sets default values for this actor's properties
 	ANaveEnemigaNodriza();
-		//FORCEINLINE int Get//metodo() const { return //metodo; }
-		//FORCEINLINE void Set//(int _//) { rangoVision = _//; }
-		virtual void Tick(float DeltaTime) override;
+	FORCEINLINE float GetNroEscudos() const { return NroEscudos; }
+	FORCEINLINE void SetNroEscudos(int _NroEscudos) { NroEscudos = _NroEscudos; }
+	virtual void Tick(float DeltaTime) override;
 protected:
 	virtual void Mover(float DeltaTime);
 	virtual void Disparar();
