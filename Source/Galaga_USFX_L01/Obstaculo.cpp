@@ -5,6 +5,12 @@
 
 void AObstaculo::GenerarObstaculo()
 {
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Trim_90_In.Shape_Trim_90_In'"));
+	// Create the mesh component
+	mallaObstaculo = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
+	//mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
+	mallaObstaculo->SetupAttachment(RootComponent);
+	RootComponent = mallaObstaculo;
 }
 
 // Sets default values

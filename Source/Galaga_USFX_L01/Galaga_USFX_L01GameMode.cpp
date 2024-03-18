@@ -77,22 +77,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
 	//Generador de naves: 
 
-		//practlab
-		for (int i = 0; i < 5; ++i)
-		{
-			FVector SpawnLocation = FVector(FMath::RandRange(-1000.f, 1000.f), FMath::RandRange(-1000.f, 1000.f), 0.f);
-			AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			ObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
-		}
-
-		// Crear e insertar power-ups en el TMap
-		for (int i = 0; i < 3; ++i)
-		{
-			FVector SpawnLocation = FVector(FMath::RandRange(-1000.f, 1000.f), FMath::RandRange(-1000.f, 1000.f), 0.f);
-			APowerUp* NewPowerUp = GetWorld()->SpawnActor<APowerUp>(APowerUp::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			ObstaclesAndPowerUps.Add(SpawnLocation, NewPowerUp);
-		}
-}
+		
 
 
 
@@ -197,6 +182,27 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 
 		TiempoTranscurrido = 0;
 
+		//practlAB
+
+		//practlab
+		for (int i = 0; i < 5; ++i)
+		{
+			FVector SpawnLocation = FVector(FMath::RandRange(-1000.0f, -1000.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f); //
+			AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+			ObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
+		}
+
+		// Crear e insertar power-ups en el TMap
+		for (int i = 0; i < 3; ++i)
+		{
+			FVector SpawnLocation = FVector(FMath::RandRange(-1000.0f, 1000.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f); 
+			APowerUp* NewPowerUp = GetWorld()->SpawnActor<APowerUp>(APowerUp::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+			ObstaclesAndPowerUps.Add(SpawnLocation, NewPowerUp);
+		}
+}
+
+//envés del rand lo voy sumando con una variable auxiliar
+
 	//}
 	/*
 	//NaveEnemiga01->SetPosicion(FVector(2000.0f, 0.0f, 120.0f));
@@ -210,7 +216,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	NaveEnemigaTransporte01->SetPosicion(FVector(500.0f, -500.0f, 200.0f));
 	NaveEnemigaTransporte01->SetPosicion(FVector(500.0f, -500.0f, 200.0f)); */
 
-}
+//}
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);

@@ -5,6 +5,12 @@
 
 void APowerUp::GenerarPowerUp()
 {
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Trim_90_In.Shape_Trim_90_In'"));
+	// Create the mesh component
+	mallaPowerUp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
+	//mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
+	mallaPowerUp->SetupAttachment(RootComponent);
+	RootComponent = mallaPowerUp;
 }
 
 // Sets default values

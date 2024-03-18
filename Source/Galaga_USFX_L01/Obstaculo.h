@@ -29,6 +29,9 @@ public:
 	//metodos de la clase
 	void GenerarObstaculo();
 
+	UStaticMeshComponent* mallaObstaculo;
+
+
 
 public:	
 	// Sets default values for this actor's properties

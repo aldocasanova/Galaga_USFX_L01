@@ -32,6 +32,7 @@ public:
 public:	
 	// Sets default values for this actor's properties
 	APowerUp();
+	UStaticMeshComponent* mallaPowerUp;
 
 protected:
 	// Called when the game starts or when spawned
