@@ -25,6 +25,7 @@ public:
 protected:
 	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
-	
+	virtual void Escapar();
+
 
 };

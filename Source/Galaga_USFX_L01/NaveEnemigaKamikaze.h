@@ -21,7 +21,6 @@ public:
 		virtual void Tick(float DeltaTime) override;
 protected:
 	virtual void Mover(float DeltaTime);
-	virtual void Disparar();
 	virtual void Destruirse();
 
 };

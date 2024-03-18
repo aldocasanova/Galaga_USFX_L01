@@ -26,7 +26,7 @@ protected:
 	int trayectoria; //Cada valor numerico representa a una funcion que la nave debe asumir para moverse
 	int capacidadPasajeros; //Numero de naves que puede transportar	
 	int capacidadMunicion; //Numero de disparos que puede realizar antes de recargar
-	//int tipoNave; //Cada valor numerico representa a un tipo de nave enemiga
+	int tipoNave; //Cada valor numerico representa a un tipo de nave enemiga para el array
 	float experiencia; //experiencia que droppea
 	float energia; //vida
 
@@ -43,7 +43,7 @@ public: //leer valores
 	FORCEINLINE int GetTrayectoria() const { return trayectoria; }
 	FORCEINLINE int GetCapacidadPasajeros() const { return capacidadPasajeros; }
 	FORCEINLINE int GetCapacidadMunicion() const { return capacidadMunicion; }
-	//FORCEINLINE int GetTipoNave() const { return tipoNave; }
+	FORCEINLINE int GetTipoNave() const { return tipoNave; }
 	FORCEINLINE float GetExperiencia() const { return experiencia; }
 	FORCEINLINE float GetEnergia() const { return energia; }
 	//FORCEINLINE float GetPeso() const { return peso; }
@@ -59,7 +59,7 @@ public: //leer valores
 	FORCEINLINE void SetTrayectoria(int _trayectoria) { trayectoria = _trayectoria; }
 	FORCEINLINE void SetCapacidadPasajeros(int _capacidadPasajeros) { capacidadPasajeros = _capacidadPasajeros; }
 	FORCEINLINE void SetCapacidadMunicion(int _capacidadMunicion) { capacidadMunicion = _capacidadMunicion; }
-	//FORCEINLINE void SetTipoNave(int _tipoNave) { tipoNave = _tipoNave; }
+	FORCEINLINE void SetTipoNave(int _tipoNave) { tipoNave = _tipoNave; }
 	FORCEINLINE void SetExperiencia(float _experiencia) { experiencia = _experiencia; }
 	FORCEINLINE void SetEnergia(float _energia) { energia = _energia; }
 	//FORCEINLINE void SetPeso(float _peso) { peso = _peso; }
@@ -82,6 +82,7 @@ protected:
 	//void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
 	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
 	void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
+	void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
 	//virtual void Mover() = 0; // el problema es que lo estamos definiendo para que se abra abstracto, por lo que daba error
 	//virtual void Disparar() = 0; // la forma correcta es usar ese macro de pure virtual
 };

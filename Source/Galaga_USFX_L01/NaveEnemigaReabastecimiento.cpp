@@ -6,6 +6,8 @@
 // Sets default values
 ANaveEnemigaReabastecimiento::ANaveEnemigaReabastecimiento()
 {
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_WideCapsule.Shape_WideCapsule'"));
+	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -25,12 +27,11 @@ void ANaveEnemigaReabastecimiento::Mover(float DeltaTime)
 
 }
 
-
-void ANaveEnemigaReabastecimiento::Disparar() {
-
+void ANaveEnemigaReabastecimiento::Destruirse()
+{
 }
 
-void ANaveEnemigaReabastecimiento::Destruirse()
+void ANaveEnemigaReabastecimiento::Escapar()
 {
 }
 

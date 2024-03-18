@@ -15,11 +15,11 @@ AMyNaveEnemigaCazaY::AMyNaveEnemigaCazaY()
 void AMyNaveEnemigaCazaY::Mover(float DeltaTime)
 {
 	ANaveEnemigaCaza::Mover(DeltaTime);
-	velocidad = 3;
+	/*velocidad = 3;
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y - velocidad, GetActorLocation().Z));
 	if (GetActorLocation().X < -1800) {
 		SetActorLocation(FVector(posicion));
-	}
+	}*/
 }
 
 void AMyNaveEnemigaCazaY::Disparar()

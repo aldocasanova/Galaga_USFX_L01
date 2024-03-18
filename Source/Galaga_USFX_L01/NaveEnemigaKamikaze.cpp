@@ -6,6 +6,8 @@
 // Sets default values
 ANaveEnemigaKamikaze::ANaveEnemigaKamikaze()
 {
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'"));
+	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -20,15 +22,11 @@ void ANaveEnemigaKamikaze::Tick(float DeltaTime)
 
 void ANaveEnemigaKamikaze::Mover(float DeltaTime)
 {
-	velocidad = 4; // ir cambiando velocidades
+	velocidad = 2; // ir cambiando velocidades
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 
 }
 
-
-void ANaveEnemigaKamikaze::Disparar() {
-
-}
 
 void ANaveEnemigaKamikaze::Destruirse()
 {

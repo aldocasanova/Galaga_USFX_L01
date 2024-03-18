@@ -23,11 +23,11 @@ public:
 		FORCEINLINE int GetCapacidadBombas() const { return capacidadBombas; }
 		FORCEINLINE void SetCapacidadBombas(int _capacidadBombas) { capacidadBombas = _capacidadBombas; }
 		FORCEINLINE int GetCapacidadEscudos() const { return capacidadEscudos; }
-		FORCEINLINE void SetCapacidadBalas(int _capacidadEscudos) { capacidadEscudos = _capacidadEscudos; }
+		FORCEINLINE void SetCapacidadEsudos(int _capacidadEscudos) { capacidadEscudos = _capacidadEscudos; }
 		virtual void Tick(float DeltaTime) override;
 protected:
 	virtual void Mover(float DeltaTime);
-	virtual void Disparar();
 	virtual void Destruirse();
+	virtual void Escapar();
 
 };

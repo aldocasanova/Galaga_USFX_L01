@@ -6,10 +6,10 @@
 #include "GameFramework/GameModeBase.h"
 #include "Galaga_USFX_L01GameMode.generated.h"
 
-//class ANaveEnemiga;
+class ANaveEnemiga; //agrego
 class ANaveEnemigaTransporte;
-class ANaveEnemigaTransporteA;
-class ANaveEnemigaTransporteB;
+class ANaveEnemigaTransporteAttack;
+class ANaveEnemigaTransporteSupport;
 class ANaveEnemigaCaza;
 class ANaveEnemigaCazaX;
 class ANaveEnemigaCazaY;
@@ -41,8 +41,8 @@ public:
 
 	ANaveEnemigaCazaX* NaveEnemigaCazaX01;
 	ANaveEnemigaCazaY* NaveEnemigaCazaY01;
-	ANaveEnemigaTransporteA* NaveEnemigaTransporteA01;
-	ANaveEnemigaTransporteB* NaveEnemigaTransporteB01;
+	ANaveEnemigaTransporteAttack* NaveEnemigaTransporteAttack01;
+	ANaveEnemigaTransporteSupport* NaveEnemigaTransporteSupport01;
 	ANaveEnemigaEspiaNv1* NaveEnemigaEspiaNv101;
 	ANaveEnemigaEspiaNv2* NaveEnemigaEspiaNv2l01;
 	ANaveEnemigaReabastecimientoBal* NaveEnemigaReabastecimientoBalas01;
@@ -52,4 +52,18 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+public:
+	void Tick(float DeltaTime) override;
+	//14/03
+	TArray <ANaveEnemiga*> TANavesEnemigas;
+	TArray<ANaveEnemigaCaza*>TANavesEnemigasCaza; //se alamacena direcciones de objetos de nave enemiga caza 
+	TArray<ANaveEnemigaTransporte*>TANavesEnemigasTransporte;
+	TArray<ANaveEnemigaEspia*>TANavesEnemigasEspia;
+
+	//lo mejor de la abastracta es que puedes ponerla en el array para poner todos 
+	// para rescatarlos se debe declarar un propiedad tipo nave en la clase abstracta para digamos 1 sea caza, sea 2 transporte		
+private:
+	int TiempoTranscurrido = 0;
+public:
+	TMap<FVector, AActor*> ObstaclesAndPowerUps;
 };

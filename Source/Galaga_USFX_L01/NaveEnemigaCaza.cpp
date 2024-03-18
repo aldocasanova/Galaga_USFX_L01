@@ -13,6 +13,7 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
+
 void ANaveEnemigaCaza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -21,9 +22,8 @@ void ANaveEnemigaCaza::Tick(float DeltaTime)
 
 void ANaveEnemigaCaza::Mover(float DeltaTime)
 {
-	velocidad = 1;
+	velocidad = 1.5;
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
-
 }
 
 
