@@ -10,6 +10,9 @@ UCLASS()
 class GALAGA_USFX_L01_API APowerUp : public AActor
 {
 	GENERATED_BODY()
+public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
+	UStaticMeshComponent* mallaPowerUp;
 private:
 	//atributos
 	int tipoPUp;
@@ -32,8 +35,6 @@ public:
 public:	
 	// Sets default values for this actor's properties
 	APowerUp();
-	UStaticMeshComponent* mallaPowerUp;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

@@ -5,12 +5,6 @@
 
 void AObstaculo::GenerarObstaculo()
 {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Trim_90_In.Shape_Trim_90_In'"));
-	// Create the mesh component
-	mallaObstaculo = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
-	//mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
-	mallaObstaculo->SetupAttachment(RootComponent);
-	RootComponent = mallaObstaculo;
 }
 
 // Sets default values
@@ -19,6 +13,11 @@ AObstaculo::AObstaculo()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Tube.Shape_Tube'"));
+	// Create the mesh component
+	mallaObstaculo = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ObstacleMesh"));
+	mallaObstaculo->SetupAttachment(RootComponent);
+	RootComponent = mallaObstaculo;
 }
 
 // Called when the game starts or when spawned

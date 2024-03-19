@@ -58,7 +58,10 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	FVector ubicacionInicioNavesEnemigasTransporteSupport = FVector(-100.0f, -600.0f, 250.0f);
 	FVector ubicacionInicioNavesEnemigasNodrizaPacheco = FVector(-100.0f, -400.0f, 250.0f); 
 	FVector ubicacionInicioNavesEnemigasNodrizaCoca = FVector(-100.0f, -200.0f, 250.0f); 
-	
+
+	FVector ubicacionInicioObstaculo = FVector(-500.0f, -1300.0f, 250.0f);
+	FVector ubicacionInicioPowerUp = FVector(-500.0f, -1300.0f, 250.0f);
+
 
 		//...float x = 1200;
 		//...float y = -1000;
@@ -75,6 +78,8 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		//resto de ubicaciones de nave
 
 		FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
+		FRotator rotacionObstaculoPowerUp = FRotator(0.0f, 0.0f, 0.0f);
+
 	//Generador de naves: 
 
 		
@@ -170,24 +175,15 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 			ANaveEnemigaNodriza* NaveEnemigaNodrizaTemporal = World->SpawnActor<ANaveEnemigaNodriza>(PosicionNaveActual, rotacionNave);
 			TANavesEnemigas.Push(NaveEnemigaNodrizaTemporal);
 		}
-	}
-		//NaveEnemiga01 = World->SpawnActor<ANaveEnemiga>(ubicacionNave, rotacionNave);
-		
-		/*
-		NaveEnemigaTransporte01 = World->SpawnActor<ANaveEnemigaTransporte>(ubicacionNave01, rotacionNave);
-		NaveEnemigaCaza01 = World->SpawnActor<ANaveEnemigaCaza>(ubicacionNave02, rotacionNave);
-		
-		NaveEnemigaCazaX01 = World->SpawnActor<AMyNaveEnemigaCazaX>(ubicacionNave03, rotacionNave);
-		NaveEnemigaCazaY01 = World->SpawnActor<AMyNaveEnemigaCazaY>(ubicacionNave04, rotacionNave); */
-
-		TiempoTranscurrido = 0;
-
-		//practlAB
-
 		//practlab
-		for (int i = 0; i < 5; ++i)
+		//for (int i = 0; i < 5; i++) {
+			//FVector SpawnLocation = FVector(ubicacionInicioObstaculo.X, ubicacionInicioObstaculo.Y, ubicacionInicioObstaculo.Z);
+			//AObstaculo* NewObstaculo = World->SpawnActor<AObstaculo>(SpawnLocation, rotacionObstaculoPowerUp);
+			//ObstaclesAndPowerUps.Push(NewObstaculo);
+		//}
+		/*for (int i = 0; i < 5; i++)
 		{
-			FVector SpawnLocation = FVector(FMath::RandRange(-1000.0f, -1000.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f); //
+			FVector SpawnLocation = FVector(FMath::RandRange(-1000.0f, 1000.0f), FMath::RandRange(-1000.0f, 1000.0f), 0.0f);
 			AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 			ObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
 		}
@@ -195,10 +191,22 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		// Crear e insertar power-ups en el TMap
 		for (int i = 0; i < 3; ++i)
 		{
-			FVector SpawnLocation = FVector(FMath::RandRange(-1000.0f, 1000.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f); 
+			FVector SpawnLocation = FVector(ubicacionInicioObstaculo.X, ubicacionInicioObstaculo.Y, ubicacionInicioObstaculo.Z);;
 			APowerUp* NewPowerUp = GetWorld()->SpawnActor<APowerUp>(APowerUp::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 			ObstaclesAndPowerUps.Add(SpawnLocation, NewPowerUp);
-		}
+		}*/
+		//...
+
+	}
+		//NaveEnemiga01 = World->SpawnActor<ANaveEnemiga>(ubicacionNave, rotacionNave);
+		/*
+		NaveEnemigaTransporte01 = World->SpawnActor<ANaveEnemigaTransporte>(ubicacionNave01, rotacionNave);
+		NaveEnemigaCaza01 = World->SpawnActor<ANaveEnemigaCaza>(ubicacionNave02, rotacionNave);
+		
+		NaveEnemigaCazaX01 = World->SpawnActor<AMyNaveEnemigaCazaX>(ubicacionNave03, rotacionNave);
+		NaveEnemigaCazaY01 = World->SpawnActor<AMyNaveEnemigaCazaY>(ubicacionNave04, rotacionNave); */
+		TiempoTranscurrido = 0;
+
 }
 
 //envés del rand lo voy sumando con una variable auxiliar

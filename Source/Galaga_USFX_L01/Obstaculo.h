@@ -6,10 +6,14 @@
 #include "GameFramework/Actor.h"
 #include "Obstaculo.generated.h"
 
+
 UCLASS()
 class GALAGA_USFX_L01_API AObstaculo : public AActor
 {
 	GENERATED_BODY()
+public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
+	UStaticMeshComponent* mallaObstaculo;
 private:
 	//atributos
 	FVector posicion;
@@ -28,10 +32,6 @@ public:
 
 	//metodos de la clase
 	void GenerarObstaculo();
-
-	UStaticMeshComponent* mallaObstaculo;
-
-
 
 public:	
 	// Sets default values for this actor's properties

@@ -5,12 +5,7 @@
 
 void APowerUp::GenerarPowerUp()
 {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Trim_90_In.Shape_Trim_90_In'"));
-	// Create the mesh component
-	mallaPowerUp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
-	//mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
-	mallaPowerUp->SetupAttachment(RootComponent);
-	RootComponent = mallaPowerUp;
+
 }
 
 // Sets default values
@@ -18,8 +13,13 @@ APowerUp::APowerUp()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Tube.Shape_Tube'"));
+	// Create the mesh component
+	mallaPowerUp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PowerUpMesh"));
+	mallaPowerUp->SetupAttachment(RootComponent);
+	RootComponent = mallaPowerUp;
 }
+
 
 // Called when the game starts or when spawned
 void APowerUp::BeginPlay()
