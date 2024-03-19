@@ -39,77 +39,27 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 {
 	Super::BeginPlay();
 	//Set the game state to playing
-	/*FVector ubicacionInicioNavesEnemigasCaza = FVector(300.0f, -600.0f, 250.0f); //estaba 200 en y
-	FVector ubicacionInicioNavesEnemigasTransporte = FVector(200.0f, -600.0f, 250.0f); //estaba en 200 en y
-
-	FVector ubicacionInicioNavesEnemigasEspia = FVector(100.0f, -600.0f, 250.0f); //estaba en 300 en y*/
-
 	//fila de adelante
-	FVector ubicacionInicioNavesEnemigasEspiaNv1 = FVector(-300.0f, -1200.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasEspiaNv2 = FVector(-300.0f, -1000.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasCazaX = FVector(-300.0f, -800.0f, 250.0f); 
-	FVector ubicacionInicioNavesEnemigasCazaY = FVector(-300.0f, -600.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasKamikazeA = FVector(-300.0f, -400.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasKamikazeB = FVector(-300.0f, -200.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasEspiaNv1 = FVector(200.0f, -1100.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasEspiaNv2 = FVector(200.0f, -900.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasCazaX = FVector(200.0f, -700.0f, 250.0f); 
+	FVector ubicacionInicioNavesEnemigasCazaY = FVector(200.0f, -500.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasKamikazeA = FVector(200.0f, -300.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasKamikazeB = FVector(200.0f, -100.0f, 250.0f);
 	//fila de atrás
-	FVector ubicacionInicioNavesEnemigasReabastecimientoBal = FVector(-100.0f, -1200.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasReabastecimientoBom = FVector(-100.0f, -1000.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasTransporteAttack = FVector(-100.0f, -800.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasTransporteSupport = FVector(-100.0f, -600.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasNodrizaPacheco = FVector(-100.0f, -400.0f, 250.0f); 
-	FVector ubicacionInicioNavesEnemigasNodrizaCoca = FVector(-100.0f, -200.0f, 250.0f); 
-
-	FVector ubicacionInicioObstaculo = FVector(-500.0f, -1300.0f, 250.0f);
-	FVector ubicacionInicioPowerUp = FVector(-500.0f, -1300.0f, 250.0f);
-
-
-		//...float x = 1200;
-		//...float y = -1000;
-		//...FVector ubicacionNave01 = FVector(-1000.0f, 500.0f, 250.0f);
-		//...FVector ubicacionNave02 = FVector(-500.0f, -500.0f, 250.0f);
-		//...
-		//FVector ubicacionNave03 = FVector(-700.0f, 500.0f, 250.0f);
-		//FVector ubicacionNave04 = FVector(-200.0f, 500.0f, 250.0f);
-		/*
-		FVector ubicacionNave05 = FVector(-500.0f, -500.0f, 250.0f);
-		FVector ubicacionNave06 = FVector(-500.0f, -500.0f, 250.0f);
-
-		...*/
-		//resto de ubicaciones de nave
+	FVector ubicacionInicioNavesEnemigasReabastecimientoBal = FVector(400.0f, -1100.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasReabastecimientoBom = FVector(400.0f, -900.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasTransporteAttack = FVector(400.0f, -700.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasTransporteSupport = FVector(400.0f, -500.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasNodrizaPacheco = FVector(400.0f, -300.0f, 250.0f); 
+	FVector ubicacionInicioNavesEnemigasNodrizaCoca = FVector(400.0f, -100.0f, 250.0f); 
 
 		FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
 		FRotator rotacionObstaculoPowerUp = FRotator(0.0f, 0.0f, 0.0f);
 
 	//Generador de naves: 
-
-		
-
-
-
 	UWorld* const World = GetWorld();
-	/*
-	if (World != nullptr)
-	{
-		for (int i = 0; i < 5; i++) {
-			FVector PosicionNaveActual = FVector(ubicacionInicioNavesEnemigasCaza.X, ubicacionInicioNavesEnemigasCaza.Y + i * 300, ubicacionInicioNavesEnemigasCaza.Z);
-			ANaveEnemigaCaza* NaveEnemigaCazaTemporal = World->SpawnActor<ANaveEnemigaCaza>(PosicionNaveActual, rotacionNave);
-			TANavesEnemigas.Push(NaveEnemigaCazaTemporal);
-		}
 
-		float nuevaposicionXT = ubicacionInicioNavesEnemigasTransporte.X; //- 300.0f;
-		for (int j = 0; j < 5; j++) {
-			FVector PosicionNaveActual = FVector(nuevaposicionXT, ubicacionInicioNavesEnemigasTransporte.Y + j * 300, ubicacionInicioNavesEnemigasTransporte.Z);
-			ANaveEnemigaTransporte* NaveEnemigaTransporteTemporal = World->SpawnActor<ANaveEnemigaTransporte>(PosicionNaveActual, rotacionNave);
-			TANavesEnemigas.Push(NaveEnemigaTransporteTemporal);
-		}
-		//ok, entonces no conviene esto de usar varias variables aux
-		float nuevaposicionXE = ubicacionInicioNavesEnemigasEspia.X; //- 300.0f;
-		for (int j = 0; j < 5; j++) {
-			FVector PosicionNaveActual = FVector(nuevaposicionXE, ubicacionInicioNavesEnemigasEspia.Y + j * 300, ubicacionInicioNavesEnemigasEspia.Z);
-			ANaveEnemigaEspia* NaveEnemigaEspiaTemporal = World->SpawnActor<ANaveEnemigaEspia>(PosicionNaveActual, rotacionNave);
-			TANavesEnemigas.Push(NaveEnemigaEspiaTemporal);
-		} 
-		*/
 	if (World != nullptr)
 	{
 		//fila de adelante
@@ -176,61 +126,29 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 			TANavesEnemigas.Push(NaveEnemigaNodrizaTemporal);
 		}
 		//practlab
-		//for (int i = 0; i < 5; i++) {
-			//FVector SpawnLocation = FVector(ubicacionInicioObstaculo.X, ubicacionInicioObstaculo.Y, ubicacionInicioObstaculo.Z);
-			//AObstaculo* NewObstaculo = World->SpawnActor<AObstaculo>(SpawnLocation, rotacionObstaculoPowerUp);
-			//ObstaclesAndPowerUps.Push(NewObstaculo);
-		//}
-		/*for (int i = 0; i < 5; i++)
+		//-790, 10, 124
+		for (int i = 0; i < 5; i++)
 		{
-			FVector SpawnLocation = FVector(FMath::RandRange(-1000.0f, 1000.0f), FMath::RandRange(-1000.0f, 1000.0f), 0.0f);
+			FVector SpawnLocation = FVector(FMath::RandRange(-600.0f, -500.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f);
 			AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 			ObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
 		}
-
 		// Crear e insertar power-ups en el TMap
-		for (int i = 0; i < 3; ++i)
+		for (int i = 0; i < 3; i++)
 		{
-			FVector SpawnLocation = FVector(ubicacionInicioObstaculo.X, ubicacionInicioObstaculo.Y, ubicacionInicioObstaculo.Z);;
-			APowerUp* NewPowerUp = GetWorld()->SpawnActor<APowerUp>(APowerUp::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			ObstaclesAndPowerUps.Add(SpawnLocation, NewPowerUp);
-		}*/
-		//...
-
+			FVector SpawnLocation = FVector(FMath::RandRange(-400.0f, 150.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f);
+			APowerUp* NewObstacle = GetWorld()->SpawnActor<APowerUp>(APowerUp::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+			ObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
+		}
 	}
-		//NaveEnemiga01 = World->SpawnActor<ANaveEnemiga>(ubicacionNave, rotacionNave);
-		/*
-		NaveEnemigaTransporte01 = World->SpawnActor<ANaveEnemigaTransporte>(ubicacionNave01, rotacionNave);
-		NaveEnemigaCaza01 = World->SpawnActor<ANaveEnemigaCaza>(ubicacionNave02, rotacionNave);
-		
-		NaveEnemigaCazaX01 = World->SpawnActor<AMyNaveEnemigaCazaX>(ubicacionNave03, rotacionNave);
-		NaveEnemigaCazaY01 = World->SpawnActor<AMyNaveEnemigaCazaY>(ubicacionNave04, rotacionNave); */
 		TiempoTranscurrido = 0;
-
 }
-
-//envés del rand lo voy sumando con una variable auxiliar
-
-	//}
-	/*
-	//NaveEnemiga01->SetPosicion(FVector(2000.0f, 0.0f, 120.0f));
-	// se quitó la NaveEnemiga genérica al pasar a ser clase abstracta
-	NaveEnemigaCaza01->SetPosicion(FVector(-500.0f, 500.0f, 200.0f)); 
-	NaveEnemigaTransporte01->SetPosicion(FVector(500.0f, -500.0f, 200.0f));
-	//...
-	//MyNaveEnemigaCazaX01->SetPosicion(FVector(700.0f, 500.0f, 200.0f));
-	//MyNaveEnemigaCazaY01->SetPosicion(FVector(200.0f, 500.0f, 200.0f)); lo comento dice no hace nada
-	
-	NaveEnemigaTransporte01->SetPosicion(FVector(500.0f, -500.0f, 200.0f));
-	NaveEnemigaTransporte01->SetPosicion(FVector(500.0f, -500.0f, 200.0f)); */
-
-//}
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	TiempoTranscurrido++;
 
-	if (TiempoTranscurrido >= 100)
+	/*if (TiempoTranscurrido >= 100)
 	{
 		int numeroEnemigo = FMath::RandRange(0, 9);
 		if (GEngine)
@@ -243,5 +161,5 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 		}
 		//TANavesEnemigas[numeroEnemigo]->PrimaryActorTick.bCanEverTick = false;
 		TANavesEnemigas[numeroEnemigo]->SetVelocidad(0);
-	}
+	}*/
 }

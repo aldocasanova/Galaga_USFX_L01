@@ -22,7 +22,7 @@ void ANaveEnemigaNodriza::Tick(float DeltaTime)
 
 void ANaveEnemigaNodriza::Mover(float DeltaTime)
 {
-	velocidad = 0.5;
+	velocidad = 0.25; //0.5
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 
 }

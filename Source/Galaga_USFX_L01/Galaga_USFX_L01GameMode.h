@@ -26,6 +26,9 @@ class ANaveEnemigaKamikaze;
 class ANaveEnemigaKamikazeA;
 class ANaveEnemigaKamikazeB;
 
+class AObstaculo;
+class APowerUp;
+
 UCLASS(MinimalAPI)
 class AGalaga_USFX_L01GameMode : public AGameModeBase
 {

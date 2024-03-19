@@ -22,7 +22,7 @@ void ANaveEnemigaKamikaze::Tick(float DeltaTime)
 
 void ANaveEnemigaKamikaze::Mover(float DeltaTime)
 {
-	velocidad = 2; // ir cambiando velocidades
+	velocidad = 0.25; //1
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 
 }

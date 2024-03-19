@@ -19,6 +19,7 @@ private:
 	FVector posicion;
 	float tiempoSpaw;
 	float tiempoPantalla;
+	float velocidad;
 public:
 	//metodos acccesores
 	FORCEINLINE int GettipoPUP() const { return tipoPUp; }
@@ -42,5 +43,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	virtual void Mover(float DeltaTime);
 };

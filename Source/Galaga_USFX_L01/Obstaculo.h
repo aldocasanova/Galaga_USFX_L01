@@ -40,9 +40,10 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+private:
+	float velocidad;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	virtual void Mover(float DeltaTime);
 };
