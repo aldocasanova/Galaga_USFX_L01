@@ -136,7 +136,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		// Crear e insertar power-ups en el TMap
 		for (int i = 0; i < 3; i++)
 		{
-			FVector SpawnLocation = FVector(FMath::RandRange(-400.0f, 150.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f);
+			FVector SpawnLocation = FVector(FMath::RandRange(-400.0f, 0.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f);
 			APowerUp* NewObstacle = GetWorld()->SpawnActor<APowerUp>(APowerUp::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 			ObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
 		}
