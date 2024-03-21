@@ -23,6 +23,11 @@
 #include "MyNaveEnemigaKamikazeA.h"
 #include "MyNaveEnemigaKamikazeB.h"
 
+#include "NaveEnemigaPiccolo.h"
+#include "NaveEnemigaPiccoloZ.h"
+#include "NaveEnemigaPiccoloAF.h"
+
+
 #include "Obstaculo.h"
 #include "PowerUp.h"
 
@@ -40,19 +45,22 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	Super::BeginPlay();
 	//Set the game state to playing
 	//fila de adelante
-	FVector ubicacionInicioNavesEnemigasEspiaNv1 = FVector(200.0f, -1100.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasEspiaNv2 = FVector(200.0f, -900.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasCazaX = FVector(200.0f, -700.0f, 250.0f); 
-	FVector ubicacionInicioNavesEnemigasCazaY = FVector(200.0f, -500.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasKamikazeA = FVector(200.0f, -300.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasKamikazeB = FVector(200.0f, -100.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasEspiaNv1 = FVector(400.0f, -1100.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasEspiaNv2 = FVector(400.0f, -900.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasCazaX = FVector(400.0f, -700.0f, 250.0f); 
+	FVector ubicacionInicioNavesEnemigasCazaY = FVector(400.0f, -500.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasKamikazeA = FVector(400.0f, -300.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasKamikazeB = FVector(400.0f, -100.0f, 250.0f);
 	//fila de atrás
-	FVector ubicacionInicioNavesEnemigasReabastecimientoBal = FVector(400.0f, -1100.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasReabastecimientoBom = FVector(400.0f, -900.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasTransporteAttack = FVector(400.0f, -700.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasTransporteSupport = FVector(400.0f, -500.0f, 250.0f);
-	FVector ubicacionInicioNavesEnemigasNodrizaPacheco = FVector(400.0f, -300.0f, 250.0f); 
-	FVector ubicacionInicioNavesEnemigasNodrizaCoca = FVector(400.0f, -100.0f, 250.0f); 
+	FVector ubicacionInicioNavesEnemigasReabastecimientoBal = FVector(600.0f, -1100.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasReabastecimientoBom = FVector(600.0f, -900.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasTransporteAttack = FVector(600.0f, -700.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasTransporteSupport = FVector(600.0f, -500.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasNodrizaPacheco = FVector(600.0f, -300.0f, 250.0f); 
+	FVector ubicacionInicioNavesEnemigasNodrizaCoca = FVector(600.0f, -100.0f, 250.0f); 
+
+	FVector ubicacionInicioNavesEnemigasPiccoloZ = FVector(200.0f, -500.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasPiccoloAF = FVector(200.0f, 100.0f, 250.0f);
 
 		FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
 		FRotator rotacionObstaculoPowerUp = FRotator(0.0f, 0.0f, 0.0f);
@@ -125,20 +133,37 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 			ANaveEnemigaNodriza* NaveEnemigaNodrizaTemporal = World->SpawnActor<ANaveEnemigaNodriza>(PosicionNaveActual, rotacionNave);
 			TANavesEnemigas.Push(NaveEnemigaNodrizaTemporal);
 		}
+		//nuevas naves
+		for (int i = 0; i < 3; i++) {
+			FVector PosicionNaveActual = FVector(ubicacionInicioNavesEnemigasPiccoloZ.X, ubicacionInicioNavesEnemigasPiccoloZ.Y + i * 200, ubicacionInicioNavesEnemigasPiccoloZ.Z);
+			ANaveEnemigaPiccolo* NaveEnemigaNodrizaTemporal = World->SpawnActor<ANaveEnemigaPiccolo>(PosicionNaveActual, rotacionNave);
+			TANavesEnemigas.Push(NaveEnemigaNodrizaTemporal);
+		}
+		for (int i = 0; i < 3; i++) {
+			FVector PosicionNaveActual = FVector(ubicacionInicioNavesEnemigasPiccoloAF.X, ubicacionInicioNavesEnemigasPiccoloAF.Y + i * 200, ubicacionInicioNavesEnemigasPiccoloAF.Z);
+			ANaveEnemigaPiccolo* NaveEnemigaNodrizaTemporal = World->SpawnActor<ANaveEnemigaPiccolo>(PosicionNaveActual, rotacionNave);
+			TANavesEnemigas.Push(NaveEnemigaNodrizaTemporal);
+		}
 		//practlab
 		//-790, 10, 124
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 1; i++)
 		{
-			FVector SpawnLocation = FVector(FMath::RandRange(-600.0f, -500.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f);
+			FVector SpawnLocation = FVector((-600.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f); 
 			AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			ObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
+			TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
 		}
 		// Crear e insertar power-ups en el TMap
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 2; i++)
 		{
 			FVector SpawnLocation = FVector(FMath::RandRange(-400.0f, 0.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f);
 			APowerUp* NewObstacle = GetWorld()->SpawnActor<APowerUp>(APowerUp::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			ObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
+			TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
+		}
+		for (int i = 0; i < 6; i++)
+		{
+			FVector SpawnLocation = FVector(-600.0f, -1000.0f + i* 400 , 250.0f);
+			AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+			TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
 		}
 	}
 		TiempoTranscurrido = 0;

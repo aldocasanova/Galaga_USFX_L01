@@ -22,8 +22,16 @@ void ANaveEnemigaCaza::Tick(float DeltaTime)
 
 void ANaveEnemigaCaza::Mover(float DeltaTime)
 {
-	velocidad = 0.25; //0.75
+	velocidad = 0.65; //0.75
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+
+	if (GetActorLocation().X < LimiteInferiorX) {
+
+		SetActorLocation(FVector(400.0f, GetActorLocation().Y, 250.0f));
+
+	}
+
+	
 }
 
 

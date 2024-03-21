@@ -15,6 +15,9 @@ ANaveEnemiga::ANaveEnemiga()
 	mallaNaveEnemiga->SetupAttachment(RootComponent);
 	RootComponent = mallaNaveEnemiga;
 	velocidad = 0.25;
+
+	LimiteInferiorX = -500.0f;
+	//LimiteInferiorY = 0.0f;
 }
 
 // Called when the game starts or when spawned

@@ -34,8 +34,14 @@ void ANaveEnemigaTransporte::Mover(float DeltaTime)
 	// Establece la nueva posici�n del actor
 	//SetActorLocation(NuevaPosicion);
 	//...
-	velocidad = 0.25; //0.35
+	velocidad = 0.45; //0.35
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+
+	if (GetActorLocation().X < LimiteInferiorX) {
+
+		SetActorLocation(FVector(600.0f, GetActorLocation().Y, 250.0f));
+
+	}
 }
 
 void ANaveEnemigaTransporte::Disparar()

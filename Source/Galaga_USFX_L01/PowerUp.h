@@ -20,6 +20,7 @@ private:
 	float tiempoSpaw;
 	float tiempoPantalla;
 	float velocidad;
+	float LimiteVerticalPO;
 public:
 	//metodos acccesores
 	FORCEINLINE int GettipoPUP() const { return tipoPUp; }
@@ -36,6 +37,7 @@ public:
 public:	
 	// Sets default values for this actor's properties
 	APowerUp();
+	//LimiteInferiorUPX= 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

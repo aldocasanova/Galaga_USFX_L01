@@ -30,6 +30,9 @@ protected:
 	float experiencia; //experiencia que droppea
 	float energia; //vida
 
+	float LimiteInferiorX;
+	float LimiteInferiorY;
+
 	//float peso;
 	//float volumen;
 

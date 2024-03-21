@@ -26,6 +26,10 @@ class ANaveEnemigaKamikaze;
 class ANaveEnemigaKamikazeA;
 class ANaveEnemigaKamikazeB;
 
+class ANaveEnemigaPiccolo;
+class ANaveEnemigaPiccoloZ;
+class ANaveEnemigaPiccoloAF;
+
 class AObstaculo;
 class APowerUp;
 
@@ -52,6 +56,10 @@ public:
 	ANaveEnemigaReabastecimientoBom* NaveEnemigaReabastecimientoBombas01;
 	ANaveEnemigaNodrizaPacheco* NaveEnemigaNodrizaPachecho01;
 	ANaveEnemigaNodrizaCoca* NaveEnemigaNodrizaCoca01;
+
+	ANaveEnemigaPiccoloZ* NaveEnemigaPiccoloZ01;
+	ANaveEnemigaPiccoloAF* NaveEnemigaPiccoloAF01;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -59,14 +67,15 @@ public:
 	void Tick(float DeltaTime) override;
 	//14/03
 	TArray <ANaveEnemiga*> TANavesEnemigas;
-	TArray<ANaveEnemigaCaza*>TANavesEnemigasCaza; //se alamacena direcciones de objetos de nave enemiga caza 
-	TArray<ANaveEnemigaTransporte*>TANavesEnemigasTransporte;
-	TArray<ANaveEnemigaEspia*>TANavesEnemigasEspia;
+	//...
+	//TArray<ANaveEnemigaCaza*>TANavesEnemigasCaza; //se alamacena direcciones de objetos de nave enemiga caza 
+	//TArray<ANaveEnemigaTransporte*>TANavesEnemigasTransporte;
+	//TArray<ANaveEnemigaEspia*>TANavesEnemigasEspia;
 
 	//lo mejor de la abastracta es que puedes ponerla en el array para poner todos 
 	// para rescatarlos se debe declarar un propiedad tipo nave en la clase abstracta para digamos 1 sea caza, sea 2 transporte		
 private:
 	int TiempoTranscurrido = 0;
 public:
-	TMap<FVector, AActor*> ObstaclesAndPowerUps;
+	TMap<FVector, AActor*> TMObstaclesAndPowerUps;
 };

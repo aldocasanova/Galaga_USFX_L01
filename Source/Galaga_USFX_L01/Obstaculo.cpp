@@ -19,6 +19,8 @@ AObstaculo::AObstaculo()
 	mallaObstaculo->SetStaticMesh(Obstaculo.Object);
 	mallaObstaculo->SetupAttachment(RootComponent);
 	RootComponent = mallaObstaculo;
+
+	LimiteLateralOX = -1000.0f;
 }
 void AObstaculo::GenerarObstaculo()
 {
@@ -41,7 +43,13 @@ void AObstaculo::Tick(float DeltaTime)
 
 void AObstaculo::Mover(float DeltaTime)
 {
-	velocidad = 0.15;
+	velocidad = 0.45;
 	SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y - velocidad, GetActorLocation().Z));
+
+	if (GetActorLocation().Y < LimiteLateralOX) {
+
+		SetActorLocation(FVector(GetActorLocation().X, 1000.0f, 250.0f));
+
+	}
 }
 

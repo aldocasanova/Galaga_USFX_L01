@@ -21,6 +21,8 @@ APowerUp::APowerUp()
 	mallaPowerUp->SetStaticMesh(PowerUp.Object);
 	mallaPowerUp->SetupAttachment(RootComponent);
 	RootComponent = mallaPowerUp;
+
+	LimiteVerticalPO = -1000.0f;
 }
 
 
@@ -41,7 +43,13 @@ void APowerUp::Tick(float DeltaTime)
 
 void APowerUp::Mover(float DeltaTime)
 {
-	velocidad = 0.15; //1.5
+	velocidad = 8; //1.5
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+
+	if (GetActorLocation().X < LimiteVerticalPO) {
+
+		SetActorLocation(FVector(3000.0f, FMath::RandRange(-1000.0f, 1000.0f), 250.0f));
+
+	}
 }
 

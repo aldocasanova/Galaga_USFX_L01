@@ -15,8 +15,15 @@ ANaveEnemigaEspia::ANaveEnemigaEspia()
 
 void ANaveEnemigaEspia::Mover(float DeltaTime)
 {
-	velocidad = 0.25; //0.60
+	velocidad = 0.50; //0.60
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+
+	if (GetActorLocation().X< LimiteInferiorX) {
+
+		SetActorLocation(FVector(400.0f, GetActorLocation().Y, 250.0f));
+
+	}
+	//FVector(200.0f, -1100.0f, 250.0f);
 }
 
 void ANaveEnemigaEspia::Destruirse()

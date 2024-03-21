@@ -19,6 +19,8 @@ private:
 	FVector posicion;
 	float tiempoSpaw;
 	float danioImpacto; 
+	float LimiteLateralOX ;
+
 
 public:
 	//metodos accesores
