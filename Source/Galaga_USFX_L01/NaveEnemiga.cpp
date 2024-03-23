@@ -2,6 +2,9 @@
 
 
 #include "NaveEnemiga.h"
+
+
+
 // Sets default values
 ANaveEnemiga::ANaveEnemiga()
 {
@@ -18,13 +21,13 @@ ANaveEnemiga::ANaveEnemiga()
 
 	LimiteInferiorX = -500.0f;
 	//LimiteInferiorY = 0.0f;
+
 }
 
 // Called when the game starts or when spawned
 void ANaveEnemiga::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -33,4 +36,3 @@ void ANaveEnemiga::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-

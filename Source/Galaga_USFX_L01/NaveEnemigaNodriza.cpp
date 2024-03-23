@@ -2,6 +2,8 @@
 
 
 #include "NaveEnemigaNodriza.h"
+#include "ProyectilEnemigo.h"
+
 
 // Sets default values
 ANaveEnemigaNodriza::ANaveEnemigaNodriza()

@@ -5,25 +5,22 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "ProyectilEnemigo.generated.h"
-
+class UstaticMeshComponent;
 UCLASS()
 class GALAGA_USFX_L01_API AProyectilEnemigo : public AActor
 {
 	GENERATED_BODY()
 private:
-	//atributos
+	// Sets default values for this actor's properties
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
+	UStaticMeshComponent* ProyectilEnemyMesh;
 	float velocidad;
-	float danioBala; 
-	FVector posicion;
+	float danio;
 public:
 	//metodos accesores
 	FORCEINLINE float GetVelocidad() const { return velocidad; }
-	FORCEINLINE float GetDanioProducido() const { return danioBala; }
-	FORCEINLINE FVector GetPosicion() const { return posicion; }
 
 	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
-	FORCEINLINE void SetDanioBala(float _danioBala) { danioBala = _danioBala; }
-	FORCEINLINE void SetPosicion(FVector _posicion) { posicion = _posicion; }
 	//metodos de la clase
 	void MovimientoProyectil();
 	void Impacto();
@@ -38,5 +35,6 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	void Mover();
 
 };

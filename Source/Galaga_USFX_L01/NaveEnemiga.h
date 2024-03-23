@@ -33,6 +33,8 @@ protected:
 	float LimiteInferiorX;
 	float LimiteInferiorY;
 
+
+
 	//float peso;
 	//float volumen;
 
@@ -86,6 +88,8 @@ protected:
 	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
 	void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
 	void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
+
+	void Desplazamiento() PURE_VIRTUAL(ANaveEnemiga::Desplazamiento, );
 	//virtual void Mover() = 0; // el problema es que lo estamos definiendo para que se abra abstracto, por lo que daba error
 	//virtual void Disparar() = 0; // la forma correcta es usar ese macro de pure virtual
 };
