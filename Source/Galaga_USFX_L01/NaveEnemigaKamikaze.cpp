@@ -18,6 +18,7 @@ void ANaveEnemigaKamikaze::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	Mover(DeltaTime);
+	Desplazamiento(DeltaTime);
 }
 
 void ANaveEnemigaKamikaze::Mover(float DeltaTime)
@@ -27,7 +28,7 @@ void ANaveEnemigaKamikaze::Mover(float DeltaTime)
 
 	if (GetActorLocation().X < LimiteInferiorX) {
 
-		SetActorLocation(FVector(400.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
 
 	}
 
@@ -36,6 +37,15 @@ void ANaveEnemigaKamikaze::Mover(float DeltaTime)
 
 void ANaveEnemigaKamikaze::Destruirse()
 {
+}
+
+void ANaveEnemigaKamikaze::Desplazamiento(float DeltaTime)
+{
+	AmplitudK = 2.0f;
+	VelocidadK = 5.0f;
+
+	FVector NewLocation = FVector(GetActorLocation().X + AmplitudK * FMath::Cos(VelocidadK * GetWorld()->GetTimeSeconds()), GetActorLocation().Y, GetActorLocation().Z);
+	SetActorLocation(NewLocation);
 }
 
 

@@ -46,10 +46,9 @@ void APowerUp::Mover(float DeltaTime)
 	velocidad = 8; //1.5
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 
-	if (GetActorLocation().X < LimiteVerticalPO) {
-
-		SetActorLocation(FVector(3000.0f, FMath::RandRange(-1000.0f, 1000.0f), 250.0f));
-
+	if (GetActorLocation().X < LimiteVerticalPO) 
+	{
+		SetActorLocation(FVector(4000.0f, FMath::RandRange(-1000.0f, 1000.0f), 250.0f));
 	}
 }
 

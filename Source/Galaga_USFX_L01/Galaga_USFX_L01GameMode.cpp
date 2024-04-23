@@ -3,13 +3,12 @@
 #include "Galaga_USFX_L01GameMode.h"
 #include "Galaga_USFX_L01Pawn.h"
 #include "NaveEnemiga.h"
-#include "NaveEnemigaTransporte.h"//cambio 7/03
-#include "NaveEnemigaCaza.h"//entonces en el GameMode debo añadir la librería de cada Nave que haga
+#include "NaveEnemigaTransporte.h"
+#include "NaveEnemigaCaza.h"
 #include "NaveEnemigaEspia.h"
 #include "NaveEnemigaNodriza.h"
 #include "NaveEnemigaReabastecimiento.h"
 #include "NaveEnemigaKamikaze.h"
-
 #include "MyNaveEnemigaCazaX.h"
 #include "MyNaveEnemigaCazaY.h"
 #include "NaveEnemigaTransporteAttack.h"
@@ -22,22 +21,22 @@
 #include "MyNaveEnemigaReabastecimientoBom.h"
 #include "MyNaveEnemigaKamikazeA.h"
 #include "MyNaveEnemigaKamikazeB.h"
-
 #include "NaveEnemigaPiccolo.h"
 #include "NaveEnemigaPiccoloZ.h"
 #include "NaveEnemigaPiccoloAF.h"
 
-
 #include "Obstaculo.h"
 #include "PowerUp.h"
+#include "Bomb.h"
+#include "NaveEnemigaBomb.h"
+
+#include "NaveEnemigaFactory.h"
 
 
 AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 {
 	// set default pawn class to our character class
 	DefaultPawnClass = AGalaga_USFX_L01Pawn::StaticClass();
-
-	//NaveEnemiga01 = nullptr;
 }
 
 void AGalaga_USFX_L01GameMode::BeginPlay()
@@ -62,6 +61,8 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	FVector ubicacionInicioNavesEnemigasPiccoloZ = FVector(200.0f, -500.0f, 250.0f);
 	FVector ubicacionInicioNavesEnemigasPiccoloAF = FVector(200.0f, 100.0f, 250.0f);
 
+	FVector ubicacionInicioNavesEnemigasBomb = FVector(800.0f, -500.0f, 250.0f);
+
 		FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
 		FRotator rotacionObstaculoPowerUp = FRotator(0.0f, 0.0f, 0.0f);
 
@@ -70,6 +71,19 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 
 	if (World != nullptr)
 	{
+		for (int i = 0; i < 20; i++)
+		{
+			FVector Position = FVector(1500.0f, -1500.0f + i * 150, 250.0f);
+			if (FMath::RandBool())
+			{
+				ANaveEnemiga* NuevaNaveCaza = ANaveEnemigaFactory::CrearNaveEnemiga("Caza", World, Position, FRotator::ZeroRotator);
+			}
+			else
+			{
+				ANaveEnemiga* NuevaNaveTransporte = ANaveEnemigaFactory::CrearNaveEnemiga("Transporte", World, Position, FRotator::ZeroRotator);
+			}
+		}
+
 		//fila de adelante
 		for (int i = 0; i < 2; i++) {
 			FVector PosicionNaveActual = FVector(ubicacionInicioNavesEnemigasEspiaNv1.X, ubicacionInicioNavesEnemigasEspiaNv1.Y + i * 2200, ubicacionInicioNavesEnemigasEspiaNv1.Z);
@@ -136,16 +150,21 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		//nuevas naves
 		for (int i = 0; i < 3; i++) {
 			FVector PosicionNaveActual = FVector(ubicacionInicioNavesEnemigasPiccoloZ.X, ubicacionInicioNavesEnemigasPiccoloZ.Y + i * 200, ubicacionInicioNavesEnemigasPiccoloZ.Z);
-			ANaveEnemigaPiccolo* NaveEnemigaNodrizaTemporal = World->SpawnActor<ANaveEnemigaPiccolo>(PosicionNaveActual, rotacionNave);
-			TANavesEnemigas.Push(NaveEnemigaNodrizaTemporal);
+			ANaveEnemigaPiccolo* NaveEnemigaPiccoloTemporal = World->SpawnActor<ANaveEnemigaPiccolo>(PosicionNaveActual, rotacionNave);
+			TANavesEnemigas.Push(NaveEnemigaPiccoloTemporal);
 		}
 		for (int i = 0; i < 3; i++) {
 			FVector PosicionNaveActual = FVector(ubicacionInicioNavesEnemigasPiccoloAF.X, ubicacionInicioNavesEnemigasPiccoloAF.Y + i * 200, ubicacionInicioNavesEnemigasPiccoloAF.Z);
-			ANaveEnemigaPiccolo* NaveEnemigaNodrizaTemporal = World->SpawnActor<ANaveEnemigaPiccolo>(PosicionNaveActual, rotacionNave);
+			ANaveEnemigaPiccolo* NaveEnemigaPiccoloTemporal = World->SpawnActor<ANaveEnemigaPiccolo>(PosicionNaveActual, rotacionNave);
+			TANavesEnemigas.Push(NaveEnemigaPiccoloTemporal);
+		}		
+	
+		for (int i = 0; i < 1; i++) {
+			FVector PosicionNaveActual = FVector(ubicacionInicioNavesEnemigasBomb.X, ubicacionInicioNavesEnemigasBomb.Y, ubicacionInicioNavesEnemigasBomb.Z);
+			ANaveEnemigaBomb* NaveEnemigaNodrizaTemporal = World->SpawnActor<ANaveEnemigaBomb>(PosicionNaveActual, rotacionNave);
 			TANavesEnemigas.Push(NaveEnemigaNodrizaTemporal);
 		}
-		//practlab
-		//-790, 10, 124
+		//Laboratorio Grupal
 		for (int i = 0; i < 1; i++)
 		{
 			FVector SpawnLocation = FVector((-600.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f); 

@@ -1,6 +1,5 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "NaveEnemigaTransporte.h"
 
 ANaveEnemigaTransporte::ANaveEnemigaTransporte()
@@ -15,7 +14,8 @@ void ANaveEnemigaTransporte::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	Mover(DeltaTime);
-}
+	Desplazamiento(DeltaTime);
+;}
 
 void ANaveEnemigaTransporte::Mover(float DeltaTime)
 {
@@ -39,7 +39,7 @@ void ANaveEnemigaTransporte::Mover(float DeltaTime)
 
 	if (GetActorLocation().X < LimiteInferiorX) {
 
-		SetActorLocation(FVector(600.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
 
 	}
 }
@@ -54,4 +54,13 @@ void ANaveEnemigaTransporte::Destruirse()
 
 void ANaveEnemigaTransporte::Escapar()
 {
+}
+
+void ANaveEnemigaTransporte::Desplazamiento(float DeltaTime)
+{
+	AmplitudT = 1.0f;
+	VelocidadT = 5.0f;
+
+	FVector NewLocation = FVector(GetActorLocation().X, GetActorLocation().Y + AmplitudT * FMath::Sin(VelocidadT * GetWorld()->GetTimeSeconds()), GetActorLocation().Z);
+	SetActorLocation(NewLocation);
 }

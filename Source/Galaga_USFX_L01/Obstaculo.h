@@ -21,7 +21,6 @@ private:
 	float danioImpacto; 
 	float LimiteLateralOX ;
 
-
 public:
 	//metodos accesores
 	FORCEINLINE FVector GetPosicion() const { return posicion; }

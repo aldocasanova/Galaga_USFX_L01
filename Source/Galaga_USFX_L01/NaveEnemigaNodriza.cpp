@@ -1,12 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "NaveEnemigaNodriza.h"
 #include "ProyectilEnemigo.h"
 #include "Kismet/GameplayStatics.h"
-
-
-
 
 // Sets default values
 ANaveEnemigaNodriza::ANaveEnemigaNodriza()
@@ -18,7 +14,7 @@ ANaveEnemigaNodriza::ANaveEnemigaNodriza()
 
     FireRate = rand() % 11 + 1; // Intervalo de tiempo entre disparos en segundos, formula 
 
-    MaxShots = 2; // Cantidad máxima de disparos
+    MaxShots = 8; // Cantidad máxima de disparos
     ShotsFired = 0; // Inicializar contador de disparos
 
     bCanFire = true; // Permitir disparos al principio
@@ -30,6 +26,7 @@ void ANaveEnemigaNodriza::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	Mover(DeltaTime);
 	Disparar();
+    Desplazamiento(DeltaTime);
 }
 
 void ANaveEnemigaNodriza::ShotTimerExpired()
@@ -44,7 +41,7 @@ void ANaveEnemigaNodriza::Mover(float DeltaTime)
 
 	if (GetActorLocation().X < LimiteInferiorX) {
 
-		SetActorLocation(FVector(600.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
 
 	}
 
@@ -87,6 +84,17 @@ void ANaveEnemigaNodriza::Destruirse()
 
 void ANaveEnemigaNodriza::Escapar()
 {
+}
+
+void ANaveEnemigaNodriza::Desplazamiento(float DeltaTime)
+{
+    Radio = 1.0f; // Radio de la circunferencia
+    VelocidadR = 2.0f; // Velocidad angular
+
+    FVector NewLocation = FVector(GetActorLocation().X + Radio * FMath::Cos(VelocidadR * GetWorld()->GetTimeSeconds()),
+        GetActorLocation().Y + Radio * FMath::Sin(VelocidadR * GetWorld()->GetTimeSeconds()),
+        GetActorLocation().Z);
+    SetActorLocation(NewLocation);
 }
 
 

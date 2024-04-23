@@ -6,7 +6,6 @@
 
 #include "Kismet/GameplayStatics.h"
 
-
 ANaveEnemigaCaza::ANaveEnemigaCaza()
 {
     static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_TriPyramid.Shape_TriPyramid'"));
@@ -21,17 +20,15 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
     //FireRate = 4.0f; // Intervalo de tiempo entre disparos en segundos
     FireRate = rand() % 4 + 1; // Intervalo de tiempo entre disparos en segundos, formula 
 
-    MaxShots = 5; // Cantidad máxima de disparos
+    MaxShots = 3; // Cantidad máxima de disparos
     ShotsFired = 0; // Inicializar contador de disparos
 
-    bCanFire = false; // Permitir disparos al principio
+    bCanFire = true; // Permitir disparos al principio
 }
-
 
 void ANaveEnemigaCaza::Disparar()
 {
     FVector SpawnLocation = GetActorLocation() + -(GetActorForwardVector() * 1);
-
 
     if (bCanFire == true && ShotsFired < MaxShots)
     {
@@ -57,6 +54,9 @@ void ANaveEnemigaCaza::Disparar()
 
     }
 }
+void ANaveEnemigaCaza::Destruirse()
+{
+}
 void ANaveEnemigaCaza::ShotTimerExpired()
 {
     bCanFire = true;
@@ -67,7 +67,8 @@ void ANaveEnemigaCaza::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	Mover(DeltaTime);
     Disparar();
-    Desplazamiento(); 
+    Desplazamiento(DeltaTime); 
+    StartFly();
 }
 
 void ANaveEnemigaCaza::Mover(float DeltaTime)
@@ -77,20 +78,24 @@ void ANaveEnemigaCaza::Mover(float DeltaTime)
 
 	if (GetActorLocation().X < LimiteInferiorX) 
 	{
-		Desplazamiento();
 		//SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, 250.0f));
-		SetActorLocation(FVector(400.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
 	}
 }
 
 
 
-void ANaveEnemigaCaza::Desplazamiento()
+void ANaveEnemigaCaza::Desplazamiento(float DeltaTime)
 {
-	
+    AmplitudZigzag =1.0f;
+	VelocidadZigzag = 5.0f;
+
+    FVector NewLocation = FVector(GetActorLocation().X, GetActorLocation().Y + AmplitudZigzag * FMath::Sin(VelocidadZigzag * GetWorld()->GetTimeSeconds()), GetActorLocation().Z);
+    SetActorLocation(NewLocation);
 }
 
-void ANaveEnemigaCaza::Destruirse()
+void ANaveEnemigaCaza::StartFly()
 {
 }
+
 

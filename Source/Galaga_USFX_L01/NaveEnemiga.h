@@ -32,11 +32,9 @@ protected:
 
 	float LimiteInferiorX;
 	float LimiteInferiorY;
+	float LimiteSuperiorY;
 
-
-
-	//float peso;
-	//float volumen;
+	int codigoNave;
 
 public: //leer valores
 	FORCEINLINE float GetVelocidad() const { return velocidad; }
@@ -51,8 +49,7 @@ public: //leer valores
 	FORCEINLINE int GetTipoNave() const { return tipoNave; }
 	FORCEINLINE float GetExperiencia() const { return experiencia; }
 	FORCEINLINE float GetEnergia() const { return energia; }
-	//FORCEINLINE float GetPeso() const { return peso; }
-	//FORCEINLINE float GetVolumen() const { return volumen; }
+	
 
 	//reescribir valores
 	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
@@ -67,8 +64,7 @@ public: //leer valores
 	FORCEINLINE void SetTipoNave(int _tipoNave) { tipoNave = _tipoNave; }
 	FORCEINLINE void SetExperiencia(float _experiencia) { experiencia = _experiencia; }
 	FORCEINLINE void SetEnergia(float _energia) { energia = _energia; }
-	//FORCEINLINE void SetPeso(float _peso) { peso = _peso; }
-	//FORCEINLINE void SetVolumen(float _volumen) { volumen = _volumen; }
+	
 
 public:
 	// Sets default values for this actor's properties
@@ -90,6 +86,5 @@ protected:
 	void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
 
 	void Desplazamiento() PURE_VIRTUAL(ANaveEnemiga::Desplazamiento, );
-	//virtual void Mover() = 0; // el problema es que lo estamos definiendo para que se abra abstracto, por lo que daba error
-	//virtual void Disparar() = 0; // la forma correcta es usar ese macro de pure virtual
+	
 };

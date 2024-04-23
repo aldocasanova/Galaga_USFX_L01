@@ -19,6 +19,15 @@ private:
 	float FireRate;
 	int MaxShots;
 	int ShotsFired;
+
+
+	float AmplitudVertical;
+	float VelocidadVertical;
+
+	float Radio;	
+	float VelocidadR;
+
+	int codigoNave = 4;
 public:
 	// Sets default values for this actor's properties
 	ANaveEnemigaNodriza();
@@ -26,6 +35,9 @@ public:
 	FORCEINLINE void SetNroEscudos(int _NroEscudos) { NroEscudos = _NroEscudos; }
 	virtual void Tick(float DeltaTime) override;
 	virtual void ShotTimerExpired();
+
+	FORCEINLINE int GetcodigoNave() const { return codigoNave; }
+	FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
 
 	class USoundBase* FireSound;
 
@@ -35,5 +47,6 @@ protected:
 	virtual void Destruirse();
 	virtual void Escapar();
 	FTimerHandle TimerHandle_ShotTimerExpired;
+	virtual void Desplazamiento(float DeltaTime);
 
 };

@@ -15,6 +15,11 @@ private:
 	int capacidadBalas;
 	int capacidadBombas;
 	int capacidadEscudos;
+
+	float AmplitudR;
+	float VelocidadR;
+
+	int codigoNave = 6;
 public:
 	// Sets default values for this actor's properties
 	ANaveEnemigaReabastecimiento();
@@ -25,9 +30,13 @@ public:
 		FORCEINLINE int GetCapacidadEscudos() const { return capacidadEscudos; }
 		FORCEINLINE void SetCapacidadEsudos(int _capacidadEscudos) { capacidadEscudos = _capacidadEscudos; }
 		virtual void Tick(float DeltaTime) override;
+
+		FORCEINLINE int GetcodigoNave() const { return codigoNave; }
+		FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
 protected:
 	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
 	virtual void Escapar();
 
+	virtual void Desplazamiento();
 };

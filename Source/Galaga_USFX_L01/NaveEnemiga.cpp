@@ -20,6 +20,8 @@ ANaveEnemiga::ANaveEnemiga()
 	velocidad = 0.25;
 
 	LimiteInferiorX = -500.0f;
+	LimiteInferiorY = -1800.0f;
+	LimiteSuperiorY = 1800.0f;
 	//LimiteInferiorY = 0.0f;
 
 }

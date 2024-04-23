@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "ProyectilEnemigo.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "UObject/ConstructorHelpers.h"
@@ -8,6 +5,10 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Engine/StaticMesh.h"
 
+#include "Galaga_USFX_L01Projectile.h"
+#include "Galaga_USFX_L01GameMode.h"
+
+#include "Kismet/GameplayStatics.h"
 void AProyectilEnemigo::MovimientoProyectil()
 {
 }
@@ -29,6 +30,7 @@ AProyectilEnemigo::AProyectilEnemigo()
 
 	velocidad = 1000;
 	danio = 10;
+
 }
 
 // Called when the game starts or when spawned

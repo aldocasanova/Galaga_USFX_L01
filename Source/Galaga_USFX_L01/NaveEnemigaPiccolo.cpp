@@ -26,7 +26,7 @@ void ANaveEnemigaPiccolo::Mover(float DeltaTime)
 
 	if (GetActorLocation().X < LimiteInferiorX) {
 
-		SetActorLocation(FVector(200.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
 		//agregar me'todo para que vuelvan a su posicion mediante el movimientyo de entrada
 
 	}
@@ -34,5 +34,9 @@ void ANaveEnemigaPiccolo::Mover(float DeltaTime)
 }
 
 void ANaveEnemigaPiccolo::Destruirse()
+{
+}
+
+void ANaveEnemigaPiccolo::Desplazamiento()
 {
 }

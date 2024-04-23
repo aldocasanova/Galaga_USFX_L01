@@ -25,6 +25,9 @@ protected:
 
 	int MaxShots;
 	int ShotsFired;
+
+	int codigoNave = 1;
+	
 public:
 	class USoundBase* FireSound;
 	//...
@@ -42,6 +45,9 @@ public:
 	FORCEINLINE float GetVelocidadZigzag() const { return VelocidadZigzag; }
 	FORCEINLINE void SetVelocidadZigzag(float _VelocidadZigzag) { VelocidadZigzag = _VelocidadZigzag; }
 
+	FORCEINLINE int GetcodigoNave() const { return codigoNave; }
+	FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
+
 	virtual void Tick(float DeltaTime) override;
 	virtual void ShotTimerExpired();
 
@@ -49,10 +55,12 @@ protected:
 	virtual void Mover(float DeltaTime);
 	virtual void Disparar();
 	virtual void Destruirse();
+
+
 	FTimerHandle TimerHandle_ShotTimerExpired;
+	virtual void Desplazamiento(float DeltaTime);
 
-
-	virtual void Desplazamiento();
+	void StartFly();
 
 private:
 	

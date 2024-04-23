@@ -34,10 +34,16 @@ void ANaveEnemigaEspia::Escapar()
 {
 }
 
+void ANaveEnemigaEspia::Desplazamiento(float DeltaTime)
+{
+	
+}
+
 // Called every frame
 void ANaveEnemigaEspia::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	Mover(DeltaTime);
+	Desplazamiento(DeltaTime);
 }
 

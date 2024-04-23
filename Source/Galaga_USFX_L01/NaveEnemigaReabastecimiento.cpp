@@ -27,7 +27,7 @@ void ANaveEnemigaReabastecimiento::Mover(float DeltaTime)
 
 	if (GetActorLocation().X < LimiteInferiorX) {
 
-		SetActorLocation(FVector(600.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
 
 	}
 
@@ -38,6 +38,10 @@ void ANaveEnemigaReabastecimiento::Destruirse()
 }
 
 void ANaveEnemigaReabastecimiento::Escapar()
+{
+}
+
+void ANaveEnemigaReabastecimiento::Desplazamiento()
 {
 }
 

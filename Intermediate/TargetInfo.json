@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "Galaga_USFX_L01",
-			"Path": "D:\\SIS457\\Galaga_USFX_L01-master\\Galaga_USFX_L01-master\\Source\\Galaga_USFX_L01.Target.cs",
+			"Path": "D:\\PalVisual\\Galaga_USFX_L01-master\\Galaga_USFX_L01-master\\Source\\Galaga_USFX_L01.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "Galaga_USFX_L01Editor",
-			"Path": "D:\\SIS457\\Galaga_USFX_L01-master\\Galaga_USFX_L01-master\\Source\\Galaga_USFX_L01Editor.Target.cs",
+			"Path": "D:\\PalVisual\\Galaga_USFX_L01-master\\Galaga_USFX_L01-master\\Source\\Galaga_USFX_L01Editor.Target.cs",
 			"Type": "Editor"
 		}
 	]
