@@ -40,10 +40,12 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFX_L01GameMode() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "//#include \"AndromedaDirector.h\"\n" },
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering Utilities|Transformation" },
 		{ "IncludePath", "Galaga_USFX_L01GameMode.h" },
 		{ "ModuleRelativePath", "Galaga_USFX_L01GameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
+		{ "ToolTip", "#include \"AndromedaDirector.h\"" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGalaga_USFX_L01GameMode_Statics::StaticCppClassTypeInfo = {
@@ -73,7 +75,7 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFX_L01GameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGalaga_USFX_L01GameMode, 3166193069);
+	IMPLEMENT_CLASS(AGalaga_USFX_L01GameMode, 163169638);
 	template<> GALAGA_USFX_L01_API UClass* StaticClass<AGalaga_USFX_L01GameMode>()
 	{
 		return AGalaga_USFX_L01GameMode::StaticClass();

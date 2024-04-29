@@ -2,25 +2,58 @@
 
 
 #include "NaveEnemigaFactory.h"
-#include "NaveEnemigaCaza.h"
-#include "NaveEnemigaTransporte.h"
-// Sets default values
+#include "MyNaveEnemigaCazaY.h"
+#include "NaveEnemigaTransporteAttack.h"
+#include "MyNaveEnemigaKamikazeA.h"
+#include "MyNaveEnemigaEspiaNv2.h"
+#include "MyNaveEnemigaNodrizaCoca.h"
+#include "MyNaveEnemigaReabastecimientoBom.h"
+#include "NaveEnemigaBomb.h"
 
+// Sets default values
+/*ANaveEnemigaFactory::ANaveEnemigaFactory()
+{
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
+
+}*/
 // Called when the game starts or when spawned
 
 ANaveEnemiga* ANaveEnemigaFactory::CrearNaveEnemiga(FString tipoNave, UWorld* World, FVector SpawnLocation, FRotator SpawnRotation)
 {
     FVector SpawnLocationAdjusted = SpawnLocation;
+
     if (tipoNave == "Caza")
     {
-        ANaveEnemigaCaza* NuevaNave = World->SpawnActor<ANaveEnemigaCaza>(SpawnLocationAdjusted, SpawnRotation);
+        AMyNaveEnemigaCazaY* NuevaNave = World->SpawnActor<AMyNaveEnemigaCazaY>(SpawnLocationAdjusted, SpawnRotation);
         return NuevaNave;
     }
+    else if (tipoNave == "Kamikaze")
+    {
+        AMyNaveEnemigaKamikazeA* NuevaNave = World->SpawnActor<AMyNaveEnemigaKamikazeA>(SpawnLocationAdjusted, SpawnRotation);
+        return NuevaNave;
+	}
+	else if (tipoNave == "Nodriza")
+	{
+		AMyNaveEnemigaNodrizaCoca* NuevaNave = World->SpawnActor<AMyNaveEnemigaNodrizaCoca>(SpawnLocationAdjusted, SpawnRotation);
+		return NuevaNave;
+	}
+	else if (tipoNave == "Reabastecimiento")
+	{
+		AMyNaveEnemigaReabastecimientoBom* NuevaNave = World->SpawnActor<AMyNaveEnemigaReabastecimientoBom>(SpawnLocationAdjusted, SpawnRotation);
+		return NuevaNave;
+	}
+	else if (tipoNave == "Bomb")
+	{
+		ANaveEnemigaBomb* NuevaNave = World->SpawnActor<ANaveEnemigaBomb>(SpawnLocationAdjusted, SpawnRotation);
+		return NuevaNave;
+	}
     else if (tipoNave == "Transporte")
     {
-        ANaveEnemigaTransporte* NuevaNave = World->SpawnActor<ANaveEnemigaTransporte>(SpawnLocationAdjusted, SpawnRotation);
+        ANaveEnemigaTransporteAttack* NuevaNave = World->SpawnActor<ANaveEnemigaTransporteAttack>(SpawnLocationAdjusted, SpawnRotation);
         return NuevaNave;
     }
+    
 	return nullptr;
 }
 

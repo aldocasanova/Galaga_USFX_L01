@@ -51,3 +51,16 @@ void ABomb::Desaparecer(float _TiempoExplosion)
 	}
 }
 
+/*void ABomb::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr))
+	{
+		AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+		if (GameMode)
+		{
+			GameMode->TANavesEnemigas.Remove(Cast<ANaveEnemiga>(OtherActor));
+			OtherActor->Destroy();
+		}
+		Destroy();
+	}
+}*/
