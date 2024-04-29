@@ -24,7 +24,7 @@ void AOmegaFieldBuilder::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-}
+}//uwu
 
 void AOmegaFieldBuilder::BuildObstacles()
 {
