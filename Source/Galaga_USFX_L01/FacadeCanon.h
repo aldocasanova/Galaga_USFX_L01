@@ -24,15 +24,32 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	void SpawnCanons();
+	void SpawnCanons(int32 Nivel);
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 private:
 	void SpawnCanon(TSubclassOf<AModeloCanon> CanonClass, FVector Location);
 
+
 	FVector TopLeftCorner;
 	FVector TopRightCorner;
 	FVector DownLeftCorner;
 	FVector DownRightCorner;
+
+	// Nivel actual de los cañones
+	int32 NivelInicial;
+
+	// Intervalo de tiempo para aumentar el nivel de los cañones
+	float  IntervaloNivel;
+
+	// TimerHandle para el temporizador
+	FTimerHandle  IntervaloNivelimerHandle;
+
+	// Función para incrementar el nivel de los cañones
+	void IncreaseNivel();
+
+	// Máximo nivel permitido
+	int32 MaxNivel;
+	int32 Nivel;
 };

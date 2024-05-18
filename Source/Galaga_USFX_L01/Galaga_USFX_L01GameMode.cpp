@@ -40,8 +40,8 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
     // Aquí puedes hacer algo con el campo galáctico, como asignarlo a una variable del GameMode o pasarlo a otros sistemas.
 	TiempoTranscurrido = 0;
 
+    //trabajo3
 	FormacionCanones = GetWorld()->SpawnActor<AFacadeCanon>();
-
 }
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {

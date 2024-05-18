@@ -14,4 +14,6 @@ class GALAGA_USFX_L01_API ACanonBombaNv2 : public ACanonBomba
 {
 	GENERATED_BODY()
 	
+public:
+	ACanonBombaNv2();
 };

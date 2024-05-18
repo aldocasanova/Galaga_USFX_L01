@@ -3,3 +3,7 @@
 
 #include "CanonBombaNv1.h"
 
+ACanonBombaNv1::ACanonBombaNv1()
+{
+	PrimaryActorTick.bCanEverTick = true;
+}

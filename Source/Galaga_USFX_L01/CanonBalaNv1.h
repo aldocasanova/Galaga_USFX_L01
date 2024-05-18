@@ -13,5 +13,7 @@ UCLASS()
 class GALAGA_USFX_L01_API ACanonBalaNv1 : public ACanonBala
 {
 	GENERATED_BODY()
-	
+
+public:
+	ACanonBalaNv1();
 };

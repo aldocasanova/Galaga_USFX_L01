@@ -3,3 +3,7 @@
 
 #include "CanonBalaNv1.h"
 
+ACanonBalaNv1::ACanonBalaNv1()
+{
+	PrimaryActorTick.bCanEverTick = true;
+}
