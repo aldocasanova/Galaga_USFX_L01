@@ -19,7 +19,6 @@
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/CanonLazerNv2.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/CanonLazerNv3.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/DeltaFieldBuilder.cpp"
-#include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/FacadeCanon.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/GalacticField.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01Pawn.cpp"

@@ -2,6 +2,8 @@
 
 
 #include "FacadeCanon.h"
+#include "ModeloCanon.h"
+
 #include "CanonBalaNv1.h"
 #include "CanonLazerNv1.h"
 #include "CanonBombaNv1.h"
@@ -103,19 +105,15 @@ void AFacadeCanon::SpawnCanon(TSubclassOf<AModeloCanon> CanonClass, FVector Loca
 
 }
 
-
 void AFacadeCanon::IncreaseNivel()
 {
-    // Incrementar el nivel de los cañones
-    NivelInicial++;
-
-    // Si el nivel alcanza el máximo, reiniciar a 1
-    if (NivelInicial > MaxNivel)
+    if (NivelInicial < MaxNivel)
     {
-        NivelInicial = 1;
+        NivelInicial++;
     }
-
-    // Spawnear los cañones con el nuevo nivel
-    SpawnCanons(NivelInicial);
+    if (NivelInicial <= MaxNivel)
+    {
+        SpawnCanons(NivelInicial);
+    }
 }
 

@@ -19,18 +19,16 @@ class GALAGA_USFX_L01_API AFacadeCanon : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AFacadeCanon();
-	TArray<AModeloCanon*> FormacionCanones;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	void SpawnCanons(int32 Nivel);
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	void SpawnCanons(int32 Nivel);
+
 private:
 	void SpawnCanon(TSubclassOf<AModeloCanon> CanonClass, FVector Location);
-
 
 	FVector TopLeftCorner;
 	FVector TopRightCorner;
@@ -49,7 +47,10 @@ private:
 	// Función para incrementar el nivel de los cañones
 	void IncreaseNivel();
 
+	TArray<AModeloCanon*> ExistingCanons;
+
+
 	// Máximo nivel permitido
 	int32 MaxNivel;
-	int32 Nivel;
+
 };
