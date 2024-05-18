@@ -21,7 +21,6 @@
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/DeltaFieldBuilder.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/GalacticField.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01.cpp"
-#include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01GameMode.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01Pawn.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01Projectile.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/IGalacticFieldBuilder.cpp"

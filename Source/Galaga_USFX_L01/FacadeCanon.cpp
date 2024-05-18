@@ -3,7 +3,7 @@
 
 #include "FacadeCanon.h"
 #include "ModeloCanon.h"
-
+#include "Kismet/GameplayStatics.h"
 #include "CanonBalaNv1.h"
 #include "CanonLazerNv1.h"
 #include "CanonBombaNv1.h"
@@ -105,15 +105,28 @@ void AFacadeCanon::SpawnCanon(TSubclassOf<AModeloCanon> CanonClass, FVector Loca
 
 }
 
+void AFacadeCanon::CleanUpCanones()
+{
+    // Obtener todos los actores de la clase AModeloCanon
+    TArray<AActor*> BuscarCanones;
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), AModeloCanon::StaticClass(), BuscarCanones); 
+    // Iterar sobre los actores encontrados y destruirlos
+    for (AActor* Actor : BuscarCanones)
+    {
+        Actor->Destroy();
+    }
+}
+
 void AFacadeCanon::IncreaseNivel()
 {
     if (NivelInicial < MaxNivel)
     {
+        // Incrementar el nivel si no ha alcanzado el máximo
         NivelInicial++;
+		CleanUpCanones(); //borrar canones de otros niveles antes de spawnear los nuevos
+		SpawnCanons(NivelInicial); //spawnear los nuevos canones
     }
-    if (NivelInicial <= MaxNivel)
-    {
-        SpawnCanons(NivelInicial);
-    }
+
+   
 }
 

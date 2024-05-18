@@ -155,7 +155,6 @@ D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Wi
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/GalacticField.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01.cpp
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\Galaga_USFX_L01.h
-D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01GameMode.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01Pawn.cpp
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h

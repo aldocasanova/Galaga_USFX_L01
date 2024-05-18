@@ -46,4 +46,5 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	TiempoTranscurrido += DeltaTime;
 }

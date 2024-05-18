@@ -29,6 +29,8 @@ public:
 
 private:
 	void SpawnCanon(TSubclassOf<AModeloCanon> CanonClass, FVector Location);
+	void CleanUpCanones();
+
 
 	FVector TopLeftCorner;
 	FVector TopRightCorner;
@@ -40,7 +42,7 @@ private:
 
 	// Intervalo de tiempo para aumentar el nivel de los cañones
 	float  IntervaloNivel;
-
+	float TiempoSpawn;
 	// TimerHandle para el temporizador
 	FTimerHandle  IntervaloNivelimerHandle;
 
