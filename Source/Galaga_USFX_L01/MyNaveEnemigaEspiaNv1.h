@@ -13,5 +13,6 @@ UCLASS()
 class GALAGA_USFX_L01_API AMyNaveEnemigaEspiaNv1 : public ANaveEnemigaEspia
 {
 	GENERATED_BODY()
-	
+
+public:
 };

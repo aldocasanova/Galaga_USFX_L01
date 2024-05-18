@@ -31,7 +31,7 @@ AGalacticField* AAndromedaDirector::ConstructGalacticField(IIGalacticFieldBuilde
 {
 	if (Builder)
 	{
-		Builder->BuildObstacles();
+		Builder->BuildObstacles(); //accedo a métodos por el puntero
 		Builder->BuildEnemies();
 		Builder->BuildPowerUps();
 
@@ -44,3 +44,7 @@ AGalacticField* AAndromedaDirector::ConstructGalacticField(IIGalacticFieldBuilde
 	}
 }
 
+
+
+//se usan las felchas de la interfaz para acceder a los metodos de la interfaz
+//por qué no con .? porque se ejeuta y se elimina 

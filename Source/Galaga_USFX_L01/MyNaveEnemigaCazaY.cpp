@@ -9,7 +9,7 @@ void AMyNaveEnemigaCazaY::Tick(float DeltaTime)
 
 AMyNaveEnemigaCazaY::AMyNaveEnemigaCazaY()
 {
-	posicion = FVector(1200, -1000 + 200, 250);
+	//posicion = FVector(1200, -1000 + 200, 250);
 }
 
 void AMyNaveEnemigaCazaY::Mover(float DeltaTime)

@@ -22,6 +22,9 @@ class AGalaga_USFX_L01Projectile : public AActor
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
 
+	class UCapsuleComponent* Collision;
+
+
 public:
 	AGalaga_USFX_L01Projectile();
 
@@ -33,5 +36,8 @@ public:
 	FORCEINLINE UStaticMeshComponent* GetProjectileMesh() const { return ProjectileMesh; }
 	/** Returns ProjectileMovement subobject **/
 	FORCEINLINE UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
+
+	void NotifyActorBeginOverlap(AActor* OtherActor);
+
 };
 

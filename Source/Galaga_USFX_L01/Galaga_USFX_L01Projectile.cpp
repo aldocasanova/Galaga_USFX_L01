@@ -4,7 +4,10 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Galaga_USFX_L01GameMode.h"
+#include "NaveEnemiga.h"
 #include "Engine/StaticMesh.h"
 
 AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile() 
@@ -31,6 +34,10 @@ AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile()
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
+
+	Collision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Collision"));
+	Collision->SetupAttachment(RootComponent);
+	Collision->InitCapsuleSize(50.f, 100.f);
 }
 
 void AGalaga_USFX_L01Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
@@ -41,5 +48,27 @@ void AGalaga_USFX_L01Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* Oth
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 20.0f, GetActorLocation());
 	}
 
+
+
 	Destroy();
 }
+
+void AGalaga_USFX_L01Projectile::NotifyActorBeginOverlap(AActor* OtherActor)
+{
+	Super::AActor::NotifyActorBeginOverlap(OtherActor);
+
+
+	ANaveEnemiga* EnemyShip = Cast<ANaveEnemiga>(OtherActor);
+	AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(GetWorld()->GetAuthGameMode());
+
+	if (EnemyShip)
+	{
+		EnemyShip->Destroy();
+	}
+}
+	/*if (OtherActor != nullptr && OtherActor != this)
+	{
+		OtherActor->Destroy();
+		Destroy();
+	}*/
+

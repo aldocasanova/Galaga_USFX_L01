@@ -9,7 +9,8 @@
 #include "AndromedaDirector.h"
 #include "GalacticField.h"
 #include "IGalacticFieldBuilder.h"
-
+#include "FacadeCanon.h"
+#include "Galaga_USFX_L01Pawn.h"
 
 #include "Galaga_USFX_L01GameMode.generated.h"
 
@@ -31,5 +32,8 @@ private:
 
 	int TiempoTranscurrido = 0;
 	AAndromedaDirector* Director;
+	
+	AFacadeCanon* FormacionCanones;
+
 
 };

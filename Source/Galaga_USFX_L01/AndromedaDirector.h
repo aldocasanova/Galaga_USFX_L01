@@ -24,7 +24,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	AGalacticField* ConstructGalacticField(IIGalacticFieldBuilder* Builder);
+	AGalacticField* ConstructGalacticField(IIGalacticFieldBuilder* Builder); //recibo la interfaz para crear el campo galactico
 
 };
 

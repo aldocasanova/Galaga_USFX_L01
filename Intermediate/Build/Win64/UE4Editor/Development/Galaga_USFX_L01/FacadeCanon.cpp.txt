@@ -1,0 +1,13 @@
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX_L01\Definitions.Galaga_USFX_L01.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\FacadeCanon.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\ModeloCanon.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ModeloCanon.generated.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonBala.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonBala.generated.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonLazer.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonLazer.generated.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonBomba.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonBomba.generated.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonHielo.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonHielo.generated.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\FacadeCanon.generated.h

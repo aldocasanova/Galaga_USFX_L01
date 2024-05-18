@@ -18,6 +18,7 @@ ABomb::ABomb()
 	//BombMesh->SetupAttachment(RootComponent);
 	RootComponent = BombMesh;
 	velocidad;
+	//tamano de la bomba
 	BombMesh->SetRelativeScale3D(FVector(3.0f,3.0f,3.0f));
 }
 

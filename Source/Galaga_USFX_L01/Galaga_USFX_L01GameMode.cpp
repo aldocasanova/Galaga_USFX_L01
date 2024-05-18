@@ -26,7 +26,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	switch (FMath::RandRange(1, 3)) // puedo cambair esto on una variable que se pueda cambiar en el editor
     {
     case 1:
-        FieldBuilder = GetWorld()->SpawnActor<AOmegaFieldBuilder>();
+        FieldBuilder = GetWorld()->SpawnActor<AOmegaFieldBuilder>(); 
         break;
     case 2:
         FieldBuilder = GetWorld()->SpawnActor<AAlfaFieldBuilder>();
@@ -39,6 +39,9 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 
     // Aquí puedes hacer algo con el campo galáctico, como asignarlo a una variable del GameMode o pasarlo a otros sistemas.
 	TiempoTranscurrido = 0;
+
+	FormacionCanones = GetWorld()->SpawnActor<AFacadeCanon>();
+
 }
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {
