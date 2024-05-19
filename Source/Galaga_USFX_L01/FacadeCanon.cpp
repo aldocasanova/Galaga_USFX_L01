@@ -29,10 +29,9 @@ AFacadeCanon::AFacadeCanon()
     DownLeftCorner = FVector(-1000.f, 1000.f, 250.f);
     DownRightCorner = FVector(1000.f, 1000.f, 250.f);
 
-    // Inicializar el nivel actual y el intervalo de tiempo
     NivelInicial = 1;
-    IntervaloNivel = 5.0f; // Aumentar el nivel cada 60 segundos
-    MaxNivel = 3; // Establecer el nivel máximo permitido
+    IntervaloNivel = 5.0f; // aumento nivel cada 60 segundos
+    MaxNivel = 3; 
 }
 
 // Called when the game starts or when spawned
@@ -42,13 +41,11 @@ void AFacadeCanon::BeginPlay()
 
 	SpawnCanons(NivelInicial);
 
-    // Iniciar el temporizador para aumentar el nivel de los cañones
-    GetWorldTimerManager().SetTimer(IntervaloNivelimerHandle, this, &AFacadeCanon::IncreaseNivel, IntervaloNivel, true);
+	GetWorldTimerManager().SetTimer(IntervaloNivelimerHandle, this, &AFacadeCanon::IncreaseNivel, IntervaloNivel, true); //temporizador para aumentar nivel
 }
 
 void AFacadeCanon::SpawnCanons(int32 Nivel)
 {
-
     TSubclassOf<AModeloCanon> BalaClass;
     TSubclassOf<AModeloCanon> LazerClass;
     TSubclassOf<AModeloCanon> BmbaClass;
@@ -75,28 +72,19 @@ void AFacadeCanon::SpawnCanons(int32 Nivel)
         BmbaClass = ACanonBombaNv3::StaticClass();
         HieloClass = ACanonHieloNv3::StaticClass();
         break;
-    default:
-        // Nivel por defecto o error
         return;
     }
 
-    // Spawnear los cañones en las ubicaciones correspondientes
+	// spawn según las ubicaciones y niveles
     SpawnCanon(BalaClass, TopLeftCorner);
     SpawnCanon(LazerClass, TopRightCorner);
     SpawnCanon(BmbaClass, DownLeftCorner);
     SpawnCanon(HieloClass, DownRightCorner);
 }
 
-// Called every frame
-void AFacadeCanon::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-
 void AFacadeCanon::SpawnCanon(TSubclassOf<AModeloCanon> CanonClass, FVector Location)
 {
- 
+
     if (GetWorld())
     {
         FActorSpawnParameters SpawnParams;
@@ -107,10 +95,10 @@ void AFacadeCanon::SpawnCanon(TSubclassOf<AModeloCanon> CanonClass, FVector Loca
 
 void AFacadeCanon::CleanUpCanones()
 {
-    // Obtener todos los actores de la clase AModeloCanon
+    // obtengo todos los actores de la clase AModeloCanon
     TArray<AActor*> BuscarCanones;
     UGameplayStatics::GetAllActorsOfClass(GetWorld(), AModeloCanon::StaticClass(), BuscarCanones); 
-    // Iterar sobre los actores encontrados y destruirlos
+    //agarro todos los canones encontrados y los destruyo 
     for (AActor* Actor : BuscarCanones)
     {
         Actor->Destroy();
@@ -121,12 +109,18 @@ void AFacadeCanon::IncreaseNivel()
 {
     if (NivelInicial < MaxNivel)
     {
-        // Incrementar el nivel si no ha alcanzado el máximo
         NivelInicial++;
 		CleanUpCanones(); //borrar canones de otros niveles antes de spawnear los nuevos
-		SpawnCanons(NivelInicial); //spawnear los nuevos canones
+		SpawnCanons(NivelInicial);
     }
 
    
+}
+
+// Called every frame
+void AFacadeCanon::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+
 }
 

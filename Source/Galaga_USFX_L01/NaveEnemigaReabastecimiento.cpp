@@ -37,11 +37,8 @@ void ANaveEnemigaReabastecimiento::Destruirse()
 {
 }
 
-void ANaveEnemigaReabastecimiento::Escapar()
-{
-}
 
-void ANaveEnemigaReabastecimiento::Desplazamiento()
+void ANaveEnemigaReabastecimiento::Desplazamiento(float DeltaTime)
 {
 }
 

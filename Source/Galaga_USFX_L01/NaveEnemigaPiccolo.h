@@ -30,8 +30,8 @@ public:
 	FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
 	virtual void Tick(float DeltaTime) override;
 protected:
-	virtual void Mover(float DeltaTime);
-	virtual void Destruirse();
+	virtual void Mover(float DeltaTime) override;
+	virtual void Destruirse() override;
 
-	virtual void Desplazamiento();
+	virtual void Desplazamiento(float DeltaTime) override;
 };

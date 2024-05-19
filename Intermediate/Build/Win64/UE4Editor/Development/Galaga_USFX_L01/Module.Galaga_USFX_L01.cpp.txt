@@ -66,14 +66,6 @@ D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.gen
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\FacadeCanon.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\ModeloCanon.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\ModeloCanon.generated.h
-D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonBala.h
-D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonBala.generated.h
-D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonLazer.h
-D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonLazer.generated.h
-D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonBomba.h
-D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonBomba.generated.h
-D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonHielo.h
-D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonHielo.generated.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\FacadeCanon.generated.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\Galaga_USFX_L01Pawn.h
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
@@ -96,6 +88,8 @@ D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/CanonBala.cpp
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonBala.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonBala.generated.h
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/ProjectileMovementComponent.h
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/MovementComponent.h
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MovementComponent.generated.h
@@ -110,6 +104,8 @@ D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L0
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonBalaNv3.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonBalaNv3.generated.h
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/CanonBomba.cpp
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonBomba.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonBomba.generated.h
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/CanonBombaNv1.cpp
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonBombaNv1.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonBombaNv1.generated.h
@@ -120,6 +116,8 @@ D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L0
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonBombaNv3.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonBombaNv3.generated.h
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/CanonHielo.cpp
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonHielo.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonHielo.generated.h
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/CanonHieloNv1.cpp
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonHieloNv1.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonHieloNv1.generated.h
@@ -130,6 +128,8 @@ D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L0
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonHieloNv3.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonHieloNv3.generated.h
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/CanonLazer.cpp
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonLazer.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonLazer.generated.h
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/CanonLazerNv1.cpp
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\CanonLazerNv1.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonLazerNv1.generated.h
@@ -155,6 +155,7 @@ D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Wi
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/GalacticField.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01.cpp
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\Galaga_USFX_L01.h
+D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01GameMode.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/Galaga_USFX_L01Pawn.cpp
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
@@ -180,14 +181,10 @@ D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L0
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemiga.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaBomb.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaCaza.cpp
-D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaEspia.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaFactory.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaKamikaze.cpp
-D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaNodriza.cpp
-D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaPiccolo.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaPiccoloAF.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaPiccoloZ.cpp
-D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaReabastecimiento.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaTransporte.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaTransporteAttack.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Source/Galaga_USFX_L01/NaveEnemigaTransporteSupport.cpp

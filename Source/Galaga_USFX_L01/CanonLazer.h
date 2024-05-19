@@ -16,8 +16,8 @@ class GALAGA_USFX_L01_API ACanonLazer : public AModeloCanon
 
 public:
 	ACanonLazer();
-	virtual void Disparar();
-	virtual void ResetFire();
+	virtual void Disparar() override;
+	virtual void ResetFire() override;
 	virtual void Tick(float DeltaTime) override;
 
 };

@@ -16,6 +16,6 @@ class GALAGA_USFX_L01_API ACanonHielo : public AModeloCanon
 public:
 	ACanonHielo();
 	virtual void Tick(float DeltaTime) override;
-	virtual void Disparar();
-	virtual void ResetFire();
+	virtual void Disparar() override;
+	virtual void ResetFire() override;
 };

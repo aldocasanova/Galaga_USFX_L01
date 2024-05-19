@@ -79,12 +79,11 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-	void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
+	virtual void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
 	//void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
-	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
-	void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
-	void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
-
-	void Desplazamiento() PURE_VIRTUAL(ANaveEnemiga::Desplazamiento, );
+	virtual void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
+	virtual void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
+	//virtual void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
+	virtual void Desplazamiento(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Desplazamiento, );
 	
 };

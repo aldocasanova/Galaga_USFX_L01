@@ -42,7 +42,7 @@ public:
 	FORCEINLINE int GetCantidadProyectiles() const { return cantidadProyectiles; }
 
 
-	void Disparar() PURE_VIRTUAL(AModeloCanon::Disparar, ;)
-	void ResetFire() PURE_VIRTUAL(AModeloCanon::ResetFire, ;)
+	virtual void Disparar() PURE_VIRTUAL(AModeloCanon::Disparar, ;)
+	virtual void ResetFire() PURE_VIRTUAL(AModeloCanon::ResetFire, ;)
 	FTimerHandle TimerHandle_ShotTimerExpired;
 };

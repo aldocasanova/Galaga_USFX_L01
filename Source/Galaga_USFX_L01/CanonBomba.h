@@ -16,6 +16,6 @@ class GALAGA_USFX_L01_API ACanonBomba : public AModeloCanon
 public:
 	ACanonBomba();
 	virtual void Tick(float DeltaTime) override;
-	virtual void Disparar();
-	virtual void ResetFire();
+	virtual void Disparar() override;
+	virtual void ResetFire() override;
 };

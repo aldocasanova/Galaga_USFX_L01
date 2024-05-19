@@ -5,10 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "ModeloCanon.h"
-#include "CanonBala.h"
-#include "CanonLazer.h"
-#include "CanonBomba.h"
-#include "CanonHielo.h"
 #include "FacadeCanon.generated.h"
 
 UCLASS()
@@ -22,37 +18,26 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-public:
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	void SpawnCanons(int32 Nivel);
 
 private:
+	//métodos de spawn
+	void SpawnCanons(int32 Nivel);
 	void SpawnCanon(TSubclassOf<AModeloCanon> CanonClass, FVector Location);
+	void IncreaseNivel();
 	void CleanUpCanones();
 
-
+	//ubicaciones en extremos
 	FVector TopLeftCorner;
 	FVector TopRightCorner;
 	FVector DownLeftCorner;
 	FVector DownRightCorner;
 
-	// Nivel actual de los cañones
-	int32 NivelInicial;
-
-	// Intervalo de tiempo para aumentar el nivel de los cañones
-	float  IntervaloNivel;
-	float TiempoSpawn;
-	// TimerHandle para el temporizador
-	FTimerHandle  IntervaloNivelimerHandle;
-
-	// Función para incrementar el nivel de los cañones
-	void IncreaseNivel();
-
 	TArray<AModeloCanon*> ExistingCanons;
 
-
-	// Máximo nivel permitido
+	int32 NivelInicial;
+	float  IntervaloNivel;
+	float TiempoSpawn;
+	FTimerHandle  IntervaloNivelimerHandle;
 	int32 MaxNivel;
-
 };

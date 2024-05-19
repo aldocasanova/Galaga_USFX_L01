@@ -34,9 +34,9 @@ public:
 		FORCEINLINE int GetcodigoNave() const { return codigoNave; }
 		FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
 protected:
-	virtual void Mover(float DeltaTime);
-	virtual void Destruirse();
-	virtual void Escapar();
+	virtual void Mover(float DeltaTime) override;
+	virtual void Destruirse() override;
+	//virtual void Escapar() override;
 
-	virtual void Desplazamiento();
+	virtual void Desplazamiento(float DeltaTime);
 };

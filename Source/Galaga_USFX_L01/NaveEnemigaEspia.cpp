@@ -30,9 +30,7 @@ void ANaveEnemigaEspia::Destruirse()
 {
 }
 
-void ANaveEnemigaEspia::Escapar()
-{
-}
+
 
 void ANaveEnemigaEspia::Desplazamiento(float DeltaTime)
 {

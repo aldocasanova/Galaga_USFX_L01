@@ -28,9 +28,9 @@ public:
 		virtual void Tick(float DeltaTime) override;
 		class USoundBase* FireSound;
 protected:
-	virtual void Mover(float DeltaTime);
-	virtual void Destruirse();
+	virtual void Mover(float DeltaTime) override;
+	virtual void Destruirse() override;
 	FTimerHandle TimerHandle_ShotTimerExpired;
-	virtual void Desplazamiento(float DeltaTime);
+	virtual void Desplazamiento(float DeltaTime) override;
 
 };

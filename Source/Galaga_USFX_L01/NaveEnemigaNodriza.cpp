@@ -82,9 +82,7 @@ void ANaveEnemigaNodriza::Destruirse()
 {
 }
 
-void ANaveEnemigaNodriza::Escapar()
-{
-}
+
 
 void ANaveEnemigaNodriza::Desplazamiento(float DeltaTime)
 {

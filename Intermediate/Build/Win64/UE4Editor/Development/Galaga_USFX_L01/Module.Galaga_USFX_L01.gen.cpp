@@ -21,7 +21,6 @@
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/DeltaFieldBuilder.gen.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/FacadeCanon.gen.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/GalacticField.gen.cpp"
-#include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01.init.gen.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01GameMode.gen.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01Pawn.gen.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01Projectile.gen.cpp"

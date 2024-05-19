@@ -42,11 +42,11 @@ public:
 	class USoundBase* FireSound;
 
 protected:
-	virtual void Mover(float DeltaTime);
-	virtual void Disparar();
-	virtual void Destruirse();
-	virtual void Escapar();
+	virtual void Mover(float DeltaTime) override;
+	virtual void Disparar() override;
+	virtual void Destruirse() override;
+	//virtual void Escapar();
 	FTimerHandle TimerHandle_ShotTimerExpired;
-	virtual void Desplazamiento(float DeltaTime);
+	virtual void Desplazamiento(float DeltaTime) override;
 
 };

@@ -37,6 +37,6 @@ void ANaveEnemigaPiccolo::Destruirse()
 {
 }
 
-void ANaveEnemigaPiccolo::Desplazamiento()
+void ANaveEnemigaPiccolo::Desplazamiento(float DeltaTime)
 {
 }
