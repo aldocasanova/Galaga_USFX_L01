@@ -31,6 +31,6 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	void Mover(float DeltaTime);
-	void Desaparecer(float TiempoExplosion);
+	virtual void Mover(float DeltaTime);
+	virtual void Desaparecer(float TiempoExplosion);
 };

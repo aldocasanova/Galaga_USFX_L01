@@ -2,7 +2,6 @@
 
 
 #include "OmegaFieldBuilder.h"
-
 // Sets default values
 AOmegaFieldBuilder::AOmegaFieldBuilder()
 {
@@ -15,8 +14,11 @@ AOmegaFieldBuilder::AOmegaFieldBuilder()
 void AOmegaFieldBuilder::BeginPlay()
 {
 	Super::BeginPlay();
-	
 
+	//trabajo 3
+	FormacionCanones = GetWorld()->SpawnActor<AFacadeCanon>();
+	FormacionCanones->SpawnCanons(1);
+	FormacionCanones->IncreaseNivel();
 }
 
 // Called every frame
@@ -68,26 +70,26 @@ void AOmegaFieldBuilder::BuildEnemies()
 
 	for (int i = 0; i < 2; i++)
 	{
-		FVector SpawnLocation = FVector(400.0f, -100.0f + i * 600, 250.0f);
+		FVector SpawnLocation = FVector(200.0f, -300.0f + i * 600, 250.0f);
 		AMyNaveEnemigaKamikazeB* NewEnemy = GetWorld()->SpawnActor<AMyNaveEnemigaKamikazeB>(AMyNaveEnemigaKamikazeB::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMNavesEnemigas.Add(SpawnLocation, NewEnemy);
 	}
 	for (int i = 0; i < 2; i++)
 	{
-		FVector SpawnLocation = FVector(400.0f, 100.0f + i * 200, 250.0f);	
+		FVector SpawnLocation = FVector(200.0f, -100.0f + i * 200, 250.0f);	
 		AMyNaveEnemigaKamikazeB* NewEnemy = GetWorld()->SpawnActor<AMyNaveEnemigaKamikazeB>(AMyNaveEnemigaKamikazeB::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMNavesEnemigas.Add(SpawnLocation, NewEnemy);
 	}
 	//fila de atrás
 	for (int i = 0; i < 2; i++)
 	{
-		FVector SpawnLocation = FVector(600.0f, -1100.0f + i * 2200, 250.0f);
+		FVector SpawnLocation = FVector(400.0f, -1100.0f + i * 2200, 250.0f);
 		AMyNaveEnemigaReabastecimientoBal* NewEnemy = GetWorld()->SpawnActor<AMyNaveEnemigaReabastecimientoBal>(AMyNaveEnemigaReabastecimientoBal::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMNavesEnemigas.Add(SpawnLocation, NewEnemy);
 	}
 	for (int i = 0; i < 2; i++)
 	{
-		FVector SpawnLocation = FVector(600.0f, -900.0f + i * 1800, 250.0f);
+		FVector SpawnLocation = FVector(400.0f, -900.0f + i * 1800, 250.0f);
 		AMyNaveEnemigaReabastecimientoBal* NewEnemy = GetWorld()->SpawnActor<AMyNaveEnemigaReabastecimientoBal>(AMyNaveEnemigaReabastecimientoBal::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMNavesEnemigas.Add(SpawnLocation, NewEnemy);
 	}
@@ -115,15 +117,15 @@ void AOmegaFieldBuilder::BuildEnemies()
 
 
 	//protectores 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		FVector SpawnLocation = FVector(200.0f, -500.0f, 250.0f);
+		FVector SpawnLocation = FVector(400.0f, -300.0f + i * 100, 250.0f);
 		ANaveEnemigaPiccoloZ* NewEnemy = GetWorld()->SpawnActor<ANaveEnemigaPiccoloZ>(ANaveEnemigaPiccoloZ::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMNavesEnemigas.Add(SpawnLocation, NewEnemy);
 	}
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		FVector SpawnLocation = FVector(200.0f, 100.0f, 250.0f);
+		FVector SpawnLocation = FVector(400.0f, 0.0f + i * 100, 250.0f);
 		ANaveEnemigaPiccoloAF* NewEnemy = GetWorld()->SpawnActor<ANaveEnemigaPiccoloAF>(ANaveEnemigaPiccoloAF::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMNavesEnemigas.Add(SpawnLocation, NewEnemy);
 	}

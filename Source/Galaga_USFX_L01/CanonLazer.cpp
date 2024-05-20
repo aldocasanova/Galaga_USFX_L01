@@ -7,6 +7,7 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "ProyectilEnemigo.h"
 #include "Bomb.h"
+#include "LazerEnemigo.h"
 #include "Kismet/GameplayStatics.h"
 
 ACanonLazer::ACanonLazer()
@@ -23,7 +24,14 @@ void ACanonLazer::Disparar()
 {
     if (bCanFire && NumberFired < MaxProjectile)
     {
-        bCanFire = false;  // Prevenir nuevos disparos hasta que el temporizador expire
+        bCanFire = true;  // Prevenir nuevos disparos hasta que el temporizador expire
+
+        // Obtener el jugador
+        APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
+        if (PlayerPawn)
+        {
+            UltimaPosicionJugador = PlayerPawn->GetActorLocation(); // Guardar la última posición del jugador
+        }
 
         // creador de bombas
         UWorld* const World = GetWorld();
@@ -31,12 +39,16 @@ void ACanonLazer::Disparar()
         {
             FVector Location = GetActorLocation();
             FRotator Rotation = GetActorRotation();
-            World->SpawnActor<ABomb>(Location, Rotation);
+            ALazerEnemigo* Lazer = World->SpawnActor<ALazerEnemigo>(Location, Rotation);
+            if (Lazer)
+            {
+                Lazer->SetUltimaPosicionJugador(UltimaPosicionJugador); // Pasar la posición del jugador al proyectil
+            }
             NumberFired++;
 
             // Establecer el temporizador para el próximo disparo
             FTimerHandle TimerHandle;
-            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonLazer::ResetFire, rand() % 6 + 1, false);
+            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonLazer::ResetFire, rand() % 6 + 1, false); //cambiar cada cuantoo habrán bombas
         }
     }
 }
@@ -60,3 +72,5 @@ void ACanonLazer::Tick(float DeltaTime)
     Super::Tick(DeltaTime);
     Disparar();
 }
+
+

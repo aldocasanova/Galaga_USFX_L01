@@ -33,7 +33,7 @@ private:
 	int TiempoTranscurrido = 0;
 	AAndromedaDirector* Director;
 	
-	AFacadeCanon* FormacionCanones;
+	//AFacadeCanon* FormacionCanones;
 
 
 };

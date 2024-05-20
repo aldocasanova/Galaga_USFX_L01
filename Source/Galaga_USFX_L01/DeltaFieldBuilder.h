@@ -5,9 +5,12 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "IGalacticFieldBuilder.h"
+
 #include "Obstaculo.h"
+#include "FacadeCanon.h"
 #include "PowerUp.h"
 #include "NaveEnemiga.h"
+
 
 #include "NaveEnemigaTransporte.h"
 #include "NaveEnemigaCaza.h"
@@ -51,6 +54,7 @@ public:
 	void BuildPowerUps() override;
 	virtual AGalacticField* GetGalacticField() const override;
 
+	AFacadeCanon* FormacionCanones;
 
 	TMap<FVector, AActor*> TMObstaclesAndPowerUps;
 	TMap<FVector, ANaveEnemiga*> TMNavesEnemigas;

@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
 //...
+
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Engine/CollisionProfile.h"
@@ -50,17 +51,24 @@ AGalaga_USFX_L01Pawn::AGalaga_USFX_L01Pawn()
 	GunOffset = FVector(90.f, 0.f, 0.f);
 	FireRate = 0.1f;
 	bCanFire = true;
+
+	//fecto hielo
+	bCanMove = true;
+
 }
 
 void AGalaga_USFX_L01Pawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	check(PlayerInputComponent);
-
-	// set up gameplay key bindings
-	PlayerInputComponent->BindAxis(MoveForwardBinding);
-	PlayerInputComponent->BindAxis(MoveRightBinding);
-	PlayerInputComponent->BindAxis(FireForwardBinding);
-	PlayerInputComponent->BindAxis(FireRightBinding);
+	if (bCanMove)
+	{
+		// Lógica de movimiento aquí
+		// set up gameplay key bindings
+		PlayerInputComponent->BindAxis(MoveForwardBinding);
+		PlayerInputComponent->BindAxis(MoveRightBinding);
+		PlayerInputComponent->BindAxis(FireForwardBinding);
+		PlayerInputComponent->BindAxis(FireRightBinding);
+	}
 }
 
 void AGalaga_USFX_L01Pawn::Tick(float DeltaSeconds)
@@ -135,5 +143,16 @@ void AGalaga_USFX_L01Pawn::FireShot(FVector FireDirection)
 void AGalaga_USFX_L01Pawn::ShotTimerExpired()
 {
 	bCanFire = true;
+}
+//logica de hielo
+void AGalaga_USFX_L01Pawn::DisableMovement()
+{
+	bCanMove = false;
+	GetWorldTimerManager().SetTimer(TimerHandle_Hielo, this, &AGalaga_USFX_L01Pawn::EnableMovement, 8.0f, false);
+}
+
+void AGalaga_USFX_L01Pawn::EnableMovement()
+{
+	bCanMove = true;
 }
 

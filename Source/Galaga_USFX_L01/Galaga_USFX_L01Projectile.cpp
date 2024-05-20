@@ -33,9 +33,9 @@ AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile()
 	ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
 
 	// Die after 3 seconds by default
-	InitialLifeSpan = 3.0f;
-
-	Collision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Collision"));
+	InitialLifeSpan = 3.0f; //tiempo de vida de un proyecti
+	//creacion de la colision
+	Collision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Collision")); 
 	Collision->SetupAttachment(RootComponent);
 	Collision->InitCapsuleSize(50.f, 100.f);
 }
@@ -53,7 +53,7 @@ void AGalaga_USFX_L01Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* Oth
 	Destroy();
 }
 
-void AGalaga_USFX_L01Projectile::NotifyActorBeginOverlap(AActor* OtherActor)
+void AGalaga_USFX_L01Projectile::NotifyActorBeginOverlap(AActor* OtherActor) //funcion para detectar colisiones
 {
 	Super::AActor::NotifyActorBeginOverlap(OtherActor);
 

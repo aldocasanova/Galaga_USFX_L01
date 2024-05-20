@@ -7,13 +7,14 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "ProyectilEnemigo.h"
 #include "Bomb.h"
+#include "BalaCanon.h"
 #include "Kismet/GameplayStatics.h"
 
 ACanonBala::ACanonBala()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-    MaxProjectile = 4;
+    MaxProjectile = 8;
     NumberFired = 0;
 
     bCanFire = true; // Permitir disparos al principio
@@ -31,20 +32,32 @@ void ACanonBala::Disparar()
     {
         bCanFire = false;  // Prevenir nuevos disparos hasta que el temporizador expire
 
+        // Obtener el jugador
+        APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
+        if (PlayerPawn)
+        {
+            UltimaPosicionJugador = PlayerPawn->GetActorLocation(); // Guardar la última posición del jugador
+        }
+
         // creador de bombas
         UWorld* const World = GetWorld();
         if (World != NULL)
         {
             FVector Location = GetActorLocation();
             FRotator Rotation = GetActorRotation();
-            World->SpawnActor<ABomb>(Location, Rotation);
+            ABalaCanon* Bala = World->SpawnActor<ABalaCanon>(Location, Rotation);
+            if (Bala)
+            {
+                Bala->SetUltimaPosicionJugador(UltimaPosicionJugador); // Pasar la posición del jugador al proyectil
+            }
             NumberFired++;
 
             // Establecer el temporizador para el próximo disparo
             FTimerHandle TimerHandle;
-            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonBala::ResetFire, rand() % 6 + 1, false);
+            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonBala::ResetFire, rand() % 6 + 1, false); //cambiar cada cuantoo habrán bombas
         }
     }
+
 }
 
 void ACanonBala::ResetFire()

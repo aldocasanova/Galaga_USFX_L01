@@ -25,6 +25,10 @@ class AGalaga_USFX_L01Pawn : public APawn
 
 public:
 	AGalaga_USFX_L01Pawn();
+	
+	//efecto hielo
+	void DisableMovement();
+	void EnableMovement();
 
 	/** Offset from the ships location to spawn projectiles */
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
@@ -65,7 +69,9 @@ private:
 	uint32 bCanFire : 1;
 	/** Handle for efficient management of ShotTimerExpired timer */
 	FTimerHandle TimerHandle_ShotTimerExpired;
-
+	//efecto hielo
+	bool bCanMove;
+	FTimerHandle TimerHandle_Hielo;
 public:
 	/** Returns ShipMeshComponent subobject **/
 	FORCEINLINE class UStaticMeshComponent* GetShipMeshComponent() const { return ShipMeshComponent; }

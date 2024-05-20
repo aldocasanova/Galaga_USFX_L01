@@ -22,7 +22,7 @@ class AGalaga_USFX_L01Projectile : public AActor
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
 
-	class UCapsuleComponent* Collision;
+	class UCapsuleComponent* Collision; //colision de balas
 
 
 public:

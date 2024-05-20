@@ -27,7 +27,7 @@ void AAlfaFieldBuilder::Tick(float DeltaTime)
 
 void AAlfaFieldBuilder::BuildObstacles()
 {
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		FVector SpawnLocation = FVector((-600.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f);
 		AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);

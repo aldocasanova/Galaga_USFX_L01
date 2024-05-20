@@ -18,4 +18,14 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void Disparar() override;
 	virtual void ResetFire() override;
+
+	int MaxProjectile;
+
+	int NumberFired;
+	bool bCanFire;
+
+	FVector UltimaPosicionJugador; // Nueva variable para almacenar la última posición del jugadord
+protected:
+	virtual void BeginPlay() override;
+
 };

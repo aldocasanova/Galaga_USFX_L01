@@ -46,7 +46,7 @@ void ABomb::Mover(float DeltaTime)
 
 void ABomb::Desaparecer(float _TiempoExplosion)
 {
-	if (_TiempoExplosion > 2.8)
+	if (_TiempoExplosion > 40) 
 	{
 		Destroy();
 	}

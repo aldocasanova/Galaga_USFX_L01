@@ -7,6 +7,7 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "ProyectilEnemigo.h"
 #include "Bomb.h"
+#include "BombaHielo.h"
 #include "Kismet/GameplayStatics.h"
 
 ACanonHielo::ACanonHielo()
@@ -31,18 +32,29 @@ void ACanonHielo::Disparar()
     {
         bCanFire = false;  // Prevenir nuevos disparos hasta que el temporizador expire
 
+        // Obtener el jugador
+        APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
+        if (PlayerPawn)
+        {
+            UltimaPosicionJugador = PlayerPawn->GetActorLocation(); // Guardar la última posición del jugador
+        }
+
         // creador de bombas
         UWorld* const World = GetWorld();
         if (World != NULL)
         {
             FVector Location = GetActorLocation();
             FRotator Rotation = GetActorRotation();
-            World->SpawnActor<ABomb>(Location, Rotation);
+            ABombaHielo* Bomba = World->SpawnActor<ABombaHielo>(Location, Rotation);
+            if (Bomba)
+            {
+                Bomba->SetUltimaPosicionJugador(UltimaPosicionJugador); // Pasar la posición del jugador al proyectil
+            }
             NumberFired++;
 
             // Establecer el temporizador para el próximo disparo
             FTimerHandle TimerHandle;
-            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonHielo::ResetFire, rand() % 6 + 1, false);
+            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonHielo::ResetFire, rand() % 6 + 1, false); //cambiar cada cuantoo habrán bombas
         }
     }
 }
@@ -59,4 +71,9 @@ void ACanonHielo::ResetFire()
         NumberFired = 0;   // Reiniciar el contador de bombas para el próximo ciclo de disparos reabastecido
         bCanFire = false;
     }
+}
+
+void ACanonHielo::BeginPlay()
+{
+	Super::BeginPlay();
 }

@@ -24,13 +24,13 @@ AFacadeCanon::AFacadeCanon()
 	PrimaryActorTick.bCanEverTick = true;
 
     // Inicializar las coordenadas
-    TopLeftCorner = FVector(-1000.f, -1000.f, 250.f);
-    TopRightCorner = FVector(1000.f, -1000.f, 250.f);
-    DownLeftCorner = FVector(-1000.f, 1000.f, 250.f);
-    DownRightCorner = FVector(1000.f, 1000.f, 250.f);
+    TopLeftCorner = FVector(-950.f, -1650.f, 250.f);
+    TopRightCorner = FVector(850.f, -1650.f, 250.f);
+    DownLeftCorner = FVector(-950.f, 1650.f, 250.f);
+    DownRightCorner = FVector(850.f, 1650.f, 250.f);
 
     NivelInicial = 1;
-    IntervaloNivel = 5.0f; // aumento nivel cada 60 segundos
+    IntervaloNivel = 8.0f; // aumento nivel cada 60 segundos
     MaxNivel = 3; 
 }
 

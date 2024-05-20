@@ -8,6 +8,7 @@
 
 #include "Obstaculo.h"
 #include "PowerUp.h"
+#include "FacadeCanon.h"
 
 #include "MyNaveEnemigaCazaX.h"
 #include "NaveEnemigaTransporteSupport.h"
@@ -42,6 +43,8 @@ public:
 	void BuildEnemies() override;
 	void BuildPowerUps() override;
 	virtual AGalacticField* GetGalacticField() const override;
+
+	AFacadeCanon* FormacionCanones;
 
 	
 	TMap<FVector, AActor*> TMObstaclesAndPowerUps;
