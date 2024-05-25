@@ -34,6 +34,9 @@ D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Wi
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/BombaCanon.gen.cpp
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/BombaCanon.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\BombaCanon.generated.h
+D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/BombaHielo.gen.cpp
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/BombaHielo.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\BombaHielo.generated.h
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/CanonBala.gen.cpp
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/CanonBala.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\ModeloCanon.h
@@ -177,11 +180,16 @@ D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Wi
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaEspia.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaFactory.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaKamikaze.gen.cpp
+D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaManager.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaNodriza.gen.cpp
+D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaObserver.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaPiccolo.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaPiccoloAF.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaPiccoloZ.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaReabastecimiento.gen.cpp
+D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaTransporte.gen.cpp
+D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaTransporteAttack.gen.cpp
+D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/NaveEnemigaTransporteSupport.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Obstaculo.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/OmegaFieldBuilder.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/PowerUp.gen.cpp

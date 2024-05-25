@@ -39,6 +39,6 @@ public:
 
 	void NotifyActorBeginOverlap(AActor* OtherActor);
 
-	int enemigos;
+	int NavesEnemigas;
 };
 

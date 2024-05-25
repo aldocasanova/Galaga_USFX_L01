@@ -21,7 +21,7 @@ void AOmegaFieldBuilder::BeginPlay()
 	//trabajo 3
 	FormacionCanones = GetWorld()->SpawnActor<AFacadeCanon>();
 	FormacionCanones->SpawnCanons(1);
-
+	//trabajo 4
 	NaveManager = GetWorld()->SpawnActor<ANaveEnemigaManager>();
 }
 
@@ -35,7 +35,7 @@ void AOmegaFieldBuilder::Tick(float DeltaTime)
 	const int32 MessageKey = 0;  // Puedes elegir cualquier número que desees para el MessageKey
 
 	//// Imprimir el mensaje en pantalla, reemplazando cualquier mensaje anterior con la misma clave
-	GEngine->AddOnScreenDebugMessage(MessageKey, 5.f, FColor::Green, mensaje);
+	GEngine->AddOnScreenDebugMessage(MessageKey, 5.f, FColor::Yellow, mensaje);
 }//uwu
 
 void AOmegaFieldBuilder::BuildObstacles()

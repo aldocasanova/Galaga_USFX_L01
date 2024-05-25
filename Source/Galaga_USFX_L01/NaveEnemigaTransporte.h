@@ -41,7 +41,6 @@ public:
 	virtual void OnNaveCountChanged(int NewCount) override;
 	void SpawnNaveEnemigaCaza();
 	ANaveEnemigaManager* NaveManager;
-	void BeginDestroy();
 
 protected:
 	virtual void Mover(float DeltaTime);// no tengo que poner el overribe si no estoy sobreesbribiendo nada

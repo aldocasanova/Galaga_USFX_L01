@@ -21,5 +21,4 @@ class GALAGA_USFX_L01_API INaveEnemigaObserver
 	GENERATED_BODY()
 public:
 	virtual void OnNaveCountChanged(int NewCount) = 0;	
-
 };

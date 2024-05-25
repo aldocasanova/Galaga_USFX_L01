@@ -51,15 +51,7 @@ void ANaveEnemigaTransporte::SpawnNaveEnemigaCaza()
 		GetWorld()->SpawnActor<ANaveEnemigaCaza>(ANaveEnemigaCaza::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 	}
 }
-void ANaveEnemigaTransporte::BeginDestroy()
-{
-	Super::BeginDestroy();
 
-	if (NaveManager)
-	{
-		NaveManager->RemoveObserver(this);
-	}
-}
 
 void ANaveEnemigaTransporte::Mover(float DeltaTime)
 {

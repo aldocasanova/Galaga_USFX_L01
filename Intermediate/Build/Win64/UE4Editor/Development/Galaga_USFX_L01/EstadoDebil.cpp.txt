@@ -1,0 +1,5 @@
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX_L01\Definitions.Galaga_USFX_L01.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\EstadoDebil.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\NaveNodrizaState.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveNodrizaState.generated.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoDebil.generated.h

@@ -26,17 +26,16 @@ public:
 	virtual void Tick(float DeltaTime) override;
 private:
 	TArray<INaveEnemigaObserver*> Observers;
-	TArray<ANaveEnemiga*> NavesEnemigas;
+	int NavesEnemigasRestantes;
+	bool NavesDesplegadas;
 public:
 	void AddObserver(INaveEnemigaObserver* Observer);
 	void RemoveObserver(INaveEnemigaObserver* Observer);
 	void NotifyObservers();
 	void UpdateNaveCount();
-	void AddNaveEnemiga(ANaveEnemiga* Nave);
-	void RemoveNaveEnemiga(ANaveEnemiga* Nave);
+	//void AddNaveEnemiga(ANaveEnemiga* Nave);
+	//void RemoveNaveEnemiga(ANaveEnemiga* Nave);
 
-	int NavesEnemigasRestantes;
-	bool NavesDesplegadas;
 	FORCEINLINE int GetNavesEnemigasRestantes() const { return NavesEnemigasRestantes; }
 	FORCEINLINE void SetNavesEnemigasRestantes(int _NavesEnemigasRestantes) { NavesEnemigasRestantes = _NavesEnemigasRestantes; }
 

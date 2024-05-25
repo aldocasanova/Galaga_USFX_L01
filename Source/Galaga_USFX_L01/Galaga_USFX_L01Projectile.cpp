@@ -66,48 +66,30 @@ void AGalaga_USFX_L01Projectile::NotifyActorBeginOverlap(AActor* OtherActor) //f
 
 
 	ANaveEnemigaManager* EnemigasManager = nullptr;
-	//ANaveEnemigaTransporte* EnemyTransport = Cast<ANaveEnemigaTransporte>(OtherActor);
-	ANaveEnemigaTransporte* EnemyTransport = Cast<ANaveEnemigaTransporte>(OtherActor);  // Aquí se define EnemyTransport
+
+	ANaveEnemigaTransporte* EnemyTransport = Cast<ANaveEnemigaTransporte>(OtherActor); 
 	for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
 	{
 		EnemigasManager = *It;
-		break;  // Asumiendo que solo hay una instancia de AEnemigasFacade en el nivel
+		break;  
 	}
 
 	if (EnemyShip)
 	{
 	
 		EnemyShip->Destroy();
-		//danio = 0;
-		/*enemigos = GameMode->GetCantidadNavesEnemigas();
-		enemigos--;
-		GameMode->SetCantidadNavesEnemigas(enemigos);*/
 
 		if (EnemigasManager)
 		{
-			enemigos = EnemigasManager->GetNavesEnemigasRestantes();
-			enemigos--;
-			EnemigasManager->SetNavesEnemigasRestantes(enemigos);
+			NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
+			NavesEnemigas--;
+			EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
 		}
-
+		//l remuevo también del observer
 		if (EnemyTransport && EnemigasManager)
 		{
 			EnemigasManager->RemoveObserver(EnemyTransport);
 		}
-
-
-
-		/*puntaje = GameMode->GetScore();
-		puntaje += 10;
-		GameMode->SetScore(puntaje);*/
-
-		
-		/*FString mensaje = FString::Printf(TEXT("Tu Puntaje es: %d"), puntaje);
-		const int32 MessageKey = 0;*/  // Puedes elegir cualquier número que desees para el MessageKey
-
-		//// Imprimir el mensaje en pantalla, reemplazando cualquier mensaje anterior con la misma clave
-		//GEngine->AddOnScreenDebugMessage(MessageKey, 5.f, FColor::Green, mensaje);
-	
 
 	}
 
