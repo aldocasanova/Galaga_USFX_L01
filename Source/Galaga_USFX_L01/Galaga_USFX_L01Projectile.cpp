@@ -8,6 +8,9 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Galaga_USFX_L01GameMode.h"
 #include "NaveEnemiga.h"
+#include "NaveEnemigaManager.h"
+#include "EngineUtils.h"
+
 #include "Engine/StaticMesh.h"
 
 AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile() 
@@ -61,10 +64,53 @@ void AGalaga_USFX_L01Projectile::NotifyActorBeginOverlap(AActor* OtherActor) //f
 	ANaveEnemiga* EnemyShip = Cast<ANaveEnemiga>(OtherActor);
 	AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(GetWorld()->GetAuthGameMode());
 
+
+	ANaveEnemigaManager* EnemigasManager = nullptr;
+	//ANaveEnemigaTransporte* EnemyTransport = Cast<ANaveEnemigaTransporte>(OtherActor);
+	ANaveEnemigaTransporte* EnemyTransport = Cast<ANaveEnemigaTransporte>(OtherActor);  // Aquí se define EnemyTransport
+	for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
+	{
+		EnemigasManager = *It;
+		break;  // Asumiendo que solo hay una instancia de AEnemigasFacade en el nivel
+	}
+
 	if (EnemyShip)
 	{
+	
 		EnemyShip->Destroy();
+		//danio = 0;
+		/*enemigos = GameMode->GetCantidadNavesEnemigas();
+		enemigos--;
+		GameMode->SetCantidadNavesEnemigas(enemigos);*/
+
+		if (EnemigasManager)
+		{
+			enemigos = EnemigasManager->GetNavesEnemigasRestantes();
+			enemigos--;
+			EnemigasManager->SetNavesEnemigasRestantes(enemigos);
+		}
+
+		if (EnemyTransport && EnemigasManager)
+		{
+			EnemigasManager->RemoveObserver(EnemyTransport);
+		}
+
+
+
+		/*puntaje = GameMode->GetScore();
+		puntaje += 10;
+		GameMode->SetScore(puntaje);*/
+
+		
+		/*FString mensaje = FString::Printf(TEXT("Tu Puntaje es: %d"), puntaje);
+		const int32 MessageKey = 0;*/  // Puedes elegir cualquier número que desees para el MessageKey
+
+		//// Imprimir el mensaje en pantalla, reemplazando cualquier mensaje anterior con la misma clave
+		//GEngine->AddOnScreenDebugMessage(MessageKey, 5.f, FColor::Green, mensaje);
+	
+
 	}
+
 }
 	/*if (OtherActor != nullptr && OtherActor != this)
 	{

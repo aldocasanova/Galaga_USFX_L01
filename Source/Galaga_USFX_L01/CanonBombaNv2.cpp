@@ -6,4 +6,5 @@
 ACanonBombaNv2::ACanonBombaNv2()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	TiempoDisparo = 1.2f;
 }

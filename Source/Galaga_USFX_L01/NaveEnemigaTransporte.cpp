@@ -1,9 +1,13 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "NaveEnemigaTransporte.h"
+#include "Galaga_USFX_L01GameMode.h"
+#include "Kismet/GameplayStatics.h"
+#include "NaveEnemigaManager.h"
 
 ANaveEnemigaTransporte::ANaveEnemigaTransporte()
 {
+	PrimaryActorTick.bCanEverTick = true;
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_NarrowCapsule.Shape_NarrowCapsule'"));
 	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
 
@@ -15,25 +19,50 @@ void ANaveEnemigaTransporte::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	Mover(DeltaTime);
 	Desplazamiento(DeltaTime);
-;}
+}
+
+void ANaveEnemigaTransporte::BeginPlay()
+{
+	Super::BeginPlay();
+
+	NaveManager = Cast<ANaveEnemigaManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ANaveEnemigaManager::StaticClass()));
+
+	if (NaveManager)
+	{
+		NaveManager->AddObserver(this);
+	}
+
+	
+}
+
+void ANaveEnemigaTransporte::OnNaveCountChanged(int NewCount)
+{
+	if (NewCount < 20)
+	{
+		SpawnNaveEnemigaCaza();
+	}
+}
+
+void ANaveEnemigaTransporte::SpawnNaveEnemigaCaza()
+{	
+	for (int i = 0; i < 3; ++i)
+	{
+		FVector SpawnLocation = GetActorLocation() + FVector(400.0f + i*200, 0.0f, 0.0f); // Ajusta la posición según tu lógica
+		GetWorld()->SpawnActor<ANaveEnemigaCaza>(ANaveEnemigaCaza::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+	}
+}
+void ANaveEnemigaTransporte::BeginDestroy()
+{
+	Super::BeginDestroy();
+
+	if (NaveManager)
+	{
+		NaveManager->RemoveObserver(this);
+	}
+}
 
 void ANaveEnemigaTransporte::Mover(float DeltaTime)
 {
-	// Obtiene la posici�n actual del actor
-	// si quito el get pasa lo mismo(?
-	//FVector PosicionActual = GetActorLocation();
-
-	// Genera nuevas coordenadas X e Y aleatorias
-	/*float NuevaX = FMath::RandRange(-1000.0f, 1000.0f) * (DeltaTime / 1000.0f);
-	float NuevaY = FMath::RandRange(-1000.0f, 1000.0f) * (DeltaTime / 1000.0f);
-	float NuevaZ = FMath::RandRange(-1000.0f, 1000.0f) * DeltaTime;*/
-
-	// Crea un nuevo vector de posici�n con las coordenadas aleatorias y la misma Z que la posici�n actual
-	//FVector NuevaPosicion = FVector(PosicionActual.X + NuevaX, PosicionActual.Y + NuevaY, PosicionActual.Z + NuevaZ);
-
-	// Establece la nueva posici�n del actor
-	//SetActorLocation(NuevaPosicion);
-	//...
 	velocidad = 0.45; //0.35
 	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 

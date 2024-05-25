@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "ModeloCanon.h"
 #include "CanonBomba.generated.h"
-
 /**
  * 
  */
@@ -25,6 +24,7 @@ public:
 	int NumberFired;
 	bool bCanFire;
 
+	float TiempoDisparo;
 	FVector UltimaPosicionJugador; // Nueva variable para almacenar la última posición del jugadord
 protected:
 	virtual void BeginPlay() override;

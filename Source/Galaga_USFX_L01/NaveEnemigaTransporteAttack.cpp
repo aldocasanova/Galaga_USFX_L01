@@ -2,4 +2,8 @@
 
 
 #include "NaveEnemigaTransporteAttack.h"
+#include "NaveEnemigaCaza.h"
+#include "Galaga_USFX_L01GameMode.h"
+#include "NaveEnemigaManager.h"
+
 

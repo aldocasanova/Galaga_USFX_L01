@@ -21,6 +21,7 @@ public:
 	void SpawnCanon(TSubclassOf<AModeloCanon> CanonClass, FVector Location);
 	void IncreaseNivel();
 	void CleanUpCanones();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -34,11 +35,12 @@ private:
 	FVector DownLeftCorner;
 	FVector DownRightCorner;
 
-	TArray<AModeloCanon*> ExistingCanons;
-
 	int32 NivelInicial;
 	float  IntervaloNivel;
 	float TiempoSpawn;
 	FTimerHandle  IntervaloNivelimerHandle;
 	int32 MaxNivel;
+
+	//TArray<AModeloCanon*> ExistingCanons;
+
 };

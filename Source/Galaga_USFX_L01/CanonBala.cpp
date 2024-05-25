@@ -18,6 +18,8 @@ ACanonBala::ACanonBala()
     NumberFired = 0;
 
     bCanFire = true; // Permitir disparos al principio
+
+	TiempoDisparo = 4.0f;
 }
 
 void ACanonBala::Tick(float DeltaTime)
@@ -54,8 +56,8 @@ void ACanonBala::Disparar()
 
             // Establecer el temporizador para el próximo disparo
             FTimerHandle TimerHandle;
-            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonBala::ResetFire, rand() % 6 + 1, false); //cambiar cada cuantoo habrán bombas
-        }
+            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonBala::ResetFire, TiempoDisparo, false); //cambiar cada cuantoo habrán bombas
+        } //rand() % 6 + 1
     }
 
 }

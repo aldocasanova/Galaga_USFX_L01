@@ -20,7 +20,9 @@
 #include "NaveEnemigaPiccoloZ.h"
 #include "NaveEnemigaPiccoloAF.h"
 
+
 #include "GalacticField.h"
+#include "NaveEnemigaManager.h"
 #include "OmegaFieldBuilder.generated.h"
 
 UCLASS()
@@ -50,4 +52,7 @@ public:
 	TMap<FVector, AActor*> TMObstaclesAndPowerUps;
 	TMap<FVector,ANaveEnemiga*> TMNavesEnemigas;
 
+	ANaveEnemigaManager* NaveManager;
+
+	int CantidadNaves;
 };

@@ -18,12 +18,15 @@ ACanonHielo::ACanonHielo()
     NumberFired = 0;
 
     bCanFire = true; // Permitir disparos al principio
+
+	TiempoDisparo = 4.0f;
 }
 
 void ACanonHielo::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
     Disparar();
+
 }
 
 void ACanonHielo::Disparar()
@@ -54,7 +57,7 @@ void ACanonHielo::Disparar()
 
             // Establecer el temporizador para el próximo disparo
             FTimerHandle TimerHandle;
-            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonHielo::ResetFire, rand() % 6 + 1, false); //cambiar cada cuantoo habrán bombas
+            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonHielo::ResetFire, TiempoDisparo, false); //cambiar cada cuantoo habrán bombas
         }
     }
 }

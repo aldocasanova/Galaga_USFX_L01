@@ -14,4 +14,6 @@ class GALAGA_USFX_L01_API ACanonHieloNv3 : public ACanonHielo
 {
 	GENERATED_BODY()
 	
+public:
+	ACanonHieloNv3();
 };

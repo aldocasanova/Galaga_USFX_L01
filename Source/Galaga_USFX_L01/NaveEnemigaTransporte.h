@@ -4,13 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "NaveEnemiga.h"
+#include "NaveEnemigaObserver.h"
+#include "NaveEnemigaManager.h"
 #include "NaveEnemigaTransporte.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
-class GALAGA_USFX_L01_API ANaveEnemigaTransporte : public ANaveEnemiga
+class GALAGA_USFX_L01_API ANaveEnemigaTransporte : public ANaveEnemiga, public INaveEnemigaObserver
 {
 	GENERATED_BODY()
 private:
@@ -21,6 +23,8 @@ private:
 	float VelocidadT;
 
 	int codigoNave = 7;
+
+
 public:
 	ANaveEnemigaTransporte();
 	FORCEINLINE float GetCapacidadCargaPeso() const { return capacidadCargaPeso; }
@@ -31,6 +35,14 @@ public:
 	FORCEINLINE int GetcodigoNave() const { return codigoNave; }
 	FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
 	virtual void Tick(float DeltaTime) override;
+	virtual void BeginPlay() override;
+
+	//interfaz
+	virtual void OnNaveCountChanged(int NewCount) override;
+	void SpawnNaveEnemigaCaza();
+	ANaveEnemigaManager* NaveManager;
+	void BeginDestroy();
+
 protected:
 	virtual void Mover(float DeltaTime);// no tengo que poner el overribe si no estoy sobreesbribiendo nada
 	virtual void  Disparar();

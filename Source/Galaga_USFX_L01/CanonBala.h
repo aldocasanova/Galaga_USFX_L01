@@ -25,6 +25,8 @@ public:
 	int NumberFired;
 	bool bCanFire;
 
+	float TiempoDisparo;
+
 	FVector UltimaPosicionJugador; // Nueva variable para almacenar la última posición del jugadord
 
 };

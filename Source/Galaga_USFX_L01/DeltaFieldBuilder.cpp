@@ -19,14 +19,12 @@ void ADeltaFieldBuilder::BeginPlay()
 	//trabajo 3
 	FormacionCanones = GetWorld()->SpawnActor<AFacadeCanon>();
 	FormacionCanones->SpawnCanons(1);
-	FormacionCanones->IncreaseNivel();
 }
 
 // Called every frame
 void ADeltaFieldBuilder::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void ADeltaFieldBuilder::BuildObstacles()

@@ -10,7 +10,7 @@
 #include "NaveEnemiga.h"
 #include "NaveEnemigaBomb.h"
 #include "NaveEnemigaFactory.h"
-
+#include "NaveEnemigaManager.h"
 #include "AlfaFieldBuilder.generated.h"
 
 UCLASS()

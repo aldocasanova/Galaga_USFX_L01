@@ -34,9 +34,6 @@ public:
 private:
 
 
-	//FVector UltimaPosicionJugador;
-	//float TiempoExplosion;
-	//float velocidad;
 	FVector UltimaPosicionJugador;
 	FVector InitialVelocity;
 	float TiempoExplosion;

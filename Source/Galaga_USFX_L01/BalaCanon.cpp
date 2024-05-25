@@ -43,7 +43,7 @@ void ABalaCanon::Mover(float DeltaTime)
 
 	// Mover el proyectil en línea recta hacia el jugador manteniendo constante la altura en Z
 	FVector NewLocation = GetActorLocation() + Direction * velocidad * DeltaTime;
-	NewLocation.Z = 250.0f; // Mantener constante la altura en Z
+	NewLocation.Z = 250.0f; // mantener constante la altura en Z
 
 	SetActorLocation(NewLocation);
 }

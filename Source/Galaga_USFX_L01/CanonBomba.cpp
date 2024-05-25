@@ -18,6 +18,8 @@ ACanonBomba::ACanonBomba()
     NumberFired = 0;
 
     bCanFire = true; // Permitir disparos al principio
+
+	TiempoDisparo = 4.0f;
 }
 
 void ACanonBomba::Tick(float DeltaTime)
@@ -48,13 +50,13 @@ void ACanonBomba::Disparar()
             ABombaCanon* Bomba = World->SpawnActor<ABombaCanon>(Location, Rotation);
             if (Bomba)
             {
-                Bomba->SetUltimaPosicionJugador(UltimaPosicionJugador); // Pasar la posición del jugador al proyectil
+                Bomba->SetUltimaPosicionJugador(UltimaPosicionJugador); // paso la posición del jugador al proyectil
             }
             NumberFired++;
 
             // Establecer el temporizador para el próximo disparo
             FTimerHandle TimerHandle;
-            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonBomba::ResetFire, rand() % 6 + 1, false); //cambiar cada cuantoo habrán bombas
+            GetWorldTimerManager().SetTimer(TimerHandle, this, &ACanonBomba::ResetFire, TiempoDisparo, false); //cambiar cada cuantoo habrán bombas
         }
     }
 
@@ -64,12 +66,12 @@ void ACanonBomba::ResetFire()
 {
     if (NumberFired < MaxProjectile)
     {
-        bCanFire = true;  // Permitir el siguiente disparo
-        Disparar();         // Disparar automáticamente la siguiente bomba
+        bCanFire = true;  // paso siguiente disparo
+        Disparar();         // disparar automáticamente la siguiente bomba
     }
     else
     {
-        NumberFired = 0;   // Reiniciar el contador de bombas para el próximo ciclo de disparos reabastecido
+        NumberFired = 0;   // reininiciar el contador de bombas para el próximo ciclo de disparos reabastecido
         bCanFire = false;
     }
 }

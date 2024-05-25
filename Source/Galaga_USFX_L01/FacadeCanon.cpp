@@ -30,7 +30,7 @@ AFacadeCanon::AFacadeCanon()
     DownRightCorner = FVector(850.f, 1650.f, 250.f);
 
     NivelInicial = 1;
-    IntervaloNivel = 8.0f; // aumento nivel cada 60 segundos
+    IntervaloNivel = 30.0f; // aumento nivel cada 60 segundos
     MaxNivel = 3; 
 }
 
@@ -38,8 +38,6 @@ AFacadeCanon::AFacadeCanon()
 void AFacadeCanon::BeginPlay()
 {
 	Super::BeginPlay();
-
-	SpawnCanons(NivelInicial);
 
 	GetWorldTimerManager().SetTimer(IntervaloNivelimerHandle, this, &AFacadeCanon::IncreaseNivel, IntervaloNivel, true); //temporizador para aumentar nivel
 }
@@ -51,7 +49,7 @@ void AFacadeCanon::SpawnCanons(int32 Nivel)
     TSubclassOf<AModeloCanon> BmbaClass;
     TSubclassOf<AModeloCanon> HieloClass;
 
-    // Determinar las clases de cañones según el nivel
+    // obtengo clases de cañones según el nivel
     switch (Nivel)
     {
     case 1:
@@ -72,6 +70,8 @@ void AFacadeCanon::SpawnCanons(int32 Nivel)
         BmbaClass = ACanonBombaNv3::StaticClass();
         HieloClass = ACanonHieloNv3::StaticClass();
         break;
+	default:
+
         return;
     }
 
@@ -107,6 +107,7 @@ void AFacadeCanon::CleanUpCanones()
 
 void AFacadeCanon::IncreaseNivel()
 {
+
     if (NivelInicial < MaxNivel)
     {
         NivelInicial++;

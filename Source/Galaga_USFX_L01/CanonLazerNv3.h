@@ -13,5 +13,7 @@ UCLASS()
 class GALAGA_USFX_L01_API ACanonLazerNv3 : public ACanonLazer
 {
 	GENERATED_BODY()
+public:
+	ACanonLazerNv3();
 	
 };

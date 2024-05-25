@@ -69,7 +69,10 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ABombaHielo)
 
 
-#define Galaga_USFX_L01_master_Source_Galaga_USFX_L01_BombaHielo_h_16_PRIVATE_PROPERTY_OFFSET
+#define Galaga_USFX_L01_master_Source_Galaga_USFX_L01_BombaHielo_h_16_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__BombHMesh() { return STRUCT_OFFSET(ABombaHielo, BombHMesh); }
+
+
 #define Galaga_USFX_L01_master_Source_Galaga_USFX_L01_BombaHielo_h_13_PROLOG
 #define Galaga_USFX_L01_master_Source_Galaga_USFX_L01_BombaHielo_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

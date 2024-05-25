@@ -6,4 +6,5 @@
 ACanonBalaNv2::ACanonBalaNv2()
 {
 	PrimaryActorTick.bCanEverTick = true;
+
 }

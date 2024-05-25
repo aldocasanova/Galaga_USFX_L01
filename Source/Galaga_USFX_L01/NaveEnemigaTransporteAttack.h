@@ -13,5 +13,5 @@ UCLASS()
 class GALAGA_USFX_L01_API ANaveEnemigaTransporteAttack : public ANaveEnemigaTransporte
 {
 	GENERATED_BODY()
-	
+    
 };

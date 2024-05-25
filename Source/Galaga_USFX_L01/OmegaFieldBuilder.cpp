@@ -2,12 +2,15 @@
 
 
 #include "OmegaFieldBuilder.h"
+#include "Kismet/GameplayStatics.h"
+
+
 // Sets default values
 AOmegaFieldBuilder::AOmegaFieldBuilder()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	CantidadNaves = 0;
 }
 
 // Called when the game starts or when spawned
@@ -18,14 +21,21 @@ void AOmegaFieldBuilder::BeginPlay()
 	//trabajo 3
 	FormacionCanones = GetWorld()->SpawnActor<AFacadeCanon>();
 	FormacionCanones->SpawnCanons(1);
-	FormacionCanones->IncreaseNivel();
+
+	NaveManager = GetWorld()->SpawnActor<ANaveEnemigaManager>();
 }
 
 // Called every frame
 void AOmegaFieldBuilder::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	CantidadNaves = NaveManager->GetNavesEnemigasRestantes();
 
+	FString mensaje = FString::Printf(TEXT("las naves restantes son: %d"), CantidadNaves);
+	const int32 MessageKey = 0;  // Puedes elegir cualquier número que desees para el MessageKey
+
+	//// Imprimir el mensaje en pantalla, reemplazando cualquier mensaje anterior con la misma clave
+	GEngine->AddOnScreenDebugMessage(MessageKey, 5.f, FColor::Green, mensaje);
 }//uwu
 
 void AOmegaFieldBuilder::BuildObstacles()
@@ -99,12 +109,21 @@ void AOmegaFieldBuilder::BuildEnemies()
 		FVector SpawnLocation = FVector(600.0f, -700.0f + i * 1400, 250.0f);
 		ANaveEnemigaTransporteSupport* NewEnemy = GetWorld()->SpawnActor<ANaveEnemigaTransporteSupport>(ANaveEnemigaTransporteSupport::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMNavesEnemigas.Add(SpawnLocation, NewEnemy);
+
+		if (NaveManager) //antes no tenía los &&
+		{
+			NaveManager->AddObserver(NewEnemy);
+		}
 	}
 	for (int i = 0; i < 2; i++)
 	{
 		FVector SpawnLocation = FVector(600.0f, -500.0f + i * 1000, 250.0f);
 		ANaveEnemigaTransporteSupport* NewEnemy = GetWorld()->SpawnActor<ANaveEnemigaTransporteSupport>(ANaveEnemigaTransporteSupport::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMNavesEnemigas.Add(SpawnLocation, NewEnemy);
+		if (NaveManager)
+		{
+			NaveManager->AddObserver(NewEnemy);
+		}
 	}
 
 

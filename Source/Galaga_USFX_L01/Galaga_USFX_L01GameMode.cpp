@@ -5,7 +5,10 @@
 #include "OmegaFieldBuilder.h"
 #include "AlfaFieldBuilder.h"
 #include "DeltaFieldBuilder.h"
+#include "AndromedaDirector.h"
 #include "IGalacticFieldBuilder.h"
+#include "Kismet/GameplayStatics.h"
+
 
 
 #//include "AndromedaDirector.h"
@@ -14,6 +17,7 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 {
 	// set default pawn class to our character class
 	DefaultPawnClass = AGalaga_USFX_L01Pawn::StaticClass();
+
 }
 
 void AGalaga_USFX_L01GameMode::BeginPlay()
@@ -40,9 +44,11 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
     // Aquí puedes hacer algo con el campo galáctico, como asignarlo a una variable del GameMode o pasarlo a otros sistemas.
 	TiempoTranscurrido = 0;
 
+
 }
 void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	TiempoTranscurrido += DeltaTime;
+
 }

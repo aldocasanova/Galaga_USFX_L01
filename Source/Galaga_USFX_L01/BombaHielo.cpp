@@ -4,8 +4,11 @@
 #include "BombaHielo.h"
 #include "Galaga_USFX_L01Pawn.h"
 #include "TimerManager.h"
-
-
+#include "UObject/ConstructorHelpers.h"
+#include "Components/StaticMeshComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "UObject/ConstructorHelpers.h"
+#include "Engine/StaticMesh.h"
 
 ABombaHielo::ABombaHielo()
 {
@@ -14,6 +17,17 @@ ABombaHielo::ABombaHielo()
 	TiempoExplosion = 0.0f;
 	TiempoVuelo = 0.0f;
 	bInitialized = false;
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> BombHMeshAsset(TEXT("/Game/TwinStick/Meshes/TwinStickProjectile.TwinStickProjectile"));
+	BombHMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BombHMesh"));
+	BombHMesh->SetStaticMesh(BombHMeshAsset.Object);
+	RootComponent = BombHMesh;
+
+	BombHMesh->SetCollisionProfileName(TEXT("OverlapAllDynamic")); // Usar un perfil de colisión adecuado
+	BombHMesh->OnComponentBeginOverlap.AddDynamic(this, &ABombaHielo::OnOverlapBegin); // Agregar el evento de colisión
+
+	BombHMesh->SetRelativeScale3D(FVector(5.0f, 5.0f, 5.0f));
+
 }
 
 void ABombaHielo::BeginPlay()

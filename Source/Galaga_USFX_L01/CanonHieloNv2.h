@@ -13,5 +13,6 @@ UCLASS()
 class GALAGA_USFX_L01_API ACanonHieloNv2 : public ACanonHielo
 {
 	GENERATED_BODY()
-	
+public:
+	ACanonHieloNv2();
 };
