@@ -21,6 +21,9 @@ ANaveEnemigaBomb::ANaveEnemigaBomb()
     BombsFired = 0; 
 
     bCanFire = true; // Permitir disparos al principio
+
+    Vida = 30;
+
 }
 
 void ANaveEnemigaBomb::Tick(float DeltaTime)
@@ -45,6 +48,16 @@ void ANaveEnemigaBomb::Mover(float DeltaTime)
 		//SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, 250.0f));
 		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
 	}*/
+}
+
+void ANaveEnemigaBomb::RecibirDanio()
+{
+  
+    Vida -= 5;
+    if (Vida <= 0)
+    {
+        Destroy();
+    }
 }
 
 void ANaveEnemigaBomb::Soltar()

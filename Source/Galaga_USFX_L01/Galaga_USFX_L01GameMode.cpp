@@ -27,7 +27,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
     Director = GetWorld()->SpawnActor<AAndromedaDirector>();
 
     IIGalacticFieldBuilder* FieldBuilder = nullptr;
-	switch (FMath::RandRange(1, 3)) // puedo cambair esto on una variable que se pueda cambiar en el editor
+	switch (1) // puedo cambair esto on una variable que se pueda cambiar en el editor, FMath::RandRange(1, 3)
     {
     case 1:
         FieldBuilder = GetWorld()->SpawnActor<AOmegaFieldBuilder>(); 

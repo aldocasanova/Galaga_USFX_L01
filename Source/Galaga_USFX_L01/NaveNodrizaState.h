@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
 #include "NaveNodrizaState.generated.h"
-
+//contexto
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
 class UNaveNodrizaState : public UInterface
@@ -21,10 +21,14 @@ class GALAGA_USFX_L01_API INaveNodrizaState
 	GENERATED_BODY()
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
-public:
-	virtual void EstadoOfensivo() = 0;
-	virtual void EstadoDefensivo() = 0;
-	virtual void EstadoDebil() = 0;
+public: 
+	float TiempoDisparo;
+	//Establecemos a la Nave Nodriza
+	virtual void SetNaveNodriza(class ANaveEnemigaNodriza* NaveNodriza) = 0;
 
-	virtual void SetNaveNodrizaState(class NaveNodriza * NaveNodriza) = 0;
+	//Funciones que compartiran con los estados y la nave nodriza
+	virtual void Mover(float DeltaTime) = 0;
+	virtual void Disparar() = 0;
+	virtual void CrearEscudo() = 0;
+	//virtual void DestruirEscudos() = 0;
 };

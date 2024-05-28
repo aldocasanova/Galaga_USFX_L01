@@ -2,6 +2,13 @@
 
 #include "NaveEnemigaNodriza.h"
 #include "ProyectilEnemigo.h"
+#include "NaveNodrizaState.h"
+#include "EstadoDefensivo.h"
+#include "EstadoOfensivo.h"
+#include "EstadoDebil.h"
+#include "NaveEnemigaManager.h"
+#include "EngineUtils.h"
+
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values
@@ -12,87 +19,116 @@ ANaveEnemigaNodriza::ANaveEnemigaNodriza()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-    FireRate = rand() % 11 + 1; // Intervalo de tiempo entre disparos en segundos, formula 
+    GetActorRelativeScale3D();
+    SetActorScale3D(FVector(1.2f, 1.2f, 1.2f));
 
-    MaxShots = 8; // Cantidad máxima de disparos
-    ShotsFired = 0; // Inicializar contador de disparos
-
-    bCanFire = true; // Permitir disparos al principio
+    vida = 150;
 }
 
 // Called every frame
 void ANaveEnemigaNodriza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	Mover(DeltaTime);
 	Disparar();
-    Desplazamiento(DeltaTime);
+	Mover(DeltaTime);
 }
 
-void ANaveEnemigaNodriza::ShotTimerExpired()
+
+void ANaveEnemigaNodriza::BeginPlay()
 {
-		bCanFire = true;
+	Super::BeginPlay();
+
+	EstadoDefensivo = GetWorld()->SpawnActor<AEstadoDefensivo>(FVector::ZeroVector, FRotator::ZeroRotator);
+	EstadoOfensivo = GetWorld()->SpawnActor<AEstadoOfensivo>(FVector::ZeroVector, FRotator::ZeroRotator);
+	EstadoDebil = GetWorld()->SpawnActor<AEstadoDebil>(FVector::ZeroVector, FRotator::ZeroRotator);
+
+	InicializarEstadosNaveNodriza();
+}
+
+void ANaveEnemigaNodriza::RecibirDanio()
+{
+	vida -= 10;
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Vida: " + FString::SanitizeFloat(vida)));
+	if (vida <= 0)
+	{
+		Destroy();
+		for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
+		{
+			EnemigasManager = *It;
+			break;
+		}
+		if (EnemigasManager)
+		{
+			NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
+			NavesEnemigas--;
+			EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
+		}
+	}
+	InicializarEstadosNaveNodriza();
+}
+
+void ANaveEnemigaNodriza::InicializarEstadosNaveNodriza()
+{
+	if (vida >= 100)
+	{
+		EstadoDefensivo->SetNaveNodriza(this);
+		EstablecerEstados(EstadoDefensivo);
+		CrearEscudo();
+	}
+	else if (vida >= 50 && vida < 100)
+	{
+		EstadoOfensivo->SetNaveNodriza(this);
+		EstablecerEstados(EstadoOfensivo);
+	}
+	else
+	{
+		EstadoDebil->SetNaveNodriza(this);
+		EstablecerEstados(EstadoDebil);
+	}
+}
+
+void ANaveEnemigaNodriza::EstablecerEstados(INaveNodrizaState* _Estado)
+{
+	Estado = _Estado;
+
 }
 
 void ANaveEnemigaNodriza::Mover(float DeltaTime)
 {
-	velocidad = 0.35; //0.25
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
-
-	if (GetActorLocation().X < LimiteInferiorX) {
-
-		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
-
-	}
-
+	Estado->Mover(DeltaTime);
 }
-
 
 void ANaveEnemigaNodriza::Disparar()
 {
-    FVector SpawnLocation = GetActorLocation() + -(GetActorForwardVector() * 1);
-
-
-    if (bCanFire == true && ShotsFired < MaxShots)
-    {
-        UWorld* World = GetWorld();
-        if (World)
-        {
-            AProyectilEnemigo* NewProjectile = World->SpawnActor<AProyectilEnemigo>(SpawnLocation, FRotator::ZeroRotator);
-        }
-        World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &ANaveEnemigaNodriza::ShotTimerExpired, FireRate);
-        bCanFire = false; //no todas las balas se disparan seguidas
-
-        ShotsFired++;
-        if (ShotsFired >= MaxShots)
-        {
-            bCanFire = false;
-            GetWorldTimerManager().ClearTimer(TimerHandle_ShotTimerExpired);
-        }
-        if (FireSound != nullptr)
-        {
-            UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-        }
-        // If we are pressing fire stick in a direction
-
-    }
+	Estado->Disparar();
 }
 
-void ANaveEnemigaNodriza::Destruirse()
+void ANaveEnemigaNodriza::CrearEscudo()
 {
+	Estado->CrearEscudo();
 }
 
-
-
-void ANaveEnemigaNodriza::Desplazamiento(float DeltaTime)
+INaveNodrizaState* ANaveEnemigaNodriza::GetEstado()
 {
-    Radio = 1.0f; // Radio de la circunferencia
-    VelocidadR = 2.0f; // Velocidad angular
-
-    FVector NewLocation = FVector(GetActorLocation().X + Radio * FMath::Cos(VelocidadR * GetWorld()->GetTimeSeconds()),
-        GetActorLocation().Y + Radio * FMath::Sin(VelocidadR * GetWorld()->GetTimeSeconds()),
-        GetActorLocation().Z);
-    SetActorLocation(NewLocation);
+	return Estado;
 }
 
+INaveNodrizaState* ANaveEnemigaNodriza::GetEstadoDefensivo()
+{
+	return EstadoDefensivo;
+}
 
+INaveNodrizaState* ANaveEnemigaNodriza::GetEstadoOfensivo()
+{
+	return EstadoOfensivo;
+}
+
+INaveNodrizaState* ANaveEnemigaNodriza::GetEstadoDebil()
+{
+	return EstadoDebil;
+}
+
+//void ANaveEnemigaNodriza::DestruirEscudos()
+//{
+//	Estado->DestruirEscudos();
+//}

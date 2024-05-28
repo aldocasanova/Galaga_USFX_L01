@@ -5,6 +5,8 @@
 
 void AMyNaveEnemigaCazaY::Tick(float DeltaTime)
 {
+	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
 }
 
 AMyNaveEnemigaCazaY::AMyNaveEnemigaCazaY()

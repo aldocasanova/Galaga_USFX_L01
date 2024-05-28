@@ -10,7 +10,7 @@ ANaveEnemigaManager::ANaveEnemigaManager()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-    NavesEnemigasRestantes = 29;
+    NavesEnemigasRestantes = 29; //por referencia
 	NavesDesplegadas = false;
 }
 
@@ -45,7 +45,7 @@ void ANaveEnemigaManager::NotifyObservers()
     {
         for (INaveEnemigaObserver* Observer : Observers)
         {
-			Observer->OnNaveCountChanged(NaveCount); //llamo a la funcion de la interfaz
+			Observer->OnNaveCountChanged(NaveCount); //llamo a la funcion de la interfaz uno [por uno
         }
 		NavesDesplegadas = true;
     }
@@ -56,19 +56,4 @@ void ANaveEnemigaManager::UpdateNaveCount()
     // Actualiza el número de NavesEnemigas y notifica a los observadores si es necesario
     NotifyObservers();
 }
-
-//void ANaveEnemigaManager::AddNaveEnemiga(ANaveEnemiga* Nave) //actualizo el conteo de mis naves
-//{
-//    NavesEnemigas.Add(Nave);
-//    UpdateNaveCount();
-//    
-//}
-//
-//void ANaveEnemigaManager::RemoveNaveEnemiga(ANaveEnemiga* Nave)
-//{
-//    NavesEnemigas.Remove(Nave);
-//    NavesEnemigasRestantes--;
-//    UpdateNaveCount();
-//}
-
 

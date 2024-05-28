@@ -27,6 +27,7 @@ public:
 	FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
 		virtual void Tick(float DeltaTime) override;
 		class USoundBase* FireSound;
+		virtual void RecibirDanio() override;
 protected:
 	virtual void Mover(float DeltaTime) override;
 	virtual void Destruirse() override;

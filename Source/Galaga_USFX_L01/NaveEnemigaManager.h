@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
-
+//publisher
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "NaveEnemiga.h"
@@ -20,7 +20,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -33,14 +33,8 @@ public:
 	void RemoveObserver(INaveEnemigaObserver* Observer);
 	void NotifyObservers();
 	void UpdateNaveCount();
-	//void AddNaveEnemiga(ANaveEnemiga* Nave);
-	//void RemoveNaveEnemiga(ANaveEnemiga* Nave);
 
 	FORCEINLINE int GetNavesEnemigasRestantes() const { return NavesEnemigasRestantes; }
 	FORCEINLINE void SetNavesEnemigasRestantes(int _NavesEnemigasRestantes) { NavesEnemigasRestantes = _NavesEnemigasRestantes; }
 
-
-	
-
-	
 };

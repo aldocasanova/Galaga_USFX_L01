@@ -3,7 +3,7 @@
 #include "Galaga_USFX_L01GameMode.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "ProyectilEnemigo.h"
-
+#include "EngineUtils.h"
 #include "Kismet/GameplayStatics.h"
 
 ANaveEnemigaCaza::ANaveEnemigaCaza()
@@ -24,6 +24,8 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
     ShotsFired = 0; // Inicializar contador de disparos
 
     bCanFire = true; // Permitir disparos al principio
+
+    Vida = 30;
 }
 
 void ANaveEnemigaCaza::Disparar()
@@ -62,6 +64,31 @@ void ANaveEnemigaCaza::ShotTimerExpired()
     bCanFire = true;
 }
 
+void ANaveEnemigaCaza::RecibirDanio()
+{
+    Vida -= 10;
+    if (Vida <= 0)
+    {
+        Destroy();
+        for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
+        {
+            EnemigasManager = *It;
+            break;
+        }
+            if (EnemigasManager)
+            {
+                NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
+                NavesEnemigas--;
+                EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
+            }
+            /*if (EnemyTransport && EnemigasManager)
+            {
+                EnemigasManager->RemoveObserver(EnemyTransport);
+            }*/
+
+    }
+}
+
 void ANaveEnemigaCaza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -79,7 +106,7 @@ void ANaveEnemigaCaza::Mover(float DeltaTime)
 	if (GetActorLocation().X < LimiteInferiorX) 
 	{
 		//SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, 250.0f));
-		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 215.0f));
 	}
 }
 

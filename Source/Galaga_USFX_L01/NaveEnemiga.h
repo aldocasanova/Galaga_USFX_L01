@@ -36,6 +36,13 @@ protected:
 
 	int codigoNave;
 
+	float Vida;
+	int NavesEnemigas;
+
+	//no sé si es esto 
+	class AGalaga_USFX_L01GameMode* GameMode;
+	class ANaveEnemigaManager* EnemigasManager;
+
 public: //leer valores
 	FORCEINLINE float GetVelocidad() const { return velocidad; }
 	FORCEINLINE float GetResistencia() const { return resistencia; }
@@ -78,6 +85,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	//colison
+	virtual void RecibirDanio() PURE_VIRTUAL(ANaveEnemiga::RecibirDanio, );
 protected:
 	virtual void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
 	//void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
@@ -86,4 +95,6 @@ protected:
 	//virtual void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
 	virtual void Desplazamiento(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Desplazamiento, );
 	
+	
+
 };

@@ -31,6 +31,8 @@ public:
 
 	void SetUltimaPosicionJugador(FVector Posicion);
 
+	class AGalaga_USFX_L01Pawn* Pawn;
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 private:
 
 

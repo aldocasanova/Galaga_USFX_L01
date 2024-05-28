@@ -23,10 +23,16 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+protected:
+	class ANaveEnemigaNodriza* NaveNodriza;
 
-	virtual void EstadoOfensivo() override;
-	virtual void EstadoDefensivo() override;
-	virtual void EstadoDebil() override;
+	float velocidad;
+public:
+	void SetNaveNodriza(class ANaveEnemigaNodriza* _NaveNodriza) override;
+	void Mover(float DeltaTime) override;
 
-	virtual void SetNaveNodrizaState(class NaveNodriza* NaveNodriza) override;
+private:
+	void Disparar() override {};
+	void CrearEscudo() override {};
+	//void DestruirEscudos() override {};
 };

@@ -32,6 +32,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	//class USoundBase* FireSound;
+	virtual void RecibirDanio() override;
 protected:
 	virtual void Mover(float DeltaTime) override;
 	virtual void Destruirse() override;

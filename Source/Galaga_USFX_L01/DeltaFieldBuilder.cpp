@@ -32,7 +32,7 @@ void ADeltaFieldBuilder::BuildObstacles()
 	x = 1 + rand() % (15);
 	for (int i = 0; i < x; i++)
 	{
-		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1600.0f), FMath::RandRange(-1600.0f, 1600.0f), 250.0f);
+		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1600.0f), FMath::RandRange(-1600.0f, 1600.0f), 215.0f);
 		AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
 	}
@@ -43,7 +43,7 @@ void ADeltaFieldBuilder::BuildEnemies()
 {
 
 	for (int i = 0; i < 30; i++) {
-		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1600.0f), FMath::RandRange(-1600.0f, 1600.0f), 250.0f);		
+		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1600.0f), FMath::RandRange(-1600.0f, 1600.0f), 215.0f);		
 		x = 1 + rand() % (12);
 		switch (x) {
 		case 1:
@@ -127,7 +127,7 @@ void ADeltaFieldBuilder::BuildPowerUps()
 	x = 1 + rand() % (2);
 	for (int i = 0; i < x; i++)
 	{
-		FVector SpawnLocation = FVector(FMath::RandRange(-400.0f, 0.0f), FMath::RandRange(-1000.0f, 1000.0f), 250.0f);
+		FVector SpawnLocation = FVector(FMath::RandRange(-400.0f, 0.0f), FMath::RandRange(-1000.0f, 1000.0f), 215.0f);
 		APowerUp* NewObstacle = GetWorld()->SpawnActor<APowerUp>(APowerUp::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
 	}

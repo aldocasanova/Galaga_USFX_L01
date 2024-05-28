@@ -3,7 +3,11 @@
 
 #include "BombaCanon.h"
 #include "Kismet/GameplayStatics.h"
-
+#include "Galaga_USFX_L01Projectile.h"
+#include "Components/StaticMeshComponent.h"
+#include "UObject/ConstructorHelpers.h"
+#include "Engine/StaticMesh.h"
+#include "Galaga_USFX_L01Pawn.h"
 
 
 // Sets default values
@@ -80,5 +84,15 @@ void ABombaCanon::Desaparecer(float _TiempoExplosion)
 void ABombaCanon::SetUltimaPosicionJugador(FVector Posicion)
 {
 	UltimaPosicionJugador = Posicion;
+}
+
+void ABombaCanon::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+{
+	Pawn = Cast<AGalaga_USFX_L01Pawn>(OtherActor);
+	if (Pawn)
+	{
+		//Pawn->RecibirDanio();
+		//Destroy();
+	}
 }
 

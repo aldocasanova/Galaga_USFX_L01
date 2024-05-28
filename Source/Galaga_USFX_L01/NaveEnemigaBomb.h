@@ -37,7 +37,7 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 	virtual void ShotTimerExpired();
-
+	virtual void RecibirDanio() override;
 protected:
 	virtual void Mover(float DeltaTime);
 	virtual void Soltar();

@@ -2,6 +2,8 @@
 
 
 #include "NaveEnemigaPiccolo.h"
+#include "NaveEnemigaManager.h"
+#include "EngineUtils.h"
 
 //StaticMesh'/Game/StarterContent/Shapes/Shape_Pipe_90.Shape_Pipe_90'
 
@@ -11,6 +13,7 @@ ANaveEnemigaPiccolo::ANaveEnemigaPiccolo()
 	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	Vida = 50;
 }
 
 void ANaveEnemigaPiccolo::Tick(float DeltaTime)
@@ -26,7 +29,7 @@ void ANaveEnemigaPiccolo::Mover(float DeltaTime)
 
 	if (GetActorLocation().X < LimiteInferiorX) {
 
-		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 215.0f));
 		//agregar me'todo para que vuelvan a su posicion mediante el movimientyo de entrada
 
 	}
@@ -39,4 +42,25 @@ void ANaveEnemigaPiccolo::Destruirse()
 
 void ANaveEnemigaPiccolo::Desplazamiento(float DeltaTime)
 {
+}
+
+void ANaveEnemigaPiccolo::RecibirDanio()
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("NavePiccolo::RecibirDanio"));
+	Vida -= 10;
+	if (Vida <= 0)
+	{
+		Destroy();
+		for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
+		{
+			EnemigasManager = *It;
+			break;
+		}
+		if (EnemigasManager)
+		{
+			NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
+			NavesEnemigas--;
+			EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
+		}
+	}
 }

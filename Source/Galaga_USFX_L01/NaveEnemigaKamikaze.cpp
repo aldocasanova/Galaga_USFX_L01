@@ -2,7 +2,8 @@
 
 
 #include "NaveEnemigaKamikaze.h"
-
+#include "NaveEnemigaManager.h"
+#include "EngineUtils.h"
 // Sets default values
 ANaveEnemigaKamikaze::ANaveEnemigaKamikaze()
 {
@@ -10,6 +11,7 @@ ANaveEnemigaKamikaze::ANaveEnemigaKamikaze()
 	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	Vida = 10;
 
 }
 
@@ -28,12 +30,32 @@ void ANaveEnemigaKamikaze::Mover(float DeltaTime)
 
 	if (GetActorLocation().X < LimiteInferiorX) {
 
-		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 215.0f));
 
 	}
 
 }
 
+void ANaveEnemigaKamikaze::RecibirDanio()
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("NaveTransporte::RecibirDanio"));
+	Vida -= 5;
+	if (Vida <= 0)
+	{
+		Destroy();
+		for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
+		{
+			EnemigasManager = *It;
+			break;
+		}
+		if (EnemigasManager)
+		{
+			NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
+			NavesEnemigas--;
+			EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
+		}
+	}
+}
 
 void ANaveEnemigaKamikaze::Destruirse()
 {

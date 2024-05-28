@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "NaveNodrizaState.h"
+#include "Escudo.h"
 #include "EstadoOfensivo.generated.h"
 
 UCLASS()
@@ -24,9 +25,33 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void EstadoOfensivo() override;
-	virtual void EstadoDefensivo() override;
-	virtual void EstadoDebil() override;
+public:
+	/** Offset from the ships location to spawn projectiles */
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
+	FVector GunOffset;
 
-	virtual void SetNaveNodrizaState(class NaveNodriza* NaveNodriza) override;
+	/* Flag to control firing  */
+	uint32 bCanFire : 1;
+
+	/** Handle for efficient management of ShotTimerExpired timer */
+	FTimerHandle TimerHandle_ShotTimerExpired;
+
+	float TiempoDisparo;
+
+	void ShotTimerExpired();
+protected:
+	class ANaveEnemigaNodriza* NaveNodriza;
+
+
+public:
+	void SetNaveNodriza(class ANaveEnemigaNodriza* _NaveNodriza) override;
+	void Mover(float DeltaTime) override;
+	void Disparar() override;
+	//void DestruirEscudos() override;
+
+	//TArray<AEscudo*> Escudos;
+
+private:
+	void CrearEscudo() override {};
+
 };

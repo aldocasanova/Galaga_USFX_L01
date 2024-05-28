@@ -24,9 +24,25 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void EstadoOfensivo() override;
-	virtual void EstadoDefensivo() override;
-	virtual void EstadoDebil() override;
+protected:
+	class ANaveEnemigaNodriza* NaveNodriza;
 
-	virtual void SetNaveNodrizaState(class NaveNodriza* NaveNodriza) override;
+	virtual void ResetFire();
+
+	int MaxProjectile;
+
+	int NumberFired;
+	bool bCanFire;
+
+	FVector UltimaPosicionJugador;
+
+public:
+	void SetNaveNodriza(class ANaveEnemigaNodriza* _NaveNodriza) override;
+	void Disparar() override;
+	void CrearEscudo() override;
+
+private:
+	void Mover(float DeltaTime) override {};
+private:
+	//void DestruirEscudos() override {};
 };

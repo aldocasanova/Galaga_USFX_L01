@@ -2,7 +2,8 @@
 
 
 #include "NaveEnemigaEspia.h"
-
+#include "NaveEnemigaManager.h"
+#include "EngineUtils.h"
 // Sets default values
 ANaveEnemigaEspia::ANaveEnemigaEspia()
 {
@@ -10,7 +11,29 @@ ANaveEnemigaEspia::ANaveEnemigaEspia()
 	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	Vida = 20;
 
+}
+
+void ANaveEnemigaEspia::RecibirDanio()
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("NaveTransporte::RecibirDanio"));
+	Vida -= 5;
+	if (Vida <= 0)
+	{
+		Destroy();
+		for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
+		{
+			EnemigasManager = *It;
+			break;
+		}
+		if (EnemigasManager)
+		{
+			NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
+			NavesEnemigas--;
+			EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
+		}
+	}
 }
 
 void ANaveEnemigaEspia::Mover(float DeltaTime)
@@ -20,7 +43,7 @@ void ANaveEnemigaEspia::Mover(float DeltaTime)
 
 	if (GetActorLocation().X< LimiteInferiorX) {
 
-		SetActorLocation(FVector(400.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(400.0f, GetActorLocation().Y, 215.0f));
 
 	}
 	//FVector(200.0f, -1100.0f, 250.0f);

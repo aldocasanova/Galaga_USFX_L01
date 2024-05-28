@@ -27,7 +27,6 @@ protected:
 	int ShotsFired;
 
 	int codigoNave = 1;
-	
 public:
 	class USoundBase* FireSound;
 	//...
@@ -51,6 +50,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void ShotTimerExpired();
 
+	virtual void RecibirDanio() override;
+
+
 protected:
 	virtual void Mover(float DeltaTime) override;
 	virtual void Disparar() override;
@@ -61,7 +63,6 @@ protected:
 
 	void StartFly();
 
-private:
 	
 
 

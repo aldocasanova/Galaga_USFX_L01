@@ -33,6 +33,8 @@ public:
 
 		FORCEINLINE int GetcodigoNave() const { return codigoNave; }
 		FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
+
+		virtual void RecibirDanio() override;
 protected:
 	virtual void Mover(float DeltaTime) override;
 	virtual void Destruirse() override;

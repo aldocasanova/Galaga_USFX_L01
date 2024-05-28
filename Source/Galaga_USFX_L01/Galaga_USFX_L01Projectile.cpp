@@ -8,6 +8,11 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Galaga_USFX_L01GameMode.h"
 #include "NaveEnemiga.h"
+#include "NaveEnemigaNodriza.h"
+#include "NaveEnemigaTransporte.h"
+#include "MyNaveEnemigaCazaX.h"
+#include "NaveEnemigaPiccolo.h"
+#include "Escudo.h"
 #include "NaveEnemigaManager.h"
 #include "EngineUtils.h"
 
@@ -37,10 +42,11 @@ AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile()
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f; //tiempo de vida de un proyecti
-	//creacion de la colision
-	Collision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Collision")); 
+	//creacion de la colision 1.0
+	/*Collision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Collision")); 
 	Collision->SetupAttachment(RootComponent);
-	Collision->InitCapsuleSize(50.f, 100.f);
+	Collision->InitCapsuleSize(50.f, 100.f);*/
+
 }
 
 void AGalaga_USFX_L01Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
@@ -51,52 +57,19 @@ void AGalaga_USFX_L01Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* Oth
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 20.0f, GetActorLocation());
 	}
 
+	AEscudo* Escudo = Cast<AEscudo>(OtherActor);
+	if (Escudo != nullptr)
+	{
+		Escudo->Durabilidad();
 
+	}
 
+	ANaveEnemiga* Nave = Cast<ANaveEnemiga>(OtherActor);
+	if (Nave != nullptr)
+	{
+		Nave->RecibirDanio();
+	}
 	Destroy();
 }
 
-void AGalaga_USFX_L01Projectile::NotifyActorBeginOverlap(AActor* OtherActor) //funcion para detectar colisiones
-{
-	Super::AActor::NotifyActorBeginOverlap(OtherActor);
-
-
-	ANaveEnemiga* EnemyShip = Cast<ANaveEnemiga>(OtherActor);
-	AGalaga_USFX_L01GameMode* GameMode = Cast<AGalaga_USFX_L01GameMode>(GetWorld()->GetAuthGameMode());
-
-
-	ANaveEnemigaManager* EnemigasManager = nullptr;
-
-	ANaveEnemigaTransporte* EnemyTransport = Cast<ANaveEnemigaTransporte>(OtherActor); 
-	for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
-	{
-		EnemigasManager = *It;
-		break;  
-	}
-
-	if (EnemyShip)
-	{
-	
-		EnemyShip->Destroy();
-
-		if (EnemigasManager)
-		{
-			NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
-			NavesEnemigas--;
-			EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
-		}
-		//l remuevo también del observer
-		if (EnemyTransport && EnemigasManager)
-		{
-			EnemigasManager->RemoveObserver(EnemyTransport);
-		}
-
-	}
-
-}
-	/*if (OtherActor != nullptr && OtherActor != this)
-	{
-		OtherActor->Destroy();
-		Destroy();
-	}*/
 

@@ -4,12 +4,16 @@
 #include "Galaga_USFX_L01GameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "NaveEnemigaManager.h"
+#include "EngineUtils.h"
 
 ANaveEnemigaTransporte::ANaveEnemigaTransporte()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_NarrowCapsule.Shape_NarrowCapsule'"));
 	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
+	Vida = 30;
+	mallaNaveEnemiga->SetRelativeScale3D(FVector(2.0f, 2.0f, 2.0f));
+
 
 } 
 
@@ -60,7 +64,7 @@ void ANaveEnemigaTransporte::Mover(float DeltaTime)
 
 	if (GetActorLocation().X < LimiteInferiorX) {
 
-		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
+		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 215.0f));
 
 	}
 }
@@ -84,4 +88,31 @@ void ANaveEnemigaTransporte::Desplazamiento(float DeltaTime)
 
 	FVector NewLocation = FVector(GetActorLocation().X, GetActorLocation().Y + AmplitudT * FMath::Sin(VelocidadT * GetWorld()->GetTimeSeconds()), GetActorLocation().Z);
 	SetActorLocation(NewLocation);
+}
+
+void ANaveEnemigaTransporte::RecibirDanio()
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("NaveTransporte::RecibirDanio"));
+	Vida -= 5;
+	if (Vida <= 0)
+	{
+
+		//EnemigasManager->RemoveObserver(EnemyTransport);
+		Destroy();
+		for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
+		{
+			EnemigasManager = *It;
+			break;
+		}
+		if (EnemigasManager)
+		{
+			NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
+			NavesEnemigas--;
+			EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
+		}
+		if (EnemyTransport && EnemigasManager)
+		{
+			EnemigasManager->RemoveObserver(EnemyTransport);
+		}
+	}
 }
