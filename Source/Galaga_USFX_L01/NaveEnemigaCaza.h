@@ -48,20 +48,18 @@ public:
 	FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
 
 	virtual void Tick(float DeltaTime) override;
-	virtual void ShotTimerExpired();
+	//virtual void ShotTimerExpired();
 
 	virtual void RecibirDanio() override;
 
-
-protected:
 	virtual void Mover(float DeltaTime) override;
 	virtual void Disparar() override;
-	virtual void Destruirse() override;
-
 	FTimerHandle TimerHandle_ShotTimerExpired;
 	virtual void Desplazamiento(float DeltaTime) override;
 
-	void StartFly();
+protected:
+	
+
 
 	
 

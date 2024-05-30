@@ -35,10 +35,10 @@ public:
 		FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
 
 		virtual void RecibirDanio() override;
-protected:
-	virtual void Mover(float DeltaTime) override;
-	virtual void Destruirse() override;
-	//virtual void Escapar() override;
 
-	virtual void Desplazamiento(float DeltaTime);
+		virtual void Mover(float DeltaTime) override;
+		virtual void Disparar() override {};
+		virtual void Desplazamiento(float DeltaTime) override;
+protected:
+	
 };

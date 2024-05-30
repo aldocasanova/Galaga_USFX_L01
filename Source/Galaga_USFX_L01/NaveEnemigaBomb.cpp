@@ -29,7 +29,6 @@ ANaveEnemigaBomb::ANaveEnemigaBomb()
 void ANaveEnemigaBomb::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	Mover(DeltaTime);
 	Soltar();
     Desplazamiento(DeltaTime);
 }
@@ -41,18 +40,17 @@ void ANaveEnemigaBomb::ShotTimerExpired()
 void ANaveEnemigaBomb::Mover(float DeltaTime)
 {
 	//velocidad = 0.35; 
-	/*SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+	//SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 
-	if (GetActorLocation().X < LimiteInferiorX)
-	{
-		//SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, 250.0f));
-		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
-	}*/
+	//if (GetActorLocation().X < LimiteInferiorX)
+	//{
+	//	//SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, 250.0f));
+	//	SetActorLocation(FVector(800.0f, GetActorLocation().Y, 250.0f));
+	//}
 }
 
 void ANaveEnemigaBomb::RecibirDanio()
 {
-  
     Vida -= 5;
     if (Vida <= 0)
     {

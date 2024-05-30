@@ -22,6 +22,8 @@
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/CanonLazerNv2.gen.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/CanonLazerNv3.gen.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/DeltaFieldBuilder.gen.cpp"
+#include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/DeltaStragedy.gen.cpp"
+#include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Escudo.gen.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoDebil.gen.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoDefensivo.gen.cpp"
 #include "D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoOfensivo.gen.cpp"

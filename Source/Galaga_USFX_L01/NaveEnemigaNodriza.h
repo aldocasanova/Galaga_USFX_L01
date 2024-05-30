@@ -49,8 +49,8 @@ public:
 
 	virtual void Mover(float DeltaTime) override;
 	virtual void Disparar() override;
+	virtual void Desplazamiento(float DeltaTime)override {};
 	void CrearEscudo();
-	//void DestruirEscudos();
 	//Funciones para obtener los estados
 	FORCEINLINE INaveNodrizaState* GetEstado();
 	FORCEINLINE INaveNodrizaState* GetEstadoDefensivo();

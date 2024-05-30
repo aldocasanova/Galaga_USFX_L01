@@ -50,28 +50,30 @@ void ANaveEnemigaReabastecimiento::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	Mover(DeltaTime);
+	Desplazamiento(DeltaTime);
+	/*if (FieldStrategy)
+	{
+		FieldStrategy->Mover(this, DeltaTime);
+		FieldStrategy->Desplazamiento(this, DeltaTime);
+	}*/
 }
 
 void ANaveEnemigaReabastecimiento::Mover(float DeltaTime)
 {
-	velocidad = 0.35; // 1
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
-
-	if (GetActorLocation().X < LimiteInferiorX) {
-
-		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 215.0f));
-
+	
+	if (FieldStrategy)
+	{
+		FieldStrategy->Mover(this, DeltaTime);
 	}
-
-}
-
-void ANaveEnemigaReabastecimiento::Destruirse()
-{
 }
 
 
 void ANaveEnemigaReabastecimiento::Desplazamiento(float DeltaTime)
 {
+	if (FieldStrategy)
+	{
+		FieldStrategy->Desplazamiento(this, DeltaTime);
+	}
 }
 
 

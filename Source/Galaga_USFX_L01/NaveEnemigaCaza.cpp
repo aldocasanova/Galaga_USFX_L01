@@ -17,7 +17,7 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
 
     PrimaryActorTick.bCanEverTick = true;
 
-    //FireRate = 4.0f; // Intervalo de tiempo entre disparos en segundos
+    FireRate = 4.0f; // Intervalo de tiempo entre disparos en segundos
     FireRate = rand() % 4 + 1; // Intervalo de tiempo entre disparos en segundos, formula 
 
     MaxShots = 3; // Cantidad máxima de disparos
@@ -30,38 +30,10 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
 
 void ANaveEnemigaCaza::Disparar()
 {
-    FVector SpawnLocation = GetActorLocation() + -(GetActorForwardVector() * 1);
-
-    if (bCanFire == true && ShotsFired < MaxShots)
+    if (FieldStrategy)
     {
-        UWorld* World = GetWorld();
-        if (World)
-        {
-            AProyectilEnemigo* NewProjectile = World->SpawnActor<AProyectilEnemigo>(SpawnLocation, FRotator::ZeroRotator);
-        }
-        World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &ANaveEnemigaCaza::ShotTimerExpired, FireRate);
-        bCanFire = false; //no todas las balas se disparan seguidas
-        
-        ShotsFired++;
-        if (ShotsFired >= MaxShots)
-        {
-           bCanFire = false;
-           GetWorldTimerManager().ClearTimer(TimerHandle_ShotTimerExpired);
-        }
-        if (FireSound != nullptr)
-        {
-            UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-        }
-        // If we are pressing fire stick in a direction
-
+        FieldStrategy->Disparar(this);
     }
-}
-void ANaveEnemigaCaza::Destruirse()
-{
-}
-void ANaveEnemigaCaza::ShotTimerExpired()
-{
-    bCanFire = true;
 }
 
 void ANaveEnemigaCaza::RecibirDanio()
@@ -81,48 +53,39 @@ void ANaveEnemigaCaza::RecibirDanio()
                 NavesEnemigas--;
                 EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
             }
-            /*if (EnemyTransport && EnemigasManager)
-            {
-                EnemigasManager->RemoveObserver(EnemyTransport);
-            }*/
-
     }
 }
 
 void ANaveEnemigaCaza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	Mover(DeltaTime);
-    Disparar();
-    Desplazamiento(DeltaTime); 
-    StartFly();
+    Mover(DeltaTime);
+	Desplazamiento(DeltaTime);
+	Disparar();
+    /*if (FieldStrategy)
+    {
+        FieldStrategy->Mover(this, DeltaTime);
+        FieldStrategy->Desplazamiento(this, DeltaTime);
+		FieldStrategy->Disparar(this);
+    }*/
 }
 
 void ANaveEnemigaCaza::Mover(float DeltaTime)
 {
-	velocidad = 0.65; //0.75
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
-
-	if (GetActorLocation().X < LimiteInferiorX) 
-	{
-		//SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, 250.0f));
-		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 215.0f));
-	}
+    if (FieldStrategy)
+    {
+        FieldStrategy->Mover(this, DeltaTime);
+    }
 }
 
 
 
 void ANaveEnemigaCaza::Desplazamiento(float DeltaTime)
 {
-    AmplitudZigzag =1.0f;
-	VelocidadZigzag = 5.0f;
-
-    FVector NewLocation = FVector(GetActorLocation().X, GetActorLocation().Y + AmplitudZigzag * FMath::Sin(VelocidadZigzag * GetWorld()->GetTimeSeconds()), GetActorLocation().Z);
-    SetActorLocation(NewLocation);
-}
-
-void ANaveEnemigaCaza::StartFly()
-{
+    if (FieldStrategy)
+    {
+        FieldStrategy->Desplazamiento(this, DeltaTime);
+    }
 }
 
 

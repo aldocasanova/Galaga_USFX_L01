@@ -33,11 +33,11 @@ public:
 
 	//class USoundBase* FireSound;
 	virtual void RecibirDanio() override;
-protected:
-	virtual void Mover(float DeltaTime) override;
-	virtual void Destruirse() override;
-	//virtual void Escapar() override;
-	virtual void Desplazamiento(float DeltaTime) override;
 
+	virtual void Mover(float DeltaTime) override;
+	virtual void Desplazamiento(float DeltaTime) override;
+	virtual void Disparar() override {};
+protected:
+	
 
 };

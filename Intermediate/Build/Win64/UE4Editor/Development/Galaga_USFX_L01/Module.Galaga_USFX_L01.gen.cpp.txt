@@ -12,6 +12,8 @@ D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Wi
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\PowerUp.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\PowerUp.generated.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\NaveEnemiga.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\FieldStragedy.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\FieldStragedy.generated.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEnemiga.generated.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\NaveEnemigaBomb.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEnemigaBomb.generated.h
@@ -132,12 +134,16 @@ D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Wi
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\MyNaveEnemigaKamikazeB.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\MyNaveEnemigaKamikazeB.generated.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\DeltaFieldBuilder.generated.h
+D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Escudo.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoDebil.gen.cpp
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/EstadoDebil.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoDebil.generated.h
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoDefensivo.gen.cpp
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/EstadoDefensivo.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoDefensivo.generated.h
+D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoOfensivo.gen.cpp
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/EstadoOfensivo.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoOfensivo.generated.h
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/FacadeCanon.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/GalacticField.gen.cpp
 D:/PalVisual/Galaga_USFX_L01-master/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01GameMode.gen.cpp

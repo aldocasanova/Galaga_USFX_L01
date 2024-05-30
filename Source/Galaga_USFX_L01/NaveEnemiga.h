@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "FieldStragedy.h"
 #include "GameFramework/Actor.h"
 #include "NaveEnemiga.generated.h"
 
@@ -15,9 +16,14 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* mallaNaveEnemiga;
 
+	void FireProjectile(); // Método para disparar proyectil
+
+	FTimerHandle TimerHandle_ShotTimerExpired;
+	void ShotTimerExpired() { bCanFire = true; }
+	//void FireProjectile(); // Método para disparar proyectil
 protected:
 	
-	float velocidad;
+	float velocidad = 10;
 	float resistencia; //Numero de disparos que puede recibir antes de ser destruido. Capas
 	FString nombre;
 	float danoProducido; //Potencia de cada proyectil que dispara la nave
@@ -38,10 +44,18 @@ protected:
 
 	float Vida;
 	int NavesEnemigas;
+	float FireRate;
 
-	//no sé si es esto 
 	class AGalaga_USFX_L01GameMode* GameMode;
 	class ANaveEnemigaManager* EnemigasManager;
+	//IFieldStragedy* Strategy;
+
+	float LastFireTime;
+	bool bCanFire;
+
+	int MaxShots;
+	int ShotsFired;
+
 
 public: //leer valores
 	FORCEINLINE float GetVelocidad() const { return velocidad; }
@@ -56,7 +70,7 @@ public: //leer valores
 	FORCEINLINE int GetTipoNave() const { return tipoNave; }
 	FORCEINLINE float GetExperiencia() const { return experiencia; }
 	FORCEINLINE float GetEnergia() const { return energia; }
-	
+	FORCEINLINE float GetLastFireTime() const { return LastFireTime; }
 
 	//reescribir valores
 	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
@@ -71,11 +85,13 @@ public: //leer valores
 	FORCEINLINE void SetTipoNave(int _tipoNave) { tipoNave = _tipoNave; }
 	FORCEINLINE void SetExperiencia(float _experiencia) { experiencia = _experiencia; }
 	FORCEINLINE void SetEnergia(float _energia) { energia = _energia; }
-	
+	FORCEINLINE void SetLastFireTime(float _LastFireTime) { LastFireTime = _LastFireTime; }
 
 public:
 	// Sets default values for this actor's properties
 	ANaveEnemiga();
+	class USoundBase* FireSound;
+	void SetFieldStrategy(TScriptInterface<IFieldStragedy> NewStrategy);
 
 protected:
 	// Called when the game starts or when spawned
@@ -84,17 +100,13 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	//colison
 	virtual void RecibirDanio() PURE_VIRTUAL(ANaveEnemiga::RecibirDanio, );
-protected:
-	virtual void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
-	//void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
-	virtual void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
-	virtual void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
-	//virtual void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
-	virtual void Desplazamiento(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Desplazamiento, );
-	
-	
 
+protected:
+	virtual void Desplazamiento(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Desplazamiento, );
+	virtual void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
+	virtual void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
+	
+	TScriptInterface<IFieldStragedy> FieldStrategy;
+	
 };

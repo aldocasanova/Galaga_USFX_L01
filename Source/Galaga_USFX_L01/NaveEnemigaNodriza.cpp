@@ -127,8 +127,3 @@ INaveNodrizaState* ANaveEnemigaNodriza::GetEstadoDebil()
 {
 	return EstadoDebil;
 }
-
-//void ANaveEnemigaNodriza::DestruirEscudos()
-//{
-//	Estado->DestruirEscudos();
-//}

@@ -25,13 +25,14 @@ public:
 
 	FORCEINLINE int GetcodigoNave() const { return codigoNave; }
 	FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
-		virtual void Tick(float DeltaTime) override;
-		class USoundBase* FireSound;
-		virtual void RecibirDanio() override;
-protected:
+	virtual void Tick(float DeltaTime) override;
+	class USoundBase* FireSound;
+	virtual void RecibirDanio() override;
+
 	virtual void Mover(float DeltaTime) override;
-	virtual void Destruirse() override;
 	FTimerHandle TimerHandle_ShotTimerExpired;
 	virtual void Desplazamiento(float DeltaTime) override;
-
+	virtual void Disparar() override;
+protected:
+	
 };

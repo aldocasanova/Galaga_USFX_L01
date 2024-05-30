@@ -39,10 +39,10 @@ public:
 	virtual void ShotTimerExpired();
 	virtual void RecibirDanio() override;
 protected:
-	virtual void Mover(float DeltaTime);
+	virtual void Mover(float DeltaTime) override;
 	virtual void Soltar();
 	virtual void ResetFire();	
-
+	virtual void Disparar() override {};
 	FTimerHandle TimerHandle_ShotTimerExpired;
 	virtual void Desplazamiento(float DeltaTime);
 

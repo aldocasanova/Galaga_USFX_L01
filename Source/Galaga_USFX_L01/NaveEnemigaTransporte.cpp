@@ -23,6 +23,11 @@ void ANaveEnemigaTransporte::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	Mover(DeltaTime);
 	Desplazamiento(DeltaTime);
+	/*if (FieldStrategy)
+	{
+		FieldStrategy->Mover(this, DeltaTime);
+		FieldStrategy->Desplazamiento(this, DeltaTime);
+	}*/
 }
 
 void ANaveEnemigaTransporte::BeginPlay()
@@ -59,35 +64,33 @@ void ANaveEnemigaTransporte::SpawnNaveEnemigaCaza()
 
 void ANaveEnemigaTransporte::Mover(float DeltaTime)
 {
-	velocidad = 0.45; //0.35
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
+	//velocidad = 0.45; //0.35
+	//SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
 
-	if (GetActorLocation().X < LimiteInferiorX) {
+	//if (GetActorLocation().X < LimiteInferiorX) {
 
-		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 215.0f));
+	//	SetActorLocation(FVector(800.0f, GetActorLocation().Y, 215.0f));
 
+	//}
+	if (FieldStrategy)
+	{
+		FieldStrategy->Mover(this, DeltaTime);
 	}
 }
 
-void ANaveEnemigaTransporte::Disparar()
-{
-}
 
-void ANaveEnemigaTransporte::Destruirse()
-{
-}
-
-void ANaveEnemigaTransporte::Escapar()
-{
-}
 
 void ANaveEnemigaTransporte::Desplazamiento(float DeltaTime)
 {
-	AmplitudT = 1.0f;
+	/*AmplitudT = 1.0f;
 	VelocidadT = 5.0f;
 
 	FVector NewLocation = FVector(GetActorLocation().X, GetActorLocation().Y + AmplitudT * FMath::Sin(VelocidadT * GetWorld()->GetTimeSeconds()), GetActorLocation().Z);
-	SetActorLocation(NewLocation);
+	SetActorLocation(NewLocation);*/
+	if (FieldStrategy)
+	{
+		FieldStrategy->Desplazamiento(this, DeltaTime);
+	}
 }
 
 void ANaveEnemigaTransporte::RecibirDanio()

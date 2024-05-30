@@ -38,32 +38,29 @@ void ANaveEnemigaEspia::RecibirDanio()
 
 void ANaveEnemigaEspia::Mover(float DeltaTime)
 {
-	velocidad = 0.50; //0.60
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
-
-	if (GetActorLocation().X< LimiteInferiorX) {
-
-		SetActorLocation(FVector(400.0f, GetActorLocation().Y, 215.0f));
-
+	if (FieldStrategy)
+	{
+		FieldStrategy->Mover(this, DeltaTime);
 	}
-	//FVector(200.0f, -1100.0f, 250.0f);
 }
-
-void ANaveEnemigaEspia::Destruirse()
-{
-}
-
-
 
 void ANaveEnemigaEspia::Desplazamiento(float DeltaTime)
 {
-	
+	if (FieldStrategy)
+	{
+		FieldStrategy->Desplazamiento(this, DeltaTime);
+	}
 }
 
 // Called every frame
 void ANaveEnemigaEspia::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	/*if (FieldStrategy)
+	{
+		FieldStrategy->Mover(this, DeltaTime);
+		FieldStrategy->Desplazamiento(this, DeltaTime);
+	}*/
 	Mover(DeltaTime);
 	Desplazamiento(DeltaTime);
 }

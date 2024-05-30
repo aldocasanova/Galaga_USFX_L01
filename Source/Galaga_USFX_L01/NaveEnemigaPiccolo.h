@@ -31,10 +31,11 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void RecibirDanio() override;
-protected:
-	virtual void Mover(float DeltaTime) override;
-	virtual void Destruirse() override;
 
+	virtual void Mover(float DeltaTime) override;
+	virtual void Disparar() override {};
 	virtual void Desplazamiento(float DeltaTime) override;
+protected:
+	
 
 };

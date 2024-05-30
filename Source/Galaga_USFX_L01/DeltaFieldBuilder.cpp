@@ -29,10 +29,10 @@ void ADeltaFieldBuilder::Tick(float DeltaTime)
 
 void ADeltaFieldBuilder::BuildObstacles()
 {
-	x = 1 + rand() % (15);
+	x = 1 + rand() % (4);
 	for (int i = 0; i < x; i++)
 	{
-		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1600.0f), FMath::RandRange(-1600.0f, 1600.0f), 215.0f);
+		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1000.0f), FMath::RandRange(-1600.0f, 1600.0f), 215.0f);
 		AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
 	}
@@ -43,7 +43,7 @@ void ADeltaFieldBuilder::BuildEnemies()
 {
 
 	for (int i = 0; i < 30; i++) {
-		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1600.0f), FMath::RandRange(-1600.0f, 1600.0f), 215.0f);		
+		FVector SpawnLocation = FVector(FMath::RandRange(0.0f, 1600.0f), FMath::RandRange(-1600.0f, 1600.0f), 215.0f);		
 		x = 1 + rand() % (12);
 		switch (x) {
 		case 1:
@@ -104,18 +104,6 @@ void ADeltaFieldBuilder::BuildEnemies()
 		{
 			AMyNaveEnemigaKamikazeA* NaveEnemigaKBTemporal = GetWorld()->SpawnActor<AMyNaveEnemigaKamikazeA>(AMyNaveEnemigaKamikazeA::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaKBTemporal);
-			break;
-		}
-		case 11:
-		{
-			AMyNaveEnemigaNodrizaPacheco* NaveEnemigaNPTemporal = GetWorld()->SpawnActor<AMyNaveEnemigaNodrizaPacheco>(AMyNaveEnemigaNodrizaPacheco::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaNPTemporal);
-			break;
-		}
-		case 12:
-		{
-			AMyNaveEnemigaNodrizaCoca* NaveEnemigaNCTemporal = GetWorld()->SpawnActor<AMyNaveEnemigaNodrizaCoca>(AMyNaveEnemigaNodrizaCoca::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaNCTemporal);
 			break;
 		}
 		}

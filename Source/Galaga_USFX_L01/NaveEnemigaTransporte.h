@@ -45,11 +45,10 @@ public:
 
 	virtual void RecibirDanio() override;
 
-protected:
-	virtual void Mover(float DeltaTime);// no tengo que poner el overribe si no estoy sobreesbribiendo nada
-	virtual void  Disparar();
-	virtual void  Destruirse();
-	virtual void  Escapar();
 
-	virtual void Desplazamiento(float DeltaTime);
+	virtual void Mover(float DeltaTime) override;// no tengo que poner el overribe si no estoy sobreesbribiendo nada
+	virtual void Disparar() override {};
+	virtual void Desplazamiento(float DeltaTime) override;
+protected:
+	
 };

@@ -19,26 +19,27 @@ ANaveEnemigaKamikaze::ANaveEnemigaKamikaze()
 void ANaveEnemigaKamikaze::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	/*if (FieldStrategy)
+	{
+		FieldStrategy->Mover(this, DeltaTime);
+		FieldStrategy->Desplazamiento(this, DeltaTime);
+	}
+	Disparar();*/
 	Mover(DeltaTime);
 	Desplazamiento(DeltaTime);
+	Disparar();
 }
 
 void ANaveEnemigaKamikaze::Mover(float DeltaTime)
 {
-	velocidad = 0.85;  //1
-	SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
-
-	if (GetActorLocation().X < LimiteInferiorX) {
-
-		SetActorLocation(FVector(800.0f, GetActorLocation().Y, 215.0f));
-
+	if (FieldStrategy)
+	{
+		FieldStrategy->Mover(this, DeltaTime);
 	}
-
 }
 
 void ANaveEnemigaKamikaze::RecibirDanio()
 {
-	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("NaveTransporte::RecibirDanio"));
 	Vida -= 5;
 	if (Vida <= 0)
 	{
@@ -57,17 +58,22 @@ void ANaveEnemigaKamikaze::RecibirDanio()
 	}
 }
 
-void ANaveEnemigaKamikaze::Destruirse()
-{
-}
 
 void ANaveEnemigaKamikaze::Desplazamiento(float DeltaTime)
 {
-	AmplitudK = 2.0f;
-	VelocidadK = 5.0f;
+	
+	if (FieldStrategy)
+	{
+		FieldStrategy->Desplazamiento(this, DeltaTime);
+	}
+}
 
-	FVector NewLocation = FVector(GetActorLocation().X + AmplitudK * FMath::Cos(VelocidadK * GetWorld()->GetTimeSeconds()), GetActorLocation().Y, GetActorLocation().Z);
-	SetActorLocation(NewLocation);
+void ANaveEnemigaKamikaze::Disparar()
+{
+	if (FieldStrategy)
+	{
+		FieldStrategy->Disparar(this);
+	}
 }
 
 

@@ -4,24 +4,24 @@
 #include "MyNaveEnemigaCazaX.h"
 
 
-void AMyNaveEnemigaCazaX::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	Mover(DeltaTime);
-}
-
-AMyNaveEnemigaCazaX::AMyNaveEnemigaCazaX()
-{
-}
-
-void AMyNaveEnemigaCazaX::Mover(float DeltaTime)
-{
-	ANaveEnemigaCaza::Mover(DeltaTime);
-}
-
-void AMyNaveEnemigaCazaX::Disparar()
-{
-}
-void AMyNaveEnemigaCazaX::Destruirse()
-{
-}
+//void AMyNaveEnemigaCazaX::Tick(float DeltaTime)
+//{
+//	Super::Tick(DeltaTime);
+//	Mover(DeltaTime);
+//}
+//
+//AMyNaveEnemigaCazaX::AMyNaveEnemigaCazaX()
+//{
+//}
+//
+//void AMyNaveEnemigaCazaX::Mover(float DeltaTime)
+//{
+//	ANaveEnemigaCaza::Mover(DeltaTime);
+//}
+//
+//void AMyNaveEnemigaCazaX::Disparar()
+//{
+//}
+//void AMyNaveEnemigaCazaX::Destruirse()
+//{
+//}
