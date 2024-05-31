@@ -10,7 +10,6 @@
 #include "NaveEnemiga.h"
 #include "NaveEnemigaNodriza.h"
 #include "NaveEnemigaTransporte.h"
-#include "MyNaveEnemigaCazaX.h"
 #include "NaveEnemigaPiccolo.h"
 #include "Escudo.h"
 #include "NaveEnemigaManager.h"
@@ -42,10 +41,6 @@ AGalaga_USFX_L01Projectile::AGalaga_USFX_L01Projectile()
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f; //tiempo de vida de un proyecti
-	//creacion de la colision 1.0
-	/*Collision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Collision")); 
-	Collision->SetupAttachment(RootComponent);
-	Collision->InitCapsuleSize(50.f, 100.f);*/
 
 }
 

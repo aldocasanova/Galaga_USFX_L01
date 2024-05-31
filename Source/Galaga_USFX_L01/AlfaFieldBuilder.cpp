@@ -25,16 +25,6 @@ void AAlfaFieldBuilder::Tick(float DeltaTime)
 	TiempoSpawn += GetWorld()->DeltaTimeSeconds;
 }
 
-void AAlfaFieldBuilder::BuildObstacles()
-{
-	for (int i = 0; i < 3; i++)
-	{
-		FVector SpawnLocation = FVector((-600.0f), FMath::RandRange(-1000.0f, 1000.0f), 215.0f);
-		AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-		TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
-	}
-}
-
 void AAlfaFieldBuilder::BuildEnemies()
 {
 	UWorld* const World = GetWorld();

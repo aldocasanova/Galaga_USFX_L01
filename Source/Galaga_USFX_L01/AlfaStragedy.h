@@ -27,5 +27,5 @@ public:
 	virtual void Disparar() override;*/
 	virtual void Mover(ANaveEnemiga* NaveEnemiga, float DeltaTime) override;
 	virtual void Disparar(ANaveEnemiga* NaveEnemiga) override;
-	virtual void Desplazamiento(class ANaveEnemiga* NaveEnemiga, float DeltaTime) override {};
+	virtual void Desplazamiento(class ANaveEnemiga* NaveEnemiga, float DeltaTime) override;
 };

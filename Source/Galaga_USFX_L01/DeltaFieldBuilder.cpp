@@ -32,7 +32,7 @@ void ADeltaFieldBuilder::BuildObstacles()
 	x = 1 + rand() % (4);
 	for (int i = 0; i < x; i++)
 	{
-		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1000.0f), FMath::RandRange(-1600.0f, 1600.0f), 215.0f);
+		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1000.0f), FMath::RandRange(-1400.0f, 1400.0f), 215.0f);
 		AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
 	}
@@ -43,67 +43,37 @@ void ADeltaFieldBuilder::BuildEnemies()
 {
 
 	for (int i = 0; i < 30; i++) {
-		FVector SpawnLocation = FVector(FMath::RandRange(0.0f, 1600.0f), FMath::RandRange(-1600.0f, 1600.0f), 215.0f);		
-		x = 1 + rand() % (12);
+		FVector SpawnLocation = FVector(FMath::RandRange(400.0f, 1600.0f), FMath::RandRange(-1600.0f, 1600.0f), 215.0f);		
+		x = 1 + rand() % (5);
 		switch (x) {
 		case 1:
 		{
-			AMyNaveEnemigaEspiaNv1* NaveEnemigaEspiaNv1Temporal = GetWorld()->SpawnActor<AMyNaveEnemigaEspiaNv1>(AMyNaveEnemigaEspiaNv1::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+			ANaveEnemigaEspia* NaveEnemigaEspiaNv1Temporal = GetWorld()->SpawnActor<ANaveEnemigaEspia>(ANaveEnemigaEspia::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaEspiaNv1Temporal);
 			break;
 		}
 		case 2:
 		{
-			AMyNaveEnemigaEspiaNv2* NaveEnemigaEspiaNv2Temporal = GetWorld()->SpawnActor<AMyNaveEnemigaEspiaNv2>(AMyNaveEnemigaEspiaNv2::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaEspiaNv2Temporal);
+			ANaveEnemigaCaza* NaveEnemigaCazaXTemporal = GetWorld()->SpawnActor<ANaveEnemigaCaza>(ANaveEnemigaCaza::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaCazaXTemporal);
 			break;
 		}
 		case 3:
 		{
-			AMyNaveEnemigaCazaX* NaveEnemigaCazaXTemporal = GetWorld()->SpawnActor<AMyNaveEnemigaCazaX>(AMyNaveEnemigaCazaX::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaCazaXTemporal);
+			ANaveEnemigaTransporte* NaveEnemigaTATemporal = GetWorld()->SpawnActor<ANaveEnemigaTransporte>(ANaveEnemigaTransporte::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaTATemporal);
 			break;
 		}
 		case 4:
 		{
-			AMyNaveEnemigaCazaY* NaveEnemigaCazaYTemporal = GetWorld()->SpawnActor<AMyNaveEnemigaCazaY>(AMyNaveEnemigaCazaY::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaCazaYTemporal);
+			ANaveEnemigaReabastecimiento* NaveEnemigaRBATemporal = GetWorld()->SpawnActor<ANaveEnemigaReabastecimiento>(ANaveEnemigaReabastecimiento::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaRBATemporal);
 			break;
 		}
 		case 5:
 		{
-			ANaveEnemigaTransporteAttack* NaveEnemigaTATemporal = GetWorld()->SpawnActor<ANaveEnemigaTransporteAttack>(ANaveEnemigaTransporteAttack::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaTATemporal);
-			break;
-		}
-		case 6:
-		{
-			ANaveEnemigaTransporteSupport* NaveEnemigaTSTemporal = GetWorld()->SpawnActor<ANaveEnemigaTransporteSupport>(ANaveEnemigaTransporteSupport::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaTSTemporal);
-			break;
-		}	
-		case 7:
-		{
-			AMyNaveEnemigaReabastecimientoBal* NaveEnemigaRBATemporal = GetWorld()->SpawnActor<AMyNaveEnemigaReabastecimientoBal>(AMyNaveEnemigaReabastecimientoBal::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaRBATemporal);
-			break;
-		}
-		case 8:
-		{
-			AMyNaveEnemigaReabastecimientoBom* NaveEnemigaRBOTemporal = GetWorld()->SpawnActor<AMyNaveEnemigaReabastecimientoBom>(AMyNaveEnemigaReabastecimientoBom::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaRBOTemporal);
-			break;
-		}
-		case 9:
-		{
-			AMyNaveEnemigaKamikazeB* NaveEnemigaKATemporal = GetWorld()->SpawnActor<AMyNaveEnemigaKamikazeB>(AMyNaveEnemigaKamikazeB::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+			ANaveEnemigaKamikaze* NaveEnemigaKATemporal = GetWorld()->SpawnActor<ANaveEnemigaKamikaze>(ANaveEnemigaKamikaze::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaKATemporal);
-			break;
-		}
-		case 10:
-		{
-			AMyNaveEnemigaKamikazeA* NaveEnemigaKBTemporal = GetWorld()->SpawnActor<AMyNaveEnemigaKamikazeA>(AMyNaveEnemigaKamikazeA::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-			TMNavesEnemigas.Add(SpawnLocation, NaveEnemigaKBTemporal);
 			break;
 		}
 		}

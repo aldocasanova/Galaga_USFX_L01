@@ -31,7 +31,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	void BuildObstacles() override;
+	void BuildObstacles() override {};
 	void BuildEnemies() override;
 	void BuildPowerUps() override;
 	virtual AGalacticField* GetGalacticField() const override;

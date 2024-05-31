@@ -10,16 +10,6 @@
 #include "PowerUp.h"
 #include "FacadeCanon.h"
 
-#include "MyNaveEnemigaCazaX.h"
-#include "NaveEnemigaTransporteSupport.h"
-#include "MyNaveEnemigaEspiaNv1.h"
-#include "MyNaveEnemigaNodrizaPacheco.h"
-#include "MyNaveEnemigaNodrizaCoca.h"
-#include "MyNaveEnemigaReabastecimientoBal.h"
-#include "MyNaveEnemigaKamikazeB.h"
-#include "NaveEnemigaPiccoloZ.h"
-#include "NaveEnemigaPiccoloAF.h"
-
 
 #include "GalacticField.h"
 #include "NaveEnemigaManager.h"

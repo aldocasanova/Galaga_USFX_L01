@@ -7,7 +7,6 @@
 #include "NaveEnemigaObserver.h"
 #include "NaveEnemigaManager.h"
 #include "NaveEnemigaTransporte.generated.h"
-
 /**
  *
  */

@@ -4,8 +4,10 @@
 #include "Galaga_USFX_L01GameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "NaveEnemigaManager.h"
+#include "NaveEnemigaCaza.h"
+#include "FieldStragedy.h"
+#include "OmegaStragedy.h"
 #include "EngineUtils.h"
-
 ANaveEnemigaTransporte::ANaveEnemigaTransporte()
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -14,20 +16,12 @@ ANaveEnemigaTransporte::ANaveEnemigaTransporte()
 	Vida = 30;
 	mallaNaveEnemiga->SetRelativeScale3D(FVector(2.0f, 2.0f, 2.0f));
 
-
 } 
 
 
 void ANaveEnemigaTransporte::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	Mover(DeltaTime);
-	Desplazamiento(DeltaTime);
-	/*if (FieldStrategy)
-	{
-		FieldStrategy->Mover(this, DeltaTime);
-		FieldStrategy->Desplazamiento(this, DeltaTime);
-	}*/
 }
 
 void ANaveEnemigaTransporte::BeginPlay()
@@ -40,10 +34,8 @@ void ANaveEnemigaTransporte::BeginPlay()
 	{
 		NaveManager->AddObserver(this);
 	}
-
 	
 }
-
 void ANaveEnemigaTransporte::OnNaveCountChanged(int NewCount)
 {
 	if (NewCount < 20)
@@ -54,53 +46,36 @@ void ANaveEnemigaTransporte::OnNaveCountChanged(int NewCount)
 
 void ANaveEnemigaTransporte::SpawnNaveEnemigaCaza()
 {	
+
 	for (int i = 0; i < 3; ++i)
 	{
-		FVector SpawnLocation = GetActorLocation() + FVector(400.0f + i*200, 0.0f, 0.0f); // Ajusta la posición según tu lógica
-		GetWorld()->SpawnActor<ANaveEnemigaCaza>(ANaveEnemigaCaza::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+		FVector SpawnLocation = GetActorLocation() + FVector(400.0f + i * 200, 0.0f, 0.0f); // Ajusta la posición según tu lógica
+		ANaveEnemigaCaza* NewNaveCaza = GetWorld()->SpawnActor<ANaveEnemigaCaza>(ANaveEnemigaCaza::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+
+		if (NewNaveCaza)
+		{
+			TScriptInterface<IFieldStragedy> NewStrategy = GetWorld()->SpawnActor<AOmegaStragedy>(AOmegaStragedy::StaticClass());
+			NewNaveCaza->SetFieldStrategy(NewStrategy);
+		}
 	}
 }
 
 
 void ANaveEnemigaTransporte::Mover(float DeltaTime)
 {
-	//velocidad = 0.45; //0.35
-	//SetActorLocation(FVector(GetActorLocation().X - velocidad, GetActorLocation().Y, GetActorLocation().Z));
-
-	//if (GetActorLocation().X < LimiteInferiorX) {
-
-	//	SetActorLocation(FVector(800.0f, GetActorLocation().Y, 215.0f));
-
-	//}
-	if (FieldStrategy)
-	{
-		FieldStrategy->Mover(this, DeltaTime);
-	}
+	ANaveEnemiga::Mover(DeltaTime);
 }
-
-
 
 void ANaveEnemigaTransporte::Desplazamiento(float DeltaTime)
 {
-	/*AmplitudT = 1.0f;
-	VelocidadT = 5.0f;
-
-	FVector NewLocation = FVector(GetActorLocation().X, GetActorLocation().Y + AmplitudT * FMath::Sin(VelocidadT * GetWorld()->GetTimeSeconds()), GetActorLocation().Z);
-	SetActorLocation(NewLocation);*/
-	if (FieldStrategy)
-	{
-		FieldStrategy->Desplazamiento(this, DeltaTime);
-	}
+	ANaveEnemiga::Desplazamiento(DeltaTime);
 }
 
 void ANaveEnemigaTransporte::RecibirDanio()
 {
-	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("NaveTransporte::RecibirDanio"));
 	Vida -= 5;
 	if (Vida <= 0)
 	{
-
-		//EnemigasManager->RemoveObserver(EnemyTransport);
 		Destroy();
 		for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
 		{

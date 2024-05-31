@@ -30,7 +30,7 @@ void AOmegaStragedy::Tick(float DeltaTime)
 void AOmegaStragedy::Mover(ANaveEnemiga* NaveEnemiga, float DeltaTime)
 {
 	FVector NewPosition = NaveEnemiga->GetActorLocation();
-	NewPosition.X -= DeltaTime * NaveEnemiga->GetVelocidad();
+	NewPosition.X -= DeltaTime * NaveEnemiga->GetVelocidadOmega();
 	NaveEnemiga->SetActorLocation(NewPosition);
 }
 void AOmegaStragedy::Disparar(ANaveEnemiga* NaveEnemiga)
@@ -45,8 +45,8 @@ void AOmegaStragedy::Disparar(ANaveEnemiga* NaveEnemiga)
 
 void AOmegaStragedy::Desplazamiento(ANaveEnemiga* NaveEnemiga, float DeltaTime)
 {
-	float AmplitudZigzag = 1.20f;
-	float VelocidadZigzag = 0.2f;
+	float AmplitudZigzag = 0.75f;
+	float VelocidadZigzag = NaveEnemiga->GetVelocidadOmega()/3;
 
 	FVector NewLocation = NaveEnemiga->GetActorLocation();
 	NewLocation.Y += AmplitudZigzag * FMath::Sin(VelocidadZigzag * NaveEnemiga->GetWorld()->GetTimeSeconds());

@@ -38,9 +38,6 @@ public:
 	FORCEINLINE int GetCantidadBombas() const { return cantidadBombas; }
 	FORCEINLINE void SetCantidadBombas(int _cantidadBombas) { cantidadBombas = _cantidadBombas; }
 	
-	FORCEINLINE float GetVelocidad() const { return velocidad; }
-	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
-
 	FORCEINLINE float GetVelocidadZigzag() const { return VelocidadZigzag; }
 	FORCEINLINE void SetVelocidadZigzag(float _VelocidadZigzag) { VelocidadZigzag = _VelocidadZigzag; }
 
@@ -48,7 +45,6 @@ public:
 	FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
 
 	virtual void Tick(float DeltaTime) override;
-	//virtual void ShotTimerExpired();
 
 	virtual void RecibirDanio() override;
 
@@ -61,10 +57,5 @@ protected:
 	
 
 
-	
 
-
-	
-	/** Handle for efficient management of ShotTimerExpired timer */
-	//FTimerHandle TimerHandle_ShotTimerExpired;
 };

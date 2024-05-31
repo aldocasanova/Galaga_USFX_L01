@@ -19,61 +19,26 @@ ANaveEnemigaKamikaze::ANaveEnemigaKamikaze()
 void ANaveEnemigaKamikaze::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	/*if (FieldStrategy)
-	{
-		FieldStrategy->Mover(this, DeltaTime);
-		FieldStrategy->Desplazamiento(this, DeltaTime);
-	}
-	Disparar();*/
-	Mover(DeltaTime);
-	Desplazamiento(DeltaTime);
-	Disparar();
 }
 
 void ANaveEnemigaKamikaze::Mover(float DeltaTime)
 {
-	if (FieldStrategy)
-	{
-		FieldStrategy->Mover(this, DeltaTime);
-	}
+	ANaveEnemiga::Mover(DeltaTime);
 }
 
 void ANaveEnemigaKamikaze::RecibirDanio()
 {
-	Vida -= 5;
-	if (Vida <= 0)
-	{
-		Destroy();
-		for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
-		{
-			EnemigasManager = *It;
-			break;
-		}
-		if (EnemigasManager)
-		{
-			NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
-			NavesEnemigas--;
-			EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
-		}
-	}
+	ANaveEnemiga::RecibirDanio();
 }
-
 
 void ANaveEnemigaKamikaze::Desplazamiento(float DeltaTime)
 {
-	
-	if (FieldStrategy)
-	{
-		FieldStrategy->Desplazamiento(this, DeltaTime);
-	}
+	ANaveEnemiga::Desplazamiento(DeltaTime);
 }
 
 void ANaveEnemigaKamikaze::Disparar()
 {
-	if (FieldStrategy)
-	{
-		FieldStrategy->Disparar(this);
-	}
+	ANaveEnemiga::Disparar();
 }
 
 

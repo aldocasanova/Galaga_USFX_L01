@@ -18,18 +18,6 @@
 #include "NaveEnemigaNodriza.h"
 #include "NaveEnemigaReabastecimiento.h"
 #include "NaveEnemigaKamikaze.h"
-#include "MyNaveEnemigaCazaX.h"
-#include "MyNaveEnemigaCazaY.h"
-#include "NaveEnemigaTransporteAttack.h"
-#include "NaveEnemigaTransporteSupport.h"
-#include "MyNaveEnemigaEspiaNv1.h"
-#include "MyNaveEnemigaEspiaNv2.h"
-#include "MyNaveEnemigaNodrizaPacheco.h"
-#include "MyNaveEnemigaNodrizaCoca.h"
-#include "MyNaveEnemigaReabastecimientoBal.h"
-#include "MyNaveEnemigaReabastecimientoBom.h"
-#include "MyNaveEnemigaKamikazeA.h"
-#include "MyNaveEnemigaKamikazeB.h"
 
 #include "DeltaFieldBuilder.generated.h"
 

@@ -23,24 +23,17 @@ public:
 	//void FireProjectile(); // Método para disparar proyectil
 protected:
 	
-	float velocidad = 10;
-	float resistencia; //Numero de disparos que puede recibir antes de ser destruido. Capas
-	FString nombre;
-	float danoProducido; //Potencia de cada proyectil que dispara la nave
+	float velocidadOmega; //pongo esto en el constructor o aquí? xd
+	float velocidadAlfa; 
+	float velocidadDelta; 
+
 	float tiempoDisparo; //Tiempo que debe transcurrir entre cada disparo
 	FVector posicion; 
 	int trayectoria; //Cada valor numerico representa a una funcion que la nave debe asumir para moverse
-	int capacidadPasajeros; //Numero de naves que puede transportar	
-	int capacidadMunicion; //Numero de disparos que puede realizar antes de recargar
-	int tipoNave; //Cada valor numerico representa a un tipo de nave enemiga para el array
-	float experiencia; //experiencia que droppea
-	float energia; //vida
-
+	
 	float LimiteInferiorX;
 	float LimiteInferiorY;
 	float LimiteSuperiorY;
-
-	int codigoNave;
 
 	float Vida;
 	int NavesEnemigas;
@@ -48,7 +41,6 @@ protected:
 
 	class AGalaga_USFX_L01GameMode* GameMode;
 	class ANaveEnemigaManager* EnemigasManager;
-	//IFieldStragedy* Strategy;
 
 	float LastFireTime;
 	bool bCanFire;
@@ -58,33 +50,22 @@ protected:
 
 
 public: //leer valores
-	FORCEINLINE float GetVelocidad() const { return velocidad; }
-	FORCEINLINE float GetResistencia() const { return resistencia; }
-	FORCEINLINE FString GetNombre() const { return nombre; }
-	FORCEINLINE float GetDanoProducido() const { return danoProducido; }
+	FORCEINLINE float GetVelocidadOmega() const { return velocidadOmega; }
+	FORCEINLINE float GetVelocidadAlfa() const { return velocidadAlfa; }
+	FORCEINLINE float GetVelocidadDelta() const { return velocidadDelta; }
+
 	FORCEINLINE float GetTiempoDisparo() const { return tiempoDisparo; }
 	FORCEINLINE FVector GetPosicion() const { return posicion; }
 	FORCEINLINE int GetTrayectoria() const { return trayectoria; }
-	FORCEINLINE int GetCapacidadPasajeros() const { return capacidadPasajeros; }
-	FORCEINLINE int GetCapacidadMunicion() const { return capacidadMunicion; }
-	FORCEINLINE int GetTipoNave() const { return tipoNave; }
-	FORCEINLINE float GetExperiencia() const { return experiencia; }
-	FORCEINLINE float GetEnergia() const { return energia; }
 	FORCEINLINE float GetLastFireTime() const { return LastFireTime; }
+	//...
+	FORCEINLINE void SetVelocidad(float _velocidadOmega) { velocidadOmega = _velocidadOmega; }
+	FORCEINLINE void SetVelocidadAlfa(float _velocidadAlfa) { velocidadAlfa = _velocidadAlfa; }
+	FORCEINLINE void SetVelocidadDelta(float _velocidadDelta) { velocidadDelta = _velocidadDelta; }
 
-	//reescribir valores
-	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
-	FORCEINLINE void SetResistencia(float _resistencia) { resistencia = _resistencia; }
-	FORCEINLINE void SetNombre(FString _nombre) { nombre = _nombre; }
-	FORCEINLINE void SetDanoProducido(float _danoProducido) { danoProducido = _danoProducido; }
 	FORCEINLINE void SetTiempoDisparo(float _tiempoDisparo) { tiempoDisparo = _tiempoDisparo; }
 	FORCEINLINE void SetPosicion(FVector _posicion) { posicion = _posicion; }
 	FORCEINLINE void SetTrayectoria(int _trayectoria) { trayectoria = _trayectoria; }
-	FORCEINLINE void SetCapacidadPasajeros(int _capacidadPasajeros) { capacidadPasajeros = _capacidadPasajeros; }
-	FORCEINLINE void SetCapacidadMunicion(int _capacidadMunicion) { capacidadMunicion = _capacidadMunicion; }
-	FORCEINLINE void SetTipoNave(int _tipoNave) { tipoNave = _tipoNave; }
-	FORCEINLINE void SetExperiencia(float _experiencia) { experiencia = _experiencia; }
-	FORCEINLINE void SetEnergia(float _energia) { energia = _energia; }
 	FORCEINLINE void SetLastFireTime(float _LastFireTime) { LastFireTime = _LastFireTime; }
 
 public:
@@ -100,13 +81,12 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	virtual void RecibirDanio() PURE_VIRTUAL(ANaveEnemiga::RecibirDanio, );
+	virtual void RecibirDanio();
 
 protected:
-	virtual void Desplazamiento(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Desplazamiento, );
-	virtual void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
-	virtual void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
+	virtual void Desplazamiento(float DeltaTime);
+	virtual void Mover(float DeltaTime);
+	virtual void Disparar();
 	
 	TScriptInterface<IFieldStragedy> FieldStrategy;
-	
 };

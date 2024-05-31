@@ -21,59 +21,24 @@ ANaveEnemigaReabastecimiento::ANaveEnemigaReabastecimiento()
 
 void ANaveEnemigaReabastecimiento::RecibirDanio()
 {
-	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("NaveTransporte::RecibirDanio"));
-	Vida -= 5;
-	if (Vida <= 0)
-	{
-		Destroy();
-		/*for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
-		{
-			EnemigasManager = *It;
-			break;
-		}*/
-		for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
-		{
-			EnemigasManager = *It;
-			break;
-		}
-		if (EnemigasManager)
-		{
-			NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
-			NavesEnemigas--;
-			EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
-		}
-	}
+	ANaveEnemiga::RecibirDanio();
 }
 
 // Called every frame
 void ANaveEnemigaReabastecimiento::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	Mover(DeltaTime);
-	Desplazamiento(DeltaTime);
-	/*if (FieldStrategy)
-	{
-		FieldStrategy->Mover(this, DeltaTime);
-		FieldStrategy->Desplazamiento(this, DeltaTime);
-	}*/
 }
 
 void ANaveEnemigaReabastecimiento::Mover(float DeltaTime)
 {
-	
-	if (FieldStrategy)
-	{
-		FieldStrategy->Mover(this, DeltaTime);
-	}
+	ANaveEnemiga::Mover(DeltaTime);
 }
 
 
 void ANaveEnemigaReabastecimiento::Desplazamiento(float DeltaTime)
 {
-	if (FieldStrategy)
-	{
-		FieldStrategy->Desplazamiento(this, DeltaTime);
-	}
+	ANaveEnemiga::Desplazamiento(DeltaTime);
 }
 
 

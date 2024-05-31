@@ -9,6 +9,8 @@ D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Wi
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\PowerUp.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\PowerUp.generated.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\NaveEnemiga.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\FieldStragedy.h
+D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\FieldStragedy.generated.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEnemiga.generated.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\NaveEnemigaBomb.h
 D:\PalVisual\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEnemigaBomb.generated.h

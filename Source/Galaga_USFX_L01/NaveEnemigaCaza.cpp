@@ -30,62 +30,32 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
 
 void ANaveEnemigaCaza::Disparar()
 {
-    if (FieldStrategy)
-    {
-        FieldStrategy->Disparar(this);
-    }
+    ANaveEnemiga::Disparar();
 }
 
 void ANaveEnemigaCaza::RecibirDanio()
 {
-    Vida -= 10;
-    if (Vida <= 0)
-    {
-        Destroy();
-        for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
-        {
-            EnemigasManager = *It;
-            break;
-        }
-            if (EnemigasManager)
-            {
-                NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
-                NavesEnemigas--;
-                EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
-            }
-    }
+	ANaveEnemiga::RecibirDanio();
 }
 
 void ANaveEnemigaCaza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-    Mover(DeltaTime);
-	Desplazamiento(DeltaTime);
-	Disparar();
-    /*if (FieldStrategy)
-    {
-        FieldStrategy->Mover(this, DeltaTime);
-        FieldStrategy->Desplazamiento(this, DeltaTime);
-		FieldStrategy->Disparar(this);
-    }*/
+    /*Mover(DeltaTime);
+    Desplazamiento(DeltaTime);
+    Disparar();*/
 }
 
 void ANaveEnemigaCaza::Mover(float DeltaTime)
 {
-    if (FieldStrategy)
-    {
-        FieldStrategy->Mover(this, DeltaTime);
-    }
+    ANaveEnemiga::Mover(DeltaTime);
 }
 
 
 
 void ANaveEnemigaCaza::Desplazamiento(float DeltaTime)
 {
-    if (FieldStrategy)
-    {
-        FieldStrategy->Desplazamiento(this, DeltaTime);
-    }
+    ANaveEnemiga::Desplazamiento(DeltaTime);
 }
 
 

@@ -27,7 +27,10 @@ ANaveEnemiga::ANaveEnemiga()
 	//mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
 	mallaNaveEnemiga->SetupAttachment(RootComponent);
 	RootComponent = mallaNaveEnemiga;
-	velocidad = 40;
+	//velociades segun escenario
+	velocidadOmega = 20.0f;
+	velocidadAlfa = 200.0f;
+	velocidadDelta = 10.0f;
 
 	LimiteInferiorX = -500.0f;
 	LimiteInferiorY = -1800.0f;
@@ -42,21 +45,35 @@ ANaveEnemiga::ANaveEnemiga()
 
 	Vida = 30;
 
-
 }
 
+void ANaveEnemiga::Desplazamiento(float DeltaTime)
+{
+	if (FieldStrategy)
+	{
+		FieldStrategy->Desplazamiento(this, DeltaTime);
+	}
+}
+
+void ANaveEnemiga::Mover(float DeltaTime)
+{
+	if (FieldStrategy)
+	{
+		FieldStrategy->Mover(this, DeltaTime);
+	}
+}
+
+void ANaveEnemiga::Disparar()
+{
+	if (bCanFire && FieldStrategy)
+	{
+		FieldStrategy->Disparar(this);
+	}
+}
 void ANaveEnemiga::SetFieldStrategy(TScriptInterface<IFieldStragedy> NewStrategy)
 {
 	FieldStrategy = NewStrategy;
 }
-
-//void ANaveEnemiga::StartRandomFireTimer()
-//{
-//	float RandomTime = FMath::RandRange(1.0f, 3.0f); // Cambia los valores según sea necesario
-//	GetWorldTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &ANaveEnemiga::FireProjectile, RandomTime, false);
-//}
-
-
 
 // Called when the game starts or when spawned
 void ANaveEnemiga::BeginPlay()
@@ -68,14 +85,9 @@ void ANaveEnemiga::BeginPlay()
 void ANaveEnemiga::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	 //esta aprte porque quiero que cada una haga algo diferente, pero sin perder mi clase base
-	/*if (FieldStrategy)
-	{
-		FieldStrategy->Mover(this, DeltaTime);
-		FieldStrategy->Desplazamiento(this, DeltaTime);
-		FieldStrategy->Disparar(this);
-	}*/
-
+	Mover(DeltaTime);
+	Desplazamiento(DeltaTime);
+	Disparar();
 }
 
 void ANaveEnemiga::FireProjectile()
@@ -98,7 +110,26 @@ void ANaveEnemiga::FireProjectile()
 			}
 		}
 	}
-	//StartRandomFireTimer();
+}
+
+void ANaveEnemiga::RecibirDanio()
+{
+	Vida -= 10;
+	if (Vida <= 0)
+	{
+		Destroy();
+		for (TActorIterator<ANaveEnemigaManager> It(GetWorld()); It; ++It)
+		{
+			EnemigasManager = *It;
+			break;
+		}
+		if (EnemigasManager)
+		{
+			NavesEnemigas = EnemigasManager->GetNavesEnemigasRestantes();
+			NavesEnemigas--;
+			EnemigasManager->SetNavesEnemigasRestantes(NavesEnemigas);
+		}
+	}
 }
 
 

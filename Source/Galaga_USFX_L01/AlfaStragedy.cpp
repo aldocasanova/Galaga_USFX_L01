@@ -28,18 +28,28 @@ void AAlfaStragedy::Tick(float DeltaTime)
 void AAlfaStragedy::Mover(ANaveEnemiga* NaveEnemiga, float DeltaTime)
 {
 	FVector NewPosition = NaveEnemiga->GetActorLocation();
-	NewPosition.X -= DeltaTime * NaveEnemiga->GetVelocidad();
+	NewPosition.X -= DeltaTime * NaveEnemiga->GetVelocidadAlfa();
 	NaveEnemiga->SetActorLocation(NewPosition);
 }
 
 void AAlfaStragedy::Disparar(ANaveEnemiga* NaveEnemiga)
 {
-	 // Ejemplo: Disparo en ráfaga
+	 // Disparo en ráfaga
 	if (NaveEnemiga->GetWorld()->GetTimeSeconds() - NaveEnemiga->GetLastFireTime() > NaveEnemiga->GetTiempoDisparo() / 3)
 	{
 		NaveEnemiga->FireProjectile();
 		NaveEnemiga->SetLastFireTime(NaveEnemiga->GetWorld()->GetTimeSeconds());
 	}
+}
+
+void AAlfaStragedy::Desplazamiento(ANaveEnemiga* NaveEnemiga, float DeltaTime)
+{
+	float AmplitudZigzag = 2.0f;
+	float VelocidadZigzag = NaveEnemiga->GetVelocidadAlfa()/50;
+
+	FVector NewLocation = NaveEnemiga->GetActorLocation();
+	NewLocation.Z += AmplitudZigzag * FMath::Sin(VelocidadZigzag * NaveEnemiga->GetWorld()->GetTimeSeconds());
+	NaveEnemiga->SetActorLocation(NewLocation);
 }
 
 

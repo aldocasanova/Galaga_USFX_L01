@@ -28,10 +28,10 @@ void ADeltaStragedy::Tick(float DeltaTime)
 void ADeltaStragedy::Mover(ANaveEnemiga* NaveEnemiga, float DeltaTime)
 {
     // Radio del círculo
-    float Radio = 0.5f;
+    float Radio = 3.0f;
 
     // Velocidad angular (en radianes por segundo)
-    float VelocidadAngular = 1.0f;
+    float VelocidadAngular = NaveEnemiga->GetVelocidadDelta()/5;
 
     // Calcular el nuevo ángulo basado en el tiempo transcurrido
     float TiempoTotal = NaveEnemiga->GetWorld()->GetTimeSeconds();
@@ -60,9 +60,9 @@ void ADeltaStragedy::Disparar(ANaveEnemiga* NaveEnemiga)
 
 void ADeltaStragedy::Desplazamiento(ANaveEnemiga* NaveEnemiga, float DeltaTime)
 {
-    /*FVector NewPosition = NaveEnemiga->GetActorLocation();
-    NewPosition.X -= DeltaTime * NaveEnemiga->GetVelocidad();
-    NaveEnemiga->SetActorLocation(NewPosition);*/
+    FVector NewPosition = NaveEnemiga->GetActorLocation();
+    NewPosition.X -= DeltaTime * NaveEnemiga->GetVelocidadAlfa()/4;
+    NaveEnemiga->SetActorLocation(NewPosition);
 }
 
 

@@ -2,13 +2,12 @@
 
 
 #include "NaveEnemigaFactory.h"
-#include "MyNaveEnemigaCazaY.h"
-#include "NaveEnemigaTransporteAttack.h"
-#include "MyNaveEnemigaKamikazeA.h"
-#include "MyNaveEnemigaEspiaNv2.h"
-#include "MyNaveEnemigaNodrizaCoca.h"
-#include "MyNaveEnemigaReabastecimientoBom.h"
 #include "NaveEnemigaBomb.h"
+#include "NaveEnemigaCaza.h"
+#include "NaveEnemigaKamikaze.h"
+#include "NaveEnemigaNodriza.h"
+#include "NaveEnemigaReabastecimiento.h"
+#include "NaveEnemigaTransporte.h"
 
 // Sets default values
 /*ANaveEnemigaFactory::ANaveEnemigaFactory()
@@ -25,22 +24,22 @@ ANaveEnemiga* ANaveEnemigaFactory::CrearNaveEnemiga(FString tipoNave, UWorld* Wo
 
     if (tipoNave == "Caza")
     {
-        AMyNaveEnemigaCazaY* NuevaNave = World->SpawnActor<AMyNaveEnemigaCazaY>(SpawnLocationAdjusted, SpawnRotation);
+        ANaveEnemigaCaza* NuevaNave = World->SpawnActor<ANaveEnemigaCaza>(SpawnLocationAdjusted, SpawnRotation);
         return NuevaNave;
     }
     else if (tipoNave == "Kamikaze")
     {
-        AMyNaveEnemigaKamikazeA* NuevaNave = World->SpawnActor<AMyNaveEnemigaKamikazeA>(SpawnLocationAdjusted, SpawnRotation);
+        ANaveEnemigaKamikaze* NuevaNave = World->SpawnActor<ANaveEnemigaKamikaze>(SpawnLocationAdjusted, SpawnRotation);
         return NuevaNave;
 	}
 	else if (tipoNave == "Nodriza")
 	{
-		AMyNaveEnemigaNodrizaCoca* NuevaNave = World->SpawnActor<AMyNaveEnemigaNodrizaCoca>(SpawnLocationAdjusted, SpawnRotation);
+		ANaveEnemigaNodriza* NuevaNave = World->SpawnActor<ANaveEnemigaNodriza>(SpawnLocationAdjusted, SpawnRotation);
 		return NuevaNave;
 	}
 	else if (tipoNave == "Reabastecimiento")
 	{
-		AMyNaveEnemigaReabastecimientoBom* NuevaNave = World->SpawnActor<AMyNaveEnemigaReabastecimientoBom>(SpawnLocationAdjusted, SpawnRotation);
+		ANaveEnemigaReabastecimiento* NuevaNave = World->SpawnActor<ANaveEnemigaReabastecimiento>(SpawnLocationAdjusted, SpawnRotation);
 		return NuevaNave;
 	}
 	else if (tipoNave == "Bomb")
@@ -50,7 +49,7 @@ ANaveEnemiga* ANaveEnemigaFactory::CrearNaveEnemiga(FString tipoNave, UWorld* Wo
 	}
     else if (tipoNave == "Transporte")
     {
-        ANaveEnemigaTransporteAttack* NuevaNave = World->SpawnActor<ANaveEnemigaTransporteAttack>(SpawnLocationAdjusted, SpawnRotation);
+        ANaveEnemigaTransporte* NuevaNave = World->SpawnActor<ANaveEnemigaTransporte>(SpawnLocationAdjusted, SpawnRotation);
         return NuevaNave;
     }
     
@@ -70,9 +69,3 @@ void ANaveEnemigaFactory::Tick(float DeltaTime)
 
 }
 
-/*ANaveEnemigaFactory::ANaveEnemigaFactory()
-{
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
-}*/

@@ -20,8 +20,6 @@ private:
 public:
 	// Sets default values for this actor's properties
 	ANaveEnemigaKamikaze();
-		//FORCEINLINE int Get//metodo() const { return //metodo; }
-		//FORCEINLINE void Set//(int _//) { rangoVision = _//; }
 
 	FORCEINLINE int GetcodigoNave() const { return codigoNave; }
 	FORCEINLINE void SetCodigoNave(int _codigoNave) { codigoNave = _codigoNave; }
