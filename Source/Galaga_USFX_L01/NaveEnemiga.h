@@ -87,6 +87,5 @@ protected:
 	virtual void Desplazamiento(float DeltaTime);
 	virtual void Mover(float DeltaTime);
 	virtual void Disparar();
-	
 	TScriptInterface<IFieldStragedy> FieldStrategy;
 };

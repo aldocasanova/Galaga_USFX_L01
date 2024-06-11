@@ -42,8 +42,8 @@ void ANaveEnemigaCaza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
     /*Mover(DeltaTime);
-    Desplazamiento(DeltaTime);
-    Disparar();*/
+    Disparar();
+    Desplazamiento(DeltaTime);*/
 }
 
 void ANaveEnemigaCaza::Mover(float DeltaTime)

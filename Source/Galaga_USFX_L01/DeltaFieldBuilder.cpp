@@ -2,6 +2,12 @@
 
 
 #include "DeltaFieldBuilder.h"
+#include "Jungla.h"
+#include "Pilar.h"
+#include "Arbusto.h"
+#include "Roca.h"
+#include "Arbol.h"
+#include "Suelo.h"
 
 // Sets default values
 ADeltaFieldBuilder::ADeltaFieldBuilder()
@@ -16,9 +22,29 @@ void ADeltaFieldBuilder::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	//trabajo 3
-	FormacionCanones = GetWorld()->SpawnActor<AFacadeCanon>();
-	FormacionCanones->SpawnCanons(1);
+	/*FormacionCanones = GetWorld()->SpawnActor<AFacadeCanon>();
+	FormacionCanones->SpawnCanons(1);*/
+
+	ASuelo* SueloDelta = GetWorld()->SpawnActor<ASuelo>(FVector(-4000.0f, -4000.0f, 160.0f), FRotator::ZeroRotator);
+	UStaticMesh* MeshAlfa = LoadObject<UStaticMesh>(nullptr, TEXT("StaticMesh'/Game/StarterContent/Architecture/SueloDelta.SueloDelta'"));
+	SueloDelta->SetMesh(MeshAlfa);
+
+	// Elemetnos Delta
+	AJungla* ElementosDelta = GetWorld()->SpawnActor<AJungla>();
+	BuildElements(ElementosDelta);
+	ElementosDelta->Spawn(GetWorld(), FVector::ZeroVector);
+}
+
+void ADeltaFieldBuilder::BuildElements(AJungla* ElementosDelta)
+{
+	// Agrego muchos arboles y arbustos, y 2 rocas 
+	for (int i = 0; i < 10; i++) {
+		ElementosDelta->AgregarElemento(GetWorld()->SpawnActor<AArbol>(), FVector(FMath::RandRange(-1800.0f, -1000.0f), FMath::RandRange(-1800.0f, 1800.0f), 205.0f));
+		ElementosDelta->AgregarElemento(GetWorld()->SpawnActor<AArbusto>(), FVector(FMath::RandRange(-2500.0f, -1500.0f), FMath::RandRange(-1800.0f, 1800.0f), 205.0f));
+	}
+
+	ElementosDelta->AgregarElemento(GetWorld()->SpawnActor<ARoca>(), FVector(FMath::RandRange(-2500.0f, -1800.0f), FMath::RandRange(-1300.0f, 1300.0f), 205.0f));
+	ElementosDelta->AgregarElemento(GetWorld()->SpawnActor<ARoca>(), FVector(1600.0f, -200.0f, 200.0f));
 }
 
 // Called every frame
@@ -27,17 +53,7 @@ void ADeltaFieldBuilder::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ADeltaFieldBuilder::BuildObstacles()
-{
-	x = 1 + rand() % (4);
-	for (int i = 0; i < x; i++)
-	{
-		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1000.0f), FMath::RandRange(-1400.0f, 1400.0f), 215.0f);
-		AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-		TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
-	}
 
-}
 
 void ADeltaFieldBuilder::BuildEnemies()
 {
@@ -82,13 +98,25 @@ void ADeltaFieldBuilder::BuildEnemies()
 
 void ADeltaFieldBuilder::BuildPowerUps()
 {
-	x = 1 + rand() % (2);
+	/*x = 1 + rand() % (2);
 	for (int i = 0; i < x; i++)
 	{
 		FVector SpawnLocation = FVector(FMath::RandRange(-400.0f, 0.0f), FMath::RandRange(-1000.0f, 1000.0f), 215.0f);
 		APowerUp* NewObstacle = GetWorld()->SpawnActor<APowerUp>(APowerUp::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
-	}
+	}*/
+}
+
+void ADeltaFieldBuilder::BuildObstacles()
+{
+	/*x = 1 + rand() % (4);
+	for (int i = 0; i < x; i++)
+	{
+		FVector SpawnLocation = FVector(FMath::RandRange(-1600.0f, 1000.0f), FMath::RandRange(-1400.0f, 1400.0f), 215.0f);
+		AObstaculo* NewObstacle = GetWorld()->SpawnActor<AObstaculo>(AObstaculo::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
+		TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
+	}*/
+
 }
 
 AGalacticField* ADeltaFieldBuilder::GetGalacticField() const

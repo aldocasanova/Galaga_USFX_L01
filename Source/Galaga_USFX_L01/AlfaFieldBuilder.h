@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "IGalacticFieldBuilder.h"
 #include "Obstaculo.h"
+#include "Coliseo.h"
 #include "PowerUp.h"
 #include "NaveEnemiga.h"
 #include "NaveEnemigaBomb.h"
@@ -35,7 +36,7 @@ public:
 	void BuildEnemies() override;
 	void BuildPowerUps() override;
 	virtual AGalacticField* GetGalacticField() const override;
-
 	TMap<FVector, AActor*> TMObstaclesAndPowerUps;
-
+	//...
+	void BuildElements(AColiseo* ElementosAlfa);
 };

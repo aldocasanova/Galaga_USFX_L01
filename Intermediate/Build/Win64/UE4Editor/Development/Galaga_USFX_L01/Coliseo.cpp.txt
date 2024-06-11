@@ -1,0 +1,9 @@
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX_L01\Definitions.Galaga_USFX_L01.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\Coliseo.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\FieldElement.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\FieldElement.generated.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\Escalera.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Escalera.generated.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\Estatua.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Estatua.generated.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Coliseo.generated.h

@@ -2,6 +2,13 @@
 
 
 #include "AlfaFieldBuilder.h"
+#include "Coliseo.h"
+#include "Estatua.h"
+#include "Escalera.h"
+#include "Roca.h"
+#include "Pilar.h"
+#include "Suelo.h"
+
 
 // Sets default values
 AAlfaFieldBuilder::AAlfaFieldBuilder()
@@ -15,7 +22,31 @@ AAlfaFieldBuilder::AAlfaFieldBuilder()
 void AAlfaFieldBuilder::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	ASuelo* SueloAlfa = GetWorld()->SpawnActor<ASuelo>(FVector(-4000.0f, -4000.0f, 160.0f), FRotator::ZeroRotator);
+	UStaticMesh* MeshAlfa = LoadObject<UStaticMesh>(nullptr, TEXT("StaticMesh'/Game/StarterContent/Architecture/SueloAlfa.SueloAlfa'"));
+	SueloAlfa->SetMesh(MeshAlfa);
+
+	// elemetnos de alfa
+	AColiseo* ElementosAlfa = GetWorld()->SpawnActor<AColiseo>();
+	BuildElements(ElementosAlfa);
+	ElementosAlfa->Spawn(GetWorld(), FVector::ZeroVector);
+}
+
+void AAlfaFieldBuilder::BuildElements(AColiseo* ElementosAlfa)
+{
+	// Agregar 2 estatuas, 1 escalera y 1 roca 
+	ElementosAlfa->AgregarElemento(GetWorld()->SpawnActor<AEstatua>(), FVector(0.0f, 1800.0f, 215.0f));
+	ElementosAlfa->AgregarElemento(GetWorld()->SpawnActor<AEstatua>(), FVector(1050.0f, 1800.0f, 215.0f));
+	ElementosAlfa->AgregarElemento(GetWorld()->SpawnActor<AEscalera>(), FVector(200.0f, -2000.0f, 200.0f));
+
+	ElementosAlfa->AgregarElemento(GetWorld()->SpawnActor<ARoca>(), FVector(FMath::RandRange(-1500.0f, -2000.0f), FMath::RandRange(-1300.0f, 1300.0f), 200.0f));
+	for (int i = 0; i < 2; i++) {
+		ElementosAlfa->AgregarElemento(GetWorld()->SpawnActor<APilar>(), FVector(1900.0f, -1700.0f + i * 3000, 205.0f));
+	}
+	for (int i = 0; i < 2; i++) {
+		ElementosAlfa->AgregarElemento(GetWorld()->SpawnActor<APilar>(), FVector(-1300.0f, -1700.0f + i * 3000, 205.0f));
+	}
 }
 
 // Called every frame
@@ -70,13 +101,14 @@ void AAlfaFieldBuilder::BuildEnemies()
 
 void AAlfaFieldBuilder::BuildPowerUps()
 {
-	for (int i = 0; i < 4; i++)
+	/*for (int i = 0; i < 4; i++)
 	{
 		FVector SpawnLocation = FVector(FMath::RandRange(-400.0f, 0.0f), FMath::RandRange(-1000.0f, 1000.0f), 215.0f);
 		APowerUp* NewObstacle = GetWorld()->SpawnActor<APowerUp>(APowerUp::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
 		TMObstaclesAndPowerUps.Add(SpawnLocation, NewObstacle);
-	}
+	}*/
 }
+
 
 AGalacticField* AAlfaFieldBuilder::GetGalacticField() const
 {

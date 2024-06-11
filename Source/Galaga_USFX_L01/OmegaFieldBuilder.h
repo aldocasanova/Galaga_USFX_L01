@@ -10,7 +10,11 @@
 #include "PowerUp.h"
 #include "FacadeCanon.h"
 
-
+#include "FieldElement.h"
+#include "Escalera.h"
+#include "Coliseo.h"
+#include "Estatua.h"
+#include "Galaxia.h"
 #include "GalacticField.h"
 #include "NaveEnemigaManager.h"
 #include "OmegaFieldBuilder.generated.h"
@@ -37,12 +41,13 @@ public:
 	virtual AGalacticField* GetGalacticField() const override;
 
 	AFacadeCanon* FormacionCanones;
-
 	
 	TMap<FVector, AActor*> TMObstaclesAndPowerUps;
 	TMap<FVector,ANaveEnemiga*> TMNavesEnemigas;
 
 	ANaveEnemigaManager* NaveManager;
-
 	int CantidadNaves;
+	//...
+	void BuildElements(AGalaxia* ElementosOmega);
+
 };

@@ -12,6 +12,7 @@
 #include "NaveEnemigaTransporte.h"
 #include "NaveEnemigaPiccolo.h"
 #include "Escudo.h"
+#include "FieldElement.h"
 #include "NaveEnemigaManager.h"
 #include "EngineUtils.h"
 
@@ -65,6 +66,13 @@ void AGalaga_USFX_L01Projectile::OnHit(UPrimitiveComponent* HitComp, AActor* Oth
 		Nave->RecibirDanio();
 	}
 	Destroy();
+	
+	IFieldElement* FieldElement = Cast<IFieldElement>(OtherActor);
+	if (FieldElement != nullptr)
+	{
+		FieldElement->RecibirDanio(10);
+	}
+
 }
 
 

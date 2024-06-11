@@ -132,5 +132,3 @@ void ANaveEnemiga::RecibirDanio()
 	}
 }
 
-
-

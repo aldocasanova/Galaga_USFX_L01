@@ -10,7 +10,7 @@
 #include "FacadeCanon.h"
 #include "PowerUp.h"
 #include "NaveEnemiga.h"
-
+#include "Jungla.h"
 
 #include "NaveEnemigaTransporte.h"
 #include "NaveEnemigaCaza.h"
@@ -43,7 +43,8 @@ public:
 	virtual AGalacticField* GetGalacticField() const override;
 
 	AFacadeCanon* FormacionCanones;
-
 	TMap<FVector, AActor*> TMObstaclesAndPowerUps;
 	TMap<FVector, ANaveEnemiga*> TMNavesEnemigas;
+	//...
+	void BuildElements(AJungla* ElementosDelta);
 };
