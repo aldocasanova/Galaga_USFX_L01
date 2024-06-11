@@ -38,6 +38,12 @@ D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\In
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/AndromedaDirector.gen.cpp
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/AndromedaDirector.h
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\AndromedaDirector.generated.h
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Arbol.gen.cpp
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/Arbol.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Arbol.generated.h
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Arbusto.gen.cpp
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/Arbusto.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Arbusto.generated.h
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/BalaCanon.gen.cpp
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/BalaCanon.h
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\Bomb.h
@@ -100,6 +106,7 @@ D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\In
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/CanonLazerNv3.gen.cpp
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/CanonLazerNv3.h
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\CanonLazerNv3.generated.h
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Coliseo.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/DeltaFieldBuilder.gen.cpp
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/DeltaFieldBuilder.h
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\FacadeCanon.h
@@ -126,6 +133,7 @@ D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\In
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/DeltaStragedy.gen.cpp
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/DeltaStragedy.h
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\DeltaStragedy.generated.h
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Escalera.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Escudo.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoDebil.gen.cpp
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/EstadoDebil.h
@@ -136,9 +144,12 @@ D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\In
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/EstadoOfensivo.gen.cpp
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/EstadoOfensivo.h
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\EstadoOfensivo.generated.h
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Estatua.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/FacadeCanon.gen.cpp
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/FieldElement.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/FieldStragedy.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/GalacticField.gen.cpp
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01.init.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01GameMode.gen.cpp
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/Galaga_USFX_L01GameMode.h
 D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
@@ -164,7 +175,9 @@ D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/In
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaga_USFX_L01Projectile.gen.cpp
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/Galaga_USFX_L01Projectile.h
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Galaga_USFX_L01Projectile.generated.h
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Galaxia.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/IGalacticFieldBuilder.gen.cpp
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Jungla.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/LazerEnemigo.gen.cpp
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/LazerEnemigo.h
 D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\ProyectilEnemigo.h
@@ -189,5 +202,14 @@ D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/In
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Obstaculo.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/OmegaFieldBuilder.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/OmegaStragedy.gen.cpp
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Pilar.gen.cpp
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/Pilar.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Pilar.generated.h
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/PowerUp.gen.cpp
 D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/ProyectilEnemigo.gen.cpp
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Roca.gen.cpp
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/Roca.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Roca.generated.h
+D:/PalVisual/Galaga/Galaga_USFX_L01-master/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX_L01/Suelo.gen.cpp
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/Suelo.h
+D:\PalVisual\Galaga\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Suelo.generated.h
